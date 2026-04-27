@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JNL Asociados — Consultoría empresarial integral: Marketing Digital, Importaciones China-Ecuador y Servicios Contables. Tu socio estratégico para crecer.">
+<title>JNL Asociados · Consultoría Empresarial Integral</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary:#1e40af; --primary-dark:#1e3a8a; --primary-light:#3b82f6;
+  --secondary:#0891b2; --secondary-dark:#0e7490;
+  --accent:#f59e0b; --accent-light:#fbbf24;
+  --navy:#0f172a; --navy-light:#1e293b; --navy-lighter:#334155;
+  --white:#ffffff; --off:#f8fafc; --off2:#f1f5f9;
+  --text:#334155; --text-light:#64748b; --text-muted:#94a3b8;
+  --border:#e2e8f0; --border-light:#f1f5f9;
+  --success:#10b981; --error:#ef4444;
+  --gradient-1:linear-gradient(135deg, #1e40af 0%, #0891b2 100%);
+  --gradient-2:linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #0891b2 100%);
+  --shadow-sm:0 2px 8px rgba(15,23,42,0.04);
+  --shadow-md:0 4px 16px rgba(15,23,42,0.08);
+  --shadow-lg:0 12px 32px rgba(15,23,42,0.12);
+  --shadow-xl:0 20px 48px rgba(15,23,42,0.16);
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);line-height:1.6;overflow-x:hidden}
+
+/* WHATSAPP FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:64px;height:64px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.35),0 0 0 0 rgba(37,211,102,0.5);text-decoration:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1);animation:wa-pulse 3s ease-in-out infinite}
+.wa-float:hover{transform:scale(1.1) rotate(5deg)}
+@keyframes wa-pulse{0%,100%{box-shadow:0 8px 24px rgba(37,211,102,0.35),0 0 0 0 rgba(37,211,102,0.5)}50%{box-shadow:0 8px 32px rgba(37,211,102,0.5),0 0 0 12px rgba(37,211,102,0)}}
+.wa-float svg{width:36px;height:36px;fill:white}
+.wa-ico{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+
+/* NAVIGATION */
+nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;backdrop-filter:blur(12px);background:rgba(255,255,255,0.92)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:80px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;transition:opacity .2s}
+.logo:hover{opacity:.85}
+.logo-mark{width:44px;height:44px;background:var(--gradient-1);border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.logo-mark::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);border-radius:10px}
+.logo-mark span{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:white;position:relative}
+.logo-text{display:flex;flex-direction:column;gap:1px}
+.logo-name{font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-.5px;line-height:1}
+.logo-tag{font-size:10px;font-weight:600;color:var(--text-light);letter-spacing:.5px;text-transform:uppercase}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{font-size:15px;font-weight:500;color:var(--text-light);text-decoration:none;transition:color .2s;position:relative}
+.nav-links a:hover{color:var(--primary)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--primary);transform:scaleX(0);transition:transform .3s;border-radius:2px}
+.nav-links a:hover::after{transform:scaleX(1)}
+.btn-nav{background:var(--primary);color:white;padding:12px 24px;border-radius:var(--r-sm);font-size:14px;font-weight:600;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(30,64,175,0.2)}
+.btn-nav:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(30,64,175,0.3)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{width:24px;height:2.5px;background:var(--navy);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;background:white;border-bottom:1px solid var(--border)}
+.mobile-menu a{display:block;padding:16px 24px;font-size:15px;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border-light);transition:all .2s}
+.mobile-menu a:hover{background:var(--off);color:var(--primary)}
+.mobile-menu .m-cta{background:var(--primary);color:white;font-weight:600;margin:16px;border-radius:var(--r-sm);text-align:center;border-bottom:none}
+.mobile-menu.open{display:block}
+
+/* HERO */
+.hero{background:var(--gradient-2);padding:120px 40px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,0.15),transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(8,145,178,0.12),transparent 70%);border-radius:50%}
+.hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
+.hero-content{max-width:720px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);padding:8px 16px;border-radius:100px;margin-bottom:28px;backdrop-filter:blur(8px)}
+.hero-badge .pulse-dot{width:8px;height:8px;background:#10b981;border-radius:50%;animation:pulse-grow 2s ease-in-out infinite;box-shadow:0 0 0 0 rgba(16,185,129,0.5)}
+@keyframes pulse-grow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.7}}
+.hero-badge span{font-size:13px;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:.3px}
+.hero h1{font-family:'Sora',sans-serif;font-size:clamp(40px,5vw,68px);font-weight:800;line-height:1.1;color:white;margin-bottom:24px;letter-spacing:-1.5px}
+.hero h1 .gradient-text{background:linear-gradient(135deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{font-size:19px;line-height:1.7;color:rgba(255,255,255,0.8);margin-bottom:40px;max-width:600px;font-weight:300}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:white;color:var(--primary);padding:16px 32px;border-radius:var(--r-md);font-size:16px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 8px 24px rgba(255,255,255,0.2)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(255,255,255,0.3)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,0.3);color:white;padding:16px 28px;border-radius:var(--r-md);font-size:15px;font-weight:600;text-decoration:none;transition:all .3s;backdrop-filter:blur(8px)}
+.btn-secondary:hover{border-color:white;background:rgba(255,255,255,0.1)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:640px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:white;line-height:1;margin-bottom:8px;text-shadow:0 2px 12px rgba(0,0,0,0.1)}
+.stat-label{font-size:14px;color:rgba(255,255,255,0.7);font-weight:500}
+
+/* SERVICES SHOWCASE */
+.services-showcase{padding:100px 40px;background:var(--off)}
+.section-inner{max-width:1280px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:64px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--primary);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
+.eyebrow::before,.eyebrow::after{content:'';width:24px;height:2px;background:var(--primary);border-radius:2px}
+h2.section-title{font-family:'Sora',sans-serif;font-size:clamp(32px,4vw,48px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:16px;letter-spacing:-1px}
+.section-desc{font-size:18px;color:var(--text-light);max-width:640px;margin:0 auto;line-height:1.7}
+
+/* SERVICE CARDS - 3 PRINCIPALES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.service-card{background:white;border-radius:var(--r-xl);padding:40px;border:1px solid var(--border);transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gradient-1);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl);border-color:var(--primary-light)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:72px;height:72px;background:var(--gradient-1);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:24px;position:relative;box-shadow:0 8px 24px rgba(30,64,175,0.15)}
+.service-icon::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.3),transparent);border-radius:var(--r-lg)}
+.service-card h3{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3}
+.service-card p{font-size:15px;color:var(--text-light);line-height:1.7;margin-bottom:24px}
+.service-features{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.feature-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text)}
+.feature-item::before{content:'✓';display:flex;align-items:center;justify-content:center;width:20px;height:20px;background:rgba(16,185,129,0.1);color:var(--success);border-radius:50%;font-weight:700;font-size:12px;flex-shrink:0}
+.btn-service{display:inline-flex;align-items:center;gap:8px;background:var(--off);color:var(--primary);padding:12px 20px;border-radius:var(--r-sm);font-size:14px;font-weight:600;text-decoration:none;transition:all .3s;width:100%justify-content:center}
+.btn-service:hover{background:var(--primary);color:white}
+
+/* IMPORTACIONES DESTACADA */
+.featured-service{background:var(--gradient-2);padding:80px 40px;position:relative;overflow:hidden}
+.featured-service::before{content:'🇨🇳';position:absolute;top:40px;right:80px;font-size:200px;opacity:.05;transform:rotate(-15deg)}
+.featured-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.featured-content h2{font-family:'Sora',sans-serif;font-size:42px;font-weight:800;color:white;line-height:1.2;margin-bottom:20px}
+.featured-content p{font-size:17px;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:32px}
+.import-benefits{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px}
+.import-benefit{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,0.08);padding:16px;border-radius:var(--r-md);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(8px)}
+.import-benefit-icon{font-size:24px;flex-shrink:0}
+.import-benefit h4{font-size:15px;font-weight:700;color:white;margin-bottom:4px}
+.import-benefit p{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.5}
+.btn-featured{background:var(--accent);color:var(--navy);padding:16px 32px;border-radius:var(--r-md);font-size:16px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:0 8px 24px rgba(245,158,11,0.3)}
+.btn-featured:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 12px 32px rgba(245,158,11,0.4)}
+
+/* PROCESS TIMELINE */
+.process-section{padding:100px 40px;background:white}
+.timeline{max-width:900px;margin:0 auto;position:relative}
+.timeline::before{content:'';position:absolute;left:40px;top:0;bottom:0;width:3px;background:var(--gradient-1);border-radius:2px}
+.timeline-item{display:flex;gap:32px;margin-bottom:48px;position:relative}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-number{width:80px;height:80px;background:var(--gradient-1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:white;flex-shrink:0;box-shadow:0 8px 24px rgba(30,64,175,0.2);position:relative;z-index:1}
+.timeline-content{flex:1;background:var(--off);padding:28px;border-radius:var(--r-lg);border:1px solid var(--border)}
+.timeline-content h3{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.timeline-content p{font-size:15px;color:var(--text-light);line-height:1.7}
+
+/* TESTIMONIALS */
+.testimonials{padding:100px 40px;background:var(--off2)}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+.testimonial-card{background:white;padding:32px;border-radius:var(--r-xl);border:1px solid var(--border);transition:all .3s;position:relative}
+.testimonial-card::before{content:'"';position:absolute;top:20px;left:24px;font-size:80px;font-family:'Sora',sans-serif;color:var(--primary);opacity:.1;line-height:1}
+.testimonial-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
+.stars{color:var(--accent);font-size:18px;letter-spacing:4px;margin-bottom:20px}
+.testimonial-text{font-size:15px;color:var(--text);line-height:1.75;font-style:italic;margin-bottom:24px;position:relative}
+.testimonial-author{display:flex;align-items:center;gap:14px}
+.author-avatar{width:48px;height:48px;background:var(--gradient-1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:16px;color:white;flex-shrink:0}
+.author-name{font-size:15px;font-weight:700;color:var(--navy)}
+.author-role{font-size:13px;color:var(--text-light)}
+
+/* CTA SECTION */
+.cta-section{padding:100px 40px;background:var(--gradient-2);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,0.15),transparent 70%);border-radius:50%}
+.cta-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-inner h2{font-family:'Sora',sans-serif;font-size:clamp(36px,4.5vw,52px);font-weight:800;color:white;line-height:1.2;margin-bottom:20px}
+.cta-inner p{font-size:19px;color:rgba(255,255,255,0.85);margin-bottom:40px;line-height:1.7}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-cta-primary{background:var(--accent);color:var(--navy);padding:18px 40px;border-radius:var(--r-md);font-size:17px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:0 8px 24px rgba(245,158,11,0.3)}
+.btn-cta-primary:hover{background:var(--accent-light);transform:translateY(-3px);box-shadow:0 12px 32px rgba(245,158,11,0.4)}
+.btn-cta-secondary{border:2px solid white;color:white;padding:18px 36px;border-radius:var(--r-md);font-size:16px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;backdrop-filter:blur(8px)}
+.btn-cta-secondary:hover{background:white;color:var(--primary)}
+
+/* FOOTER */
+footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:32px}
+.footer-brand p{font-size:14px;line-height:1.7;margin-top:16px;max-width:280px}
+.footer-col h4{font-size:14px;font-weight:700;color:white;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:12px;transition:color .2s}
+.footer-col a:hover{color:white}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-bottom p{font-size:13px}
+.social-links{display:flex;gap:16px}
+.social-link{width:40px;height:40px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;transition:all .3s}
+.social-link:hover{background:var(--primary);transform:translateY(-2px)}
+
+/* REVEAL ANIMATION */
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.34,1.56,.64,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .nav-inner{padding:0 28px}
+  .nav-links{display:none}
+  .btn-nav{display:none}
+  .hamburger{display:flex}
+  .hero{padding:80px 28px 60px}
+  .hero-stats{grid-template-columns:repeat(3,1fr);gap:20px}
+  .services-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .featured-inner{grid-template-columns:1fr;gap:40px;text-align:center}
+  .featured-content h2{font-size:36px}
+  .import-benefits{grid-template-columns:1fr}
+  .timeline::before{left:20px}
+  .timeline-number{width:60px;height:60px;font-size:22px}
+  .testimonial-grid{grid-template-columns:1fr;gap:20px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px}
+  .section-inner,.services-showcase,.process-section,.testimonials,.cta-section{padding:64px 28px}
+}
+@media(max-width:640px){
+  .hero h1{font-size:36px}
+  .hero-stats{grid-template-columns:1fr;gap:16px}
+  .stat-num{font-size:28px}
+  .services-grid{grid-template-columns:1fr}
+  .featured-service{padding:60px 24px}
+  .featured-content h2{font-size:30px}
+  .import-benefits{gap:12px}
+  .cta-buttons{flex-direction:column;align-items:stretch}
+  .btn-cta-primary,.btn-cta-secondary{justify-content:center}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/593999485465" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
+</a>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <div class="logo-mark">
+        <span>JNL</span>
+      </div>
+      <div class="logo-text">
+        <div class="logo-name">JNL Asociados</div>
+        <div class="logo-tag">Consultoría Integral</div>
+      </div>
+    </a>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#importaciones">Importaciones</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#clientes">Clientes</a>
+      </div>
+      <a class="btn-nav" href="https://wa.me/593999485465" target="_blank">Consulta Gratis</a>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mmenu">
+  <a href="#servicios">Servicios</a>
+  <a href="#importaciones">Importaciones</a>
+  <a href="#proceso">Proceso</a>
+  <a href="#clientes">Clientes</a>
+  <a href="https://wa.me/593999485465" target="_blank" class="m-cta">📲 Contactar por WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="pulse-dot"></div>
+        <span>Consultoría Empresarial · Ecuador</span>
+      </div>
+      <h1>Hacemos crecer tu negocio con <span class="gradient-text">estrategia real</span></h1>
+      <p class="hero-desc">Marketing digital que convierte, importaciones directas desde China con proceso completo, y servicios contables-tributarios que te dan tranquilidad. Todo en un solo equipo.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://wa.me/593999485465?text=Hola%20JNL%20Asociados%2C%20quiero%20una%20consulta%20gratuita" target="_blank">
+          <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
+          Consulta Gratuita
+        </a>
+        <a class="btn-secondary" href="#servicios">Ver Servicios →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">+150</div>
+          <div class="stat-label">Empresas asesoradas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Áreas de especialización</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Clientes satisfechos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SHOWCASE -->
+<section class="services-showcase" id="servicios">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="eyebrow">Nuestras soluciones</div>
+      <h2 class="section-title">Tres pilares para el éxito<br>de tu empresa</h2>
+      <p class="section-desc">Servicios integrales diseñados para empresas que quieren crecer de forma sostenible y rentable en el mercado ecuatoriano.</p>
+    </div>
+    
+    <div class="services-grid">
+      <!-- Marketing Digital -->
+      <div class="service-card reveal">
+        <div class="service-icon">📱</div>
+        <h3>Marketing Digital & Redes Sociales</h3>
+        <p>Estrategia completa de marketing digital para generar clientes reales y aumentar tus ventas.</p>
+        <div class="service-features">
+          <div class="feature-item">Gestión profesional de redes sociales</div>
+          <div class="feature-item">Campañas en Meta Ads (Facebook/Instagram)</div>
+          <div class="feature-item">Google Ads y posicionamiento SEO</div>
+          <div class="feature-item">Creación de contenido estratégico</div>
+          <div class="feature-item">Analytics y reportes de rendimiento</div>
+        </div>
+        <a class="btn-service" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Marketing%20Digital" target="_blank">
+          Quiero Marketing Digital
+          <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
+        </a>
+      </div>
+
+      <!-- Contabilidad -->
+      <div class="service-card reveal rd1">
+        <div class="service-icon">📊</div>
+        <h3>Contabilidad & Servicios Tributarios</h3>
+        <p>Gestión contable completa y cumplimiento tributario ante el SRI. Tu tranquilidad financiera garantizada.</p>
+        <div class="service-features">
+          <div class="feature-item">Contabilidad general y financiera</div>
+          <div class="feature-item">Declaraciones SRI (IVA, Renta, Retenciones)</div>
+          <div class="feature-item">Nómina y rol de pagos</div>
+          <div class="feature-item">Estados financieros mensuales</div>
+          <div class="feature-item">Planificación tributaria estratégica</div>
+        </div>
+        <a class="btn-service" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20servicios%20de%20Contabilidad%20y%20SRI" target="_blank">
+          Quiero Servicios Contables
+          <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
+        </a>
+      </div>
+
+      <!-- Importaciones -->
+      <div class="service-card reveal rd2">
+        <div class="service-icon">🚢</div>
+        <h3>Importaciones China-Ecuador</h3>
+        <p>Proceso completo de importación: desde la búsqueda del proveedor hasta la entrega en tu bodega.</p>
+        <div class="service-features">
+          <div class="feature-item">Búsqueda y negociación con proveedores</div>
+          <div class="feature-item">Trámites aduaneros completos (SENAE)</div>
+          <div class="feature-item">Logística internacional y nacional</div>
+          <div class="feature-item">Control de calidad en origen</div>
+          <div class="feature-item">Asesoría en documentación legal</div>
+        </div>
+        <a class="btn-service" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20importar%20desde%20China" target="_blank">
+          Quiero Importar desde China
+          <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPORTACIONES DESTACADA -->
+<section class="featured-service" id="importaciones">
+  <div class="featured-inner">
+    <div class="featured-content">
+      <h2>🇨🇳 Importa desde China<br>sin complicaciones</h2>
+      <p>Conectamos tu negocio directamente con fábricas y proveedores certificados en China. Nos encargamos de TODO el proceso: búsqueda, negociación, logística, trámites aduaneros y entrega final. Tú solo defines qué necesitas.</p>
+      
+      <div class="import-benefits">
+        <div class="import-benefit">
+          <div class="import-benefit-icon">🏭</div>
+          <div>
+            <h4>Proveedores Verificados</h4>
+            <p>Red de contactos directos en fábricas chinas</p>
+          </div>
+        </div>
+        <div class="import-benefit">
+          <div class="import-benefit-icon">💰</div>
+          <div>
+            <h4>Mejores Precios</h4>
+            <p>Negociación directa sin intermediarios</p>
+          </div>
+        </div>
+        <div class="import-benefit">
+          <div class="import-benefit-icon">📦</div>
+          <div>
+            <h4>Proceso Completo</h4>
+            <p>Desde la orden hasta tu bodega</p>
+          </div>
+        </div>
+        <div class="import-benefit">
+          <div class="import-benefit-icon">✅</div>
+          <div>
+            <h4>Control de Calidad</h4>
+            <p>Inspección antes del embarque</p>
+          </div>
+        </div>
+      </div>
+      
+      <a class="btn-featured" href="https://wa.me/593999485465?text=Hola%20JNL%2C%20quiero%20cotizar%20una%20importaci%C3%B3n%20desde%20China" target="_blank">
+        <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
+        Cotizar mi Importación
+      </a>
+    </div>
+    
+    <div style="font-size:180px;text-align:center;filter:drop-shadow(0 0 40px rgba(245,158,11,0.3))">🚢</div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="process-section" id="proceso">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="eyebrow">Nuestro método</div>
+      <h2 class="section-title">Cómo trabajamos contigo</h2>
+      <p class="section-desc">Un proceso simple y transparente diseñado para obtener resultados desde el primer mes.</p>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-number">1</div>
+        <div class="timeline-content">
+          <h3>Diagnóstico Gratuito</h3>
+          <p>Analizamos tu negocio, identificamos oportunidades de crecimiento y definimos la estrategia más efectiva para tus objetivos específicos.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item reveal rd1">
+        <div class="timeline-number">2</div>
+        <div class="timeline-content">
+          <h3>Propuesta Personalizada</h3>
+          <p>Diseñamos un plan de acción a medida con cronograma, entregables y métricas claras de éxito. Sin letra pequeña ni sorpresas.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item reveal rd2">
+        <div class="timeline-number">3</div>
+        <div class="timeline-content">
+          <h3>Implementación y Ejecución</h3>
+          <p>Nuestro equipo ejecuta la estrategia mientras tú te enfocas en operar tu negocio. Reportes semanales de avance y resultados.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-item reveal rd3">
+        <div class="timeline-number">4</div>
+        <div class="timeline-content">
+          <h3>Optimización Continua</h3>
+          <p>Monitoreamos resultados, ajustamos tácticas y escalamos lo que funciona. Crecimiento sostenible mes tras mes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="clientes">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="eyebrow">Casos de éxito</div>
+      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+      <p class="section-desc">Empresas reales con resultados reales trabajando con JNL Asociados.</p>
+    </div>
+    
+    <div class="testimonial-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"JNL Asociados transformó completamente nuestra presencia digital. En 4 meses triplicamos nuestros leads y las ventas crecieron un 85%. Su equipo realmente entiende el mercado ecuatoriano."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">CR</div>
+          <div>
+            <div class="author-name">Carlos Rodríguez</div>
+            <div class="author-role">CEO, Empresa de Servicios</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card reveal rd1">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Importar desde China era un proceso que nos daba miedo. JNL se encargó de todo: encontraron proveedores confiables, negociaron mejores precios y manejaron la logística completa. Ahora importamos regularmente."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MV</div>
+          <div>
+            <div class="author-name">María Vélez</div>
+            <div class="author-role">Propietaria, Retail</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card reveal rd2">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Los servicios contables de JNL nos dieron la tranquilidad que necesitábamos. Cero problemas con el SRI, estados financieros claros cada mes y planificación tributaria que nos ahorró miles de dólares."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JP</div>
+          <div>
+            <div class="author-name">Juan Pablo Castro</div>
+            <div class="author-role">Gerente Financiero</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>¿Listo para hacer crecer<br>tu negocio?</h2>
+    <p>Agenda una consulta gratuita hoy. Analizaremos tu situación actual y te mostraremos exactamente cómo podemos ayudarte a alcanzar tus objetivos.</p>
+    <div class="cta-buttons">
+      <a class="btn-cta-primary" href="https://wa.me/593999485465?text=Hola%20JNL%20Asociados%2C%20quiero%20agendar%20mi%20consulta%20gratuita" target="_blank">
+        <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
+        Consulta Gratuita por WhatsApp
+      </a>
+      <a class="btn-cta-secondary" href="mailto:info@jnlasociados.com">
+        Enviar Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="logo" href="#" style="margin-bottom:16px">
+          <div class="logo-mark">
+            <span>JNL</span>
+          </div>
+          <div class="logo-text">
+            <div class="logo-name" style="color:white">JNL Asociados</div>
+            <div class="logo-tag">Consultoría Integral</div>
+          </div>
+        </a>
+        <p>Consultoría empresarial integral especializada en marketing digital, importaciones desde China y servicios contables-tributarios para empresas en Ecuador.</p>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <a href="#servicios">Marketing Digital</a>
+        <a href="#servicios">Meta Ads & Google Ads</a>
+        <a href="#importaciones">Importaciones China</a>
+        <a href="#servicios">Contabilidad & SRI</a>
+        <a href="#servicios">Servicios Tributarios</a>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="#servicios">Nosotros</a>
+        <a href="#proceso">Nuestro Proceso</a>
+        <a href="#clientes">Casos de Éxito</a>
+        <a href="https://wa.me/593999485465" target="_blank">Contacto</a>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="https://wa.me/593999485465" target="_blank">📱 +593 99 948 5465</a>
+        <a href="mailto:info@jnlasociados.com">✉️ info@jnlasociados.com</a>
+        <a href="https://www.instagram.com/jnl_asociados/" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/jnlasociados" target="_blank">Facebook</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2026 JNL Asociados · Todos los derechos reservados · Ecuador</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/jnl_asociados/" target="_blank" class="social-link">📸</a>
+        <a href="https://www.facebook.com/jnlasociados" target="_blank" class="social-link">👥</a>
+        <a href="https://wa.me/593999485465" target="_blank" class="social-link">💬</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navigation
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mmenu').classList.toggle('open');
+});
+
+document.querySelectorAll('#mmenu a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('mmenu').classList.remove('open');
+  });
+});
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
