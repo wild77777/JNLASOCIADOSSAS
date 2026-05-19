@@ -9,20 +9,21 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --primary:#1e40af; --primary-dark:#1e3a8a; --primary-light:#3b82f6;
-  --secondary:#0891b2; --secondary-dark:#0e7490;
-  --accent:#f59e0b; --accent-light:#fbbf24;
-  --navy:#0f172a; --navy-light:#1e293b; --navy-lighter:#334155;
+  --primary:#0077b6; --primary-dark:#005f8c; --primary-light:#0096c7;
+  --secondary:#48cae4; --secondary-dark:#00b4d8;
+  --accent:#e63946; --accent-light:#f15d67;
+  --navy:#023047; --navy-light:#126782; --navy-lighter:#219ebc;
   --white:#ffffff; --off:#f8fafc; --off2:#f1f5f9;
   --text:#334155; --text-light:#64748b; --text-muted:#94a3b8;
   --border:#e2e8f0; --border-light:#f1f5f9;
   --success:#10b981; --error:#ef4444;
-  --gradient-1:linear-gradient(135deg, #1e40af 0%, #0891b2 100%);
-  --gradient-2:linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #0891b2 100%);
-  --shadow-sm:0 2px 8px rgba(15,23,42,0.04);
-  --shadow-md:0 4px 16px rgba(15,23,42,0.08);
-  --shadow-lg:0 12px 32px rgba(15,23,42,0.12);
-  --shadow-xl:0 20px 48px rgba(15,23,42,0.16);
+  --yellow-note:#fef3c7; --yellow-border:#fbbf24;
+  --gradient-1:linear-gradient(135deg, #0077b6 0%, #48cae4 100%);
+  --gradient-2:linear-gradient(135deg, #023047 0%, #0077b6 60%, #48cae4 100%);
+  --shadow-sm:0 2px 8px rgba(2,48,71,0.04);
+  --shadow-md:0 4px 16px rgba(2,48,71,0.08);
+  --shadow-lg:0 12px 32px rgba(2,48,71,0.12);
+  --shadow-xl:0 20px 48px rgba(2,48,71,0.16);
   --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px;
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -36,38 +37,55 @@ body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);li
 .wa-ico{width:18px;height:18px;fill:currentColor;flex-shrink:0}
 
 /* NAVIGATION */
-nav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;backdrop-filter:blur(12px);background:rgba(255,255,255,0.92)}
+nav{background:var(--primary);position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,119,182,0.2)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:80px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;transition:opacity .2s}
-.logo:hover{opacity:.85}
-.logo-mark{width:44px;height:44px;background:var(--gradient-1);border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.logo-mark::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);border-radius:10px}
-.logo-mark span{font-family:'Sora',sans-serif;font-size:20px;font-weight:800;color:white;position:relative}
+.logo:hover{opacity:.9}
+.logo-mark{width:52px;height:52px;background:white;border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+.logo-mark span{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--primary);position:relative}
 .logo-text{display:flex;flex-direction:column;gap:1px}
-.logo-name{font-family:'Sora',sans-serif;font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-.5px;line-height:1}
-.logo-tag{font-size:10px;font-weight:600;color:var(--text-light);letter-spacing:.5px;text-transform:uppercase}
-.nav-links{display:flex;gap:36px;align-items:center}
-.nav-links a{font-size:15px;font-weight:500;color:var(--text-light);text-decoration:none;transition:color .2s;position:relative}
-.nav-links a:hover{color:var(--primary)}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--primary);transform:scaleX(0);transition:transform .3s;border-radius:2px}
-.nav-links a:hover::after{transform:scaleX(1)}
-.btn-nav{background:var(--primary);color:white;padding:12px 24px;border-radius:var(--r-sm);font-size:14px;font-weight:600;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(30,64,175,0.2)}
-.btn-nav:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(30,64,175,0.3)}
+.logo-name{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;color:white;letter-spacing:-.5px;line-height:1}
+.logo-tag{font-size:10px;font-weight:600;color:rgba(255,255,255,0.8);letter-spacing:.5px;text-transform:uppercase}
+
+/* MEGA MENU */
+.nav-menu{display:flex;gap:4px;align-items:center}
+.nav-item{position:relative}
+.nav-link{display:flex;align-items:center;gap:8px;padding:12px 24px;font-size:15px;font-weight:700;color:white;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;transition:background .2s;border-radius:6px;cursor:pointer}
+.nav-link:hover{background:rgba(255,255,255,0.12)}
+.nav-link svg{width:12px;height:12px;fill:white;transition:transform .3s}
+.nav-item.open .nav-link svg{transform:rotate(180deg)}
+
+/* DROPDOWN - SERVICIOS (SOLO 3 ITEMS) */
+.dropdown-simple{display:none;position:absolute;top:100%;left:0;background:white;min-width:320px;border-radius:var(--r-md);box-shadow:0 12px 32px rgba(2,48,71,0.15);padding:12px 0;margin-top:12px;z-index:100}
+.nav-item.open .dropdown-simple{display:block}
+.dropdown-simple-item{display:block;padding:14px 24px;color:var(--text);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border-left:3px solid transparent}
+.dropdown-simple-item:hover{background:var(--off);border-left-color:var(--primary);color:var(--primary)}
+
+/* DROPDOWN - ASESORÍAS Y CERTIFICADOS */
+.dropdown{display:none;position:absolute;top:100%;left:0;background:white;min-width:300px;border-radius:var(--r-md);box-shadow:0 12px 32px rgba(2,48,71,0.15);padding:12px 0;margin-top:12px;z-index:100}
+.nav-item.open .dropdown{display:block}
+.dropdown-item{display:block;padding:12px 20px;color:var(--text);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border-left:3px solid transparent}
+.dropdown-item:hover{background:var(--off);border-left-color:var(--primary);color:var(--primary)}
+
+.btn-nav{background:var(--accent);color:white;padding:14px 28px;border-radius:var(--r-sm);font-size:15px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(230,57,70,0.3);text-transform:uppercase;letter-spacing:.5px}
+.btn-nav:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(230,57,70,0.4)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
-.hamburger span{width:24px;height:2.5px;background:var(--navy);border-radius:2px;transition:all .3s}
-.mobile-menu{display:none;background:white;border-bottom:1px solid var(--border)}
-.mobile-menu a{display:block;padding:16px 24px;font-size:15px;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border-light);transition:all .2s}
+.hamburger span{width:26px;height:3px;background:white;border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;background:white;border-bottom:1px solid var(--border);max-height:80vh;overflow-y:auto}
+.mobile-menu-section{border-bottom:1px solid var(--border-light)}
+.mobile-menu-title{padding:16px 24px;font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;background:var(--off2)}
+.mobile-menu a{display:block;padding:14px 24px 14px 40px;font-size:14px;color:var(--text);text-decoration:none;transition:all .2s}
 .mobile-menu a:hover{background:var(--off);color:var(--primary)}
-.mobile-menu .m-cta{background:var(--primary);color:white;font-weight:600;margin:16px;border-radius:var(--r-sm);text-align:center;border-bottom:none}
+.mobile-menu .m-cta{background:var(--accent);color:white;font-weight:600;margin:16px;border-radius:var(--r-sm);text-align:center;padding:16px 24px}
 .mobile-menu.open{display:block}
 
 /* HERO */
 .hero{background:var(--gradient-2);padding:120px 40px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,0.15),transparent 70%);border-radius:50%}
-.hero::after{content:'';position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(8,145,178,0.12),transparent 70%);border-radius:50%}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(72,202,228,0.15),transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,150,199,0.12),transparent 70%);border-radius:50%}
 .hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
 .hero-content{max-width:720px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);padding:8px 16px;border-radius:100px;margin-bottom:28px;backdrop-filter:blur(8px)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(72,202,228,0.15);border:1px solid rgba(72,202,228,0.3);padding:8px 16px;border-radius:100px;margin-bottom:28px;backdrop-filter:blur(8px)}
 .hero-badge .pulse-dot{width:8px;height:8px;background:#10b981;border-radius:50%;animation:pulse-grow 2s ease-in-out infinite;box-shadow:0 0 0 0 rgba(16,185,129,0.5)}
 @keyframes pulse-grow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.7}}
 .hero-badge span{font-size:13px;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:.3px}
@@ -84,78 +102,33 @@ nav{background:var(--white);border-bottom:1px solid var(--border);position:stick
 .stat-num{font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:white;line-height:1;margin-bottom:8px;text-shadow:0 2px 12px rgba(0,0,0,0.1)}
 .stat-label{font-size:14px;color:rgba(255,255,255,0.7);font-weight:500}
 
-/* SERVICES SHOWCASE */
-.services-showcase{padding:100px 40px;background:var(--off)}
-.section-inner{max-width:1280px;margin:0 auto}
-.section-header{text-align:center;margin-bottom:64px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--primary);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
-.eyebrow::before,.eyebrow::after{content:'';width:24px;height:2px;background:var(--primary);border-radius:2px}
-h2.section-title{font-family:'Sora',sans-serif;font-size:clamp(32px,4vw,48px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:16px;letter-spacing:-1px}
-.section-desc{font-size:18px;color:var(--text-light);max-width:640px;margin:0 auto;line-height:1.7}
-
-/* SERVICE CARDS - 3 PRINCIPALES */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.service-card{background:white;border-radius:var(--r-xl);padding:40px;border:1px solid var(--border);transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
-.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gradient-1);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl);border-color:var(--primary-light)}
-.service-card:hover::before{transform:scaleX(1)}
-.service-icon{width:72px;height:72px;background:var(--gradient-1);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:24px;position:relative;box-shadow:0 8px 24px rgba(30,64,175,0.15)}
-.service-icon::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.3),transparent);border-radius:var(--r-lg)}
-.service-card h3{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3}
-.service-card p{font-size:15px;color:var(--text-light);line-height:1.7;margin-bottom:24px}
-.service-features{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-.feature-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text)}
-.feature-item::before{content:'✓';display:flex;align-items:center;justify-content:center;width:20px;height:20px;background:rgba(16,185,129,0.1);color:var(--success);border-radius:50%;font-weight:700;font-size:12px;flex-shrink:0}
-.btn-service{display:inline-flex;align-items:center;gap:8px;background:var(--off);color:var(--primary);padding:12px 20px;border-radius:var(--r-sm);font-size:14px;font-weight:600;text-decoration:none;transition:all .3s;width:100%justify-content:center}
-.btn-service:hover{background:var(--primary);color:white}
-
-/* IMPORTACIONES DESTACADA */
-.featured-service{background:var(--gradient-2);padding:80px 40px;position:relative;overflow:hidden}
-.featured-service::before{content:'🇨🇳';position:absolute;top:40px;right:80px;font-size:200px;opacity:.05;transform:rotate(-15deg)}
-.featured-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.featured-content h2{font-family:'Sora',sans-serif;font-size:42px;font-weight:800;color:white;line-height:1.2;margin-bottom:20px}
-.featured-content p{font-size:17px;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:32px}
-.import-benefits{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px}
-.import-benefit{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,0.08);padding:16px;border-radius:var(--r-md);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(8px)}
-.import-benefit-icon{font-size:24px;flex-shrink:0}
-.import-benefit h4{font-size:15px;font-weight:700;color:white;margin-bottom:4px}
-.import-benefit p{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.5}
-.btn-featured{background:var(--accent);color:var(--navy);padding:16px 32px;border-radius:var(--r-md);font-size:16px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:0 8px 24px rgba(245,158,11,0.3)}
-.btn-featured:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 12px 32px rgba(245,158,11,0.4)}
-
-/* PROCESS TIMELINE */
-.process-section{padding:100px 40px;background:white}
-.timeline{max-width:900px;margin:0 auto;position:relative}
-.timeline::before{content:'';position:absolute;left:40px;top:0;bottom:0;width:3px;background:var(--gradient-1);border-radius:2px}
-.timeline-item{display:flex;gap:32px;margin-bottom:48px;position:relative}
-.timeline-item:last-child{margin-bottom:0}
-.timeline-number{width:80px;height:80px;background:var(--gradient-1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:28px;font-weight:800;color:white;flex-shrink:0;box-shadow:0 8px 24px rgba(30,64,175,0.2);position:relative;z-index:1}
-.timeline-content{flex:1;background:var(--off);padding:28px;border-radius:var(--r-lg);border:1px solid var(--border)}
-.timeline-content h3{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:10px}
-.timeline-content p{font-size:15px;color:var(--text-light);line-height:1.7}
-
-/* TESTIMONIALS */
-.testimonials{padding:100px 40px;background:var(--off2)}
-.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
-.testimonial-card{background:white;padding:32px;border-radius:var(--r-xl);border:1px solid var(--border);transition:all .3s;position:relative}
-.testimonial-card::before{content:'"';position:absolute;top:20px;left:24px;font-size:80px;font-family:'Sora',sans-serif;color:var(--primary);opacity:.1;line-height:1}
-.testimonial-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-4px)}
-.stars{color:var(--accent);font-size:18px;letter-spacing:4px;margin-bottom:20px}
-.testimonial-text{font-size:15px;color:var(--text);line-height:1.75;font-style:italic;margin-bottom:24px;position:relative}
-.testimonial-author{display:flex;align-items:center;gap:14px}
-.author-avatar{width:48px;height:48px;background:var(--gradient-1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:16px;color:white;flex-shrink:0}
-.author-name{font-size:15px;font-weight:700;color:var(--navy)}
-.author-role{font-size:13px;color:var(--text-light)}
+/* SERVICE SECTION WITH SIDE IMAGE */
+.service-detail{padding:100px 40px;background:var(--off)}
+.service-detail:nth-child(even){background:white}
+.service-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start}
+.service-photo{width:280px;height:360px;background:var(--yellow-note);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;color:var(--navy);text-align:center;padding:32px;box-shadow:var(--shadow-lg);position:sticky;top:100px}
+.service-content{}
+.service-arrow{font-size:48px;color:var(--navy);margin-bottom:16px}
+.service-content h2{font-family:'Sora',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:20px;letter-spacing:-1px}
+.service-content h3{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:var(--navy);margin:32px 0 16px;letter-spacing:-.5px}
+.service-content p{font-size:16px;color:var(--text);line-height:1.75;margin-bottom:24px}
+.service-features{display:flex;flex-direction:column;gap:12px;margin:24px 0}
+.feature-item{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--text);line-height:1.6}
+.feature-item::before{content:'✓';display:flex;align-items:center;justify-content:center;width:24px;height:24px;background:rgba(16,185,129,0.12);color:var(--success);border-radius:50%;font-weight:700;font-size:14px;flex-shrink:0}
+.feature-icon{display:inline-flex;align-items:center;gap:6px;margin-right:4px}
+.btn-service-large{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:white;padding:16px 36px;border-radius:var(--r-md);font-size:16px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 6px 20px rgba(230,57,70,0.25);margin-top:32px}
+.btn-service-large:hover{background:var(--accent-light);transform:translateY(-3px);box-shadow:0 8px 28px rgba(230,57,70,0.35)}
+.highlight-box{background:var(--off2);border-left:4px solid var(--primary);padding:20px 24px;border-radius:var(--r-md);margin:28px 0;font-size:15px;color:var(--text);line-height:1.7}
 
 /* CTA SECTION */
 .cta-section{padding:100px 40px;background:var(--gradient-2);position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,0.15),transparent 70%);border-radius:50%}
+.cta-section::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(230,57,70,0.15),transparent 70%);border-radius:50%}
 .cta-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .cta-inner h2{font-family:'Sora',sans-serif;font-size:clamp(36px,4.5vw,52px);font-weight:800;color:white;line-height:1.2;margin-bottom:20px}
 .cta-inner p{font-size:19px;color:rgba(255,255,255,0.85);margin-bottom:40px;line-height:1.7}
 .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn-cta-primary{background:var(--accent);color:var(--navy);padding:18px 40px;border-radius:var(--r-md);font-size:17px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:0 8px 24px rgba(245,158,11,0.3)}
-.btn-cta-primary:hover{background:var(--accent-light);transform:translateY(-3px);box-shadow:0 12px 32px rgba(245,158,11,0.4)}
+.btn-cta-primary{background:var(--accent);color:white;padding:18px 40px;border-radius:var(--r-md);font-size:17px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:0 8px 24px rgba(230,57,70,0.3)}
+.btn-cta-primary:hover{background:var(--accent-light);transform:translateY(-3px);box-shadow:0 12px 32px rgba(230,57,70,0.4)}
 .btn-cta-secondary{border:2px solid white;color:white;padding:18px 36px;border-radius:var(--r-md);font-size:16px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;backdrop-filter:blur(8px)}
 .btn-cta-secondary:hover{background:white;color:var(--primary)}
 
@@ -181,29 +154,21 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 /* RESPONSIVE */
 @media(max-width:1024px){
   .nav-inner{padding:0 28px}
-  .nav-links{display:none}
+  .nav-menu{display:none}
   .btn-nav{display:none}
   .hamburger{display:flex}
   .hero{padding:80px 28px 60px}
   .hero-stats{grid-template-columns:repeat(3,1fr);gap:20px}
-  .services-grid{grid-template-columns:1fr 1fr;gap:20px}
-  .featured-inner{grid-template-columns:1fr;gap:40px;text-align:center}
-  .featured-content h2{font-size:36px}
-  .import-benefits{grid-template-columns:1fr}
-  .timeline::before{left:20px}
-  .timeline-number{width:60px;height:60px;font-size:22px}
-  .testimonial-grid{grid-template-columns:1fr;gap:20px}
+  .service-inner{grid-template-columns:1fr;gap:40px}
+  .service-photo{width:100%;height:auto;min-height:200px;position:relative;top:0}
   .footer-top{grid-template-columns:1fr 1fr;gap:36px}
-  .section-inner,.services-showcase,.process-section,.testimonials,.cta-section{padding:64px 28px}
 }
 @media(max-width:640px){
   .hero h1{font-size:36px}
   .hero-stats{grid-template-columns:1fr;gap:16px}
   .stat-num{font-size:28px}
-  .services-grid{grid-template-columns:1fr}
-  .featured-service{padding:60px 24px}
-  .featured-content h2{font-size:30px}
-  .import-benefits{gap:12px}
+  .service-detail{padding:64px 24px}
+  .cta-section{padding:80px 24px}
   .cta-buttons{flex-direction:column;align-items:stretch}
   .btn-cta-primary,.btn-cta-secondary{justify-content:center}
   .footer-top{grid-template-columns:1fr}
@@ -230,14 +195,58 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <div class="logo-tag">Consultoría Integral</div>
       </div>
     </a>
-    <div style="display:flex;align-items:center;gap:12px">
-      <div class="nav-links">
-        <a href="#servicios">Servicios</a>
-        <a href="#importaciones">Importaciones</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#clientes">Clientes</a>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div class="nav-menu">
+        
+        <!-- SERVICIOS DROPDOWN (SOLO 3 SERVICIOS) -->
+        <div class="nav-item" id="serviciosItem">
+          <div class="nav-link">
+            Servicios
+            <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg>
+          </div>
+          <div class="dropdown-simple">
+            <a href="#importaciones" class="dropdown-simple-item">Importaciones Ecuador</a>
+            <a href="#contables" class="dropdown-simple-item">Servicios Contables y Tributarios</a>
+            <a href="#marketing" class="dropdown-simple-item">Marketing Digital & Redes Sociales</a>
+          </div>
+        </div>
+        
+        <!-- ASESORÍAS DROPDOWN -->
+        <div class="nav-item" id="asesoriasItem">
+          <div class="nav-link">
+            Asesorías
+            <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg>
+          </div>
+          <div class="dropdown">
+            <a href="#asesoria-importaciones" class="dropdown-item">Asesoría de Importaciones</a>
+            <a href="#asesoria-control" class="dropdown-item">Asesoría de Control Interno</a>
+            <a href="#asesoria-marketing" class="dropdown-item">Asesoría Marketing Digital</a>
+          </div>
+        </div>
+
+        <!-- CERTIFICADOS Y PERMISOS DROPDOWN -->
+        <div class="nav-item" id="certificadosItem">
+          <div class="nav-link">
+            Certificados y Permisos
+            <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg>
+          </div>
+          <div class="dropdown">
+            <a href="#registro-sanitario" class="dropdown-item">Registro Sanitario</a>
+            <a href="#registro-senae" class="dropdown-item">Registro SENAE Importador</a>
+            <a href="#permiso-funcionamiento" class="dropdown-item">Permiso de Funcionamiento</a>
+            <a href="#permiso-municipal" class="dropdown-item">Permiso Municipal (Patente)</a>
+            <a href="#permiso-bomberos" class="dropdown-item">Permiso del Cuerpo de Bomberos</a>
+            <a href="#permiso-sanitario" class="dropdown-item">Permiso Sanitario (MSP)</a>
+          </div>
+        </div>
+
+        <!-- COTIZA TU IMPORTACIÓN -->
+        <a class="nav-link" href="#cotizacion">
+          Cotiza tu Importación
+        </a>
+        
       </div>
-      <a class="btn-nav" href="https://wa.me/593999485465" target="_blank">Consulta Gratis</a>
+      <a class="btn-nav" href="https://wa.me/593999485465" target="_blank">Contactar</a>
       <button class="hamburger" id="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
@@ -245,11 +254,36 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
   </div>
 </nav>
 
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mmenu">
-  <a href="#servicios">Servicios</a>
-  <a href="#importaciones">Importaciones</a>
-  <a href="#proceso">Proceso</a>
-  <a href="#clientes">Clientes</a>
+  <div class="mobile-menu-section">
+    <div class="mobile-menu-title">Servicios</div>
+    <a href="#importaciones">Importaciones Ecuador</a>
+    <a href="#contables">Servicios Contables y Tributarios</a>
+    <a href="#marketing">Marketing Digital & Redes Sociales</a>
+  </div>
+  
+  <div class="mobile-menu-section">
+    <div class="mobile-menu-title">Asesorías</div>
+    <a href="#asesoria-importaciones">Asesoría de Importaciones</a>
+    <a href="#asesoria-control">Asesoría de Control Interno</a>
+    <a href="#asesoria-marketing">Asesoría Marketing Digital</a>
+  </div>
+  
+  <div class="mobile-menu-section">
+    <div class="mobile-menu-title">Certificados y Permisos</div>
+    <a href="#registro-sanitario">Registro Sanitario</a>
+    <a href="#registro-senae">Registro SENAE Importador</a>
+    <a href="#permiso-funcionamiento">Permiso de Funcionamiento</a>
+    <a href="#permiso-municipal">Permiso Municipal (Patente)</a>
+    <a href="#permiso-bomberos">Permiso del Cuerpo de Bomberos</a>
+    <a href="#permiso-sanitario">Permiso Sanitario de Funcionamiento</a>
+  </div>
+  
+  <div class="mobile-menu-section">
+    <a href="#cotizacion" style="font-weight:700;color:var(--accent)">Cotiza tu Importación</a>
+  </div>
+  
   <a href="https://wa.me/593999485465" target="_blank" class="m-cta">📲 Contactar por WhatsApp</a>
 </div>
 
@@ -268,7 +302,7 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
           <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
           Consulta Gratuita
         </a>
-        <a class="btn-secondary" href="#servicios">Ver Servicios →</a>
+        <a class="btn-secondary" href="#contables">Ver Servicios →</a>
       </div>
       <div class="hero-stats">
         <div class="stat-item">
@@ -276,7 +310,7 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
           <div class="stat-label">Empresas asesoradas</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">3</div>
+          <div class="stat-num">5</div>
           <div class="stat-label">Áreas de especialización</div>
         </div>
         <div class="stat-item">
@@ -288,227 +322,108 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
   </div>
 </section>
 
-<!-- SERVICES SHOWCASE -->
-<section class="services-showcase" id="servicios">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="eyebrow">Nuestras soluciones</div>
-      <h2 class="section-title">Tres pilares para el éxito<br>de tu empresa</h2>
-      <p class="section-desc">Servicios integrales diseñados para empresas que quieren crecer de forma sostenible y rentable en el mercado ecuatoriano.</p>
+<!-- SERVICIOS CONTABLES Y TRIBUTARIOS -->
+<section class="service-detail" id="contables">
+  <div class="service-inner">
+    <div class="service-photo">
+      foto con<br>mi<br>rostro
     </div>
-    
-    <div class="services-grid">
-      <!-- Marketing Digital -->
-      <div class="service-card reveal">
-        <div class="service-icon">📱</div>
-        <h3>Marketing Digital & Redes Sociales</h3>
-        <p>Estrategia completa de marketing digital para generar clientes reales y aumentar tus ventas.</p>
-        <div class="service-features">
-          <div class="feature-item">Gestión profesional de redes sociales</div>
-          <div class="feature-item">Campañas en Meta Ads (Facebook/Instagram)</div>
-          <div class="feature-item">Google Ads y posicionamiento SEO</div>
-          <div class="feature-item">Creación de contenido estratégico</div>
-          <div class="feature-item">Analytics y reportes de rendimiento</div>
-        </div>
-        <a class="btn-service" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Marketing%20Digital" target="_blank">
-          Quiero Marketing Digital
-          <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
-        </a>
-      </div>
-
-      <!-- Contabilidad -->
-      <div class="service-card reveal rd1">
-        <div class="service-icon">📊</div>
-        <h3>Contabilidad & Servicios Tributarios</h3>
-        <p>Gestión contable completa y cumplimiento tributario ante el SRI. Tu tranquilidad financiera garantizada.</p>
-        <div class="service-features">
-          <div class="feature-item">Contabilidad general y financiera</div>
-          <div class="feature-item">Declaraciones SRI (IVA, Renta, Retenciones)</div>
-          <div class="feature-item">Nómina y rol de pagos</div>
-          <div class="feature-item">Estados financieros mensuales</div>
-          <div class="feature-item">Planificación tributaria estratégica</div>
-        </div>
-        <a class="btn-service" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20servicios%20de%20Contabilidad%20y%20SRI" target="_blank">
-          Quiero Servicios Contables
-          <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
-        </a>
-      </div>
-
-      <!-- Importaciones -->
-      <div class="service-card reveal rd2">
-        <div class="service-icon">🚢</div>
-        <h3>Importaciones China-Ecuador</h3>
-        <p>Proceso completo de importación: desde la búsqueda del proveedor hasta la entrega en tu bodega.</p>
-        <div class="service-features">
-          <div class="feature-item">Búsqueda y negociación con proveedores</div>
-          <div class="feature-item">Trámites aduaneros completos (SENAE)</div>
-          <div class="feature-item">Logística internacional y nacional</div>
-          <div class="feature-item">Control de calidad en origen</div>
-          <div class="feature-item">Asesoría en documentación legal</div>
-        </div>
-        <a class="btn-service" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20importar%20desde%20China" target="_blank">
-          Quiero Importar desde China
-          <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- IMPORTACIONES DESTACADA -->
-<section class="featured-service" id="importaciones">
-  <div class="featured-inner">
-    <div class="featured-content">
-      <h2>🇨🇳 Importa desde China<br>sin complicaciones</h2>
-      <p>Conectamos tu negocio directamente con fábricas y proveedores certificados en China. Nos encargamos de TODO el proceso: búsqueda, negociación, logística, trámites aduaneros y entrega final. Tú solo defines qué necesitas.</p>
+    <div class="service-content reveal">
+      <div class="service-arrow">➜</div>
+      <h2>Servicios Contables y Tributarios.</h2>
       
-      <div class="import-benefits">
-        <div class="import-benefit">
-          <div class="import-benefit-icon">🏭</div>
-          <div>
-            <h4>Proveedores Verificados</h4>
-            <p>Red de contactos directos en fábricas chinas</p>
-          </div>
-        </div>
-        <div class="import-benefit">
-          <div class="import-benefit-icon">💰</div>
-          <div>
-            <h4>Mejores Precios</h4>
-            <p>Negociación directa sin intermediarios</p>
-          </div>
-        </div>
-        <div class="import-benefit">
-          <div class="import-benefit-icon">📦</div>
-          <div>
-            <h4>Proceso Completo</h4>
-            <p>Desde la orden hasta tu bodega</p>
-          </div>
-        </div>
-        <div class="import-benefit">
-          <div class="import-benefit-icon">✅</div>
-          <div>
-            <h4>Control de Calidad</h4>
-            <p>Inspección antes del embarque</p>
-          </div>
-        </div>
+      <h3>servicios contable</h3>
+      <p>Somos un equipo altamente capacitado con años de experiencia, te brindará un apoyo sólido en todas tus necesidades contables, Declaración de impuesto.</p>
+      
+      <div class="service-features">
+        <div class="feature-item"><span class="feature-icon">✓</span> Sistema contable que se acople a tu negocio.</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> SUPERCIA</div>
       </div>
       
-      <a class="btn-featured" href="https://wa.me/593999485465?text=Hola%20JNL%2C%20quiero%20cotizar%20una%20importaci%C3%B3n%20desde%20China" target="_blank">
-        <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
-        Cotizar mi Importación
+      <h3>SERVICIOS TRIBUTARIOS</h3>
+      <p>Brindamos servicios tributarios en Ecuador, ofrecemos soluciones personalizada para cada negocio ya sea servicios o productos, estamos aquí para impulsar su crecimiento y rentabilidad.</p>
+      
+      <div class="service-features">
+        <div class="feature-item"><span class="feature-icon">✓</span> cumplimiento total de sus obligaciones, devolución. de impuestos.</div>
+        <div class="feature-item"><span class="feature-icon">✓</span> Anexos.</div>
+      </div>
+      
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20ayuda%20con%20mi%20contabilidad%20e%20impuesto" target="_blank">
+        Ayuda con mi contabilidad e impuesto
       </a>
     </div>
-    
-    <div style="font-size:180px;text-align:center;filter:drop-shadow(0 0 40px rgba(245,158,11,0.3))">🚢</div>
   </div>
 </section>
 
-<!-- PROCESO -->
-<section class="process-section" id="proceso">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="eyebrow">Nuestro método</div>
-      <h2 class="section-title">Cómo trabajamos contigo</h2>
-      <p class="section-desc">Un proceso simple y transparente diseñado para obtener resultados desde el primer mes.</p>
+<!-- IMPORTACIONES ECUADOR -->
+<section class="service-detail" id="importaciones">
+  <div class="service-inner">
+    <div class="service-photo">
+      foto con<br>mi<br>rostro
     </div>
-    
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div class="timeline-number">1</div>
-        <div class="timeline-content">
-          <h3>Diagnóstico Gratuito</h3>
-          <p>Analizamos tu negocio, identificamos oportunidades de crecimiento y definimos la estrategia más efectiva para tus objetivos específicos.</p>
-        </div>
+    <div class="service-content reveal">
+      <div class="service-arrow">➜</div>
+      <h2>Nuestros servicios<br>Importaciones Ecuador</h2>
+      
+      <p>Te acompañamos en todo el proceso de importación, desde la coordinación con proveedores internacionales hasta la llegada de tu mercancía a Ecuador. Gestionamos los trámites necesarios para que puedas traer tus productos de forma segura, legal y sin complicaciones, cuidando cada detalle para que tú solo te preocupes por hacer crecer tu negocio.</p>
+      
+      <div class="highlight-box">
+        <strong>SOMOS UNA EMPRESA CON BASTA EXPERIENCIA GESTIONANDO IMPUESTOS EN EL ECUADOR, CREACIÓN DE COMPAÑÍA.</strong>
       </div>
       
-      <div class="timeline-item reveal rd1">
-        <div class="timeline-number">2</div>
-        <div class="timeline-content">
-          <h3>Propuesta Personalizada</h3>
-          <p>Diseñamos un plan de acción a medida con cronograma, entregables y métricas claras de éxito. Sin letra pequeña ni sorpresas.</p>
-        </div>
+      <div class="service-features">
+        <div class="feature-item"><span class="feature-icon">📄</span> Certificado de Registro Sanitario</div>
+        <div class="feature-item"><span class="feature-icon">📦</span> Consolidación de Carga</div>
+        <div class="feature-item"><span class="feature-icon">🔄</span> Desaduanización</div>
+        <div class="feature-item"><span class="feature-icon">🚛</span> Transporte</div>
       </div>
       
-      <div class="timeline-item reveal rd2">
-        <div class="timeline-number">3</div>
-        <div class="timeline-content">
-          <h3>Implementación y Ejecución</h3>
-          <p>Nuestro equipo ejecuta la estrategia mientras tú te enfocas en operar tu negocio. Reportes semanales de avance y resultados.</p>
-        </div>
-      </div>
-      
-      <div class="timeline-item reveal rd3">
-        <div class="timeline-number">4</div>
-        <div class="timeline-content">
-          <h3>Optimización Continua</h3>
-          <p>Monitoreamos resultados, ajustamos tácticas y escalamos lo que funciona. Crecimiento sostenible mes tras mes.</p>
-        </div>
-      </div>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20importar%20desde%20China%20a%20Ecuador" target="_blank">
+        Quiero importar productos
+      </a>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="clientes">
-  <div class="section-inner">
-    <div class="section-header reveal">
-      <div class="eyebrow">Casos de éxito</div>
-      <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-      <p class="section-desc">Empresas reales con resultados reales trabajando con JNL Asociados.</p>
+<!-- MARKETING DIGITAL -->
+<section class="service-detail" id="marketing">
+  <div class="service-inner">
+    <div class="service-photo">
+      foto con<br>mi<br>rostro
     </div>
-    
-    <div class="testimonial-grid">
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"JNL Asociados transformó completamente nuestra presencia digital. En 4 meses triplicamos nuestros leads y las ventas crecieron un 85%. Su equipo realmente entiende el mercado ecuatoriano."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">CR</div>
-          <div>
-            <div class="author-name">Carlos Rodríguez</div>
-            <div class="author-role">CEO, Empresa de Servicios</div>
-          </div>
-        </div>
+    <div class="service-content reveal">
+      <div class="service-arrow">➜</div>
+      <h2>Marketing Digital & Redes Sociales</h2>
+      
+      <p>Tu presencia en redes sociales dice mucho de tu marca. Nos encargamos de administrar tus perfiles en Facebook, Instagram, LinkedIn, TikTok y Página Web, planificando cada publicación con estrategia y consistencia. Mantenemos tu comunidad activa, respondemos mensajes y construimos una relación genuina entre tu marca y tus clientes.</p>
+      
+      <div class="service-features">
+        <div class="feature-item"><span class="feature-icon">📱</span> Gestión de Redes Sociales</div>
+        <div class="feature-item"><span class="feature-icon">✏️</span> Creación de Contenido</div>
+        <div class="feature-item"><span class="feature-icon">📢</span> Publicidad Pagada (Meta Ads & Google Ads)</div>
+        <div class="feature-item"><span class="feature-icon">🔍</span> SEO - Posicionamiento en Google</div>
+        <div class="feature-item"><span class="feature-icon">💻</span> Diseño Web</div>
       </div>
       
-      <div class="testimonial-card reveal rd1">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Importar desde China era un proceso que nos daba miedo. JNL se encargó de todo: encontraron proveedores confiables, negociaron mejores precios y manejaron la logística completa. Ahora importamos regularmente."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">MV</div>
-          <div>
-            <div class="author-name">María Vélez</div>
-            <div class="author-role">Propietaria, Retail</div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-card reveal rd2">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Los servicios contables de JNL nos dieron la tranquilidad que necesitábamos. Cero problemas con el SRI, estados financieros claros cada mes y planificación tributaria que nos ahorró miles de dólares."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">JP</div>
-          <div>
-            <div class="author-name">Juan Pablo Castro</div>
-            <div class="author-role">Gerente Financiero</div>
-          </div>
-        </div>
-      </div>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20mejorar%20mi%20marketing%20digital" target="_blank">
+        Ayuda con mi Marketing
+      </a>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
+<!-- COTIZACIÓN SECTION -->
+<section class="cta-section" id="cotizacion">
   <div class="cta-inner">
-    <h2>¿Listo para hacer crecer<br>tu negocio?</h2>
-    <p>Agenda una consulta gratuita hoy. Analizaremos tu situación actual y te mostraremos exactamente cómo podemos ayudarte a alcanzar tus objetivos.</p>
+    <h2>Cotiza tu Importación<br>desde China</h2>
+    <p>Solicita una cotización gratuita y personalizada. Te ayudaremos a encontrar los mejores proveedores, calcular costos reales y gestionar todo el proceso de importación.</p>
     <div class="cta-buttons">
-      <a class="btn-cta-primary" href="https://wa.me/593999485465?text=Hola%20JNL%20Asociados%2C%20quiero%20agendar%20mi%20consulta%20gratuita" target="_blank">
+      <a class="btn-cta-primary" href="https://wa.me/593999485465?text=Hola%20JNL%20Asociados%2C%20quiero%20cotizar%20una%20importaci%C3%B3n" target="_blank">
         <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
-        Consulta Gratuita por WhatsApp
+        Cotizar mi Importación Ahora
       </a>
       <a class="btn-cta-secondary" href="mailto:info@jnlasociados.com">
-        Enviar Email
+        Enviar por Email
       </a>
     </div>
   </div>
@@ -533,19 +448,17 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
       
       <div class="footer-col">
         <h4>Servicios</h4>
-        <a href="#servicios">Marketing Digital</a>
-        <a href="#servicios">Meta Ads & Google Ads</a>
+        <a href="#contables">Servicios Contables</a>
         <a href="#importaciones">Importaciones China</a>
-        <a href="#servicios">Contabilidad & SRI</a>
-        <a href="#servicios">Servicios Tributarios</a>
+        <a href="#marketing">Marketing Digital</a>
+        <a href="#cotizacion">Cotizar Importación</a>
       </div>
       
       <div class="footer-col">
-        <h4>Empresa</h4>
-        <a href="#servicios">Nosotros</a>
-        <a href="#proceso">Nuestro Proceso</a>
-        <a href="#clientes">Casos de Éxito</a>
-        <a href="https://wa.me/593999485465" target="_blank">Contacto</a>
+        <h4>Asesorías</h4>
+        <a href="#asesoria-importaciones">Asesoría Importaciones</a>
+        <a href="#asesoria-control">Control Interno</a>
+        <a href="#asesoria-marketing">Marketing Digital</a>
       </div>
       
       <div class="footer-col">
@@ -569,7 +482,46 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </footer>
 
 <script>
-// Navigation
+// Dropdown Menu Navigation
+const serviciosItem = document.getElementById('serviciosItem');
+const asesoriasItem = document.getElementById('asesoriasItem');
+const certificadosItem = document.getElementById('certificadosItem');
+
+const allMenuItems = [serviciosItem, asesoriasItem, certificadosItem];
+
+serviciosItem.addEventListener('click', function(e) {
+  e.stopPropagation();
+  serviciosItem.classList.toggle('open');
+  asesoriasItem.classList.remove('open');
+  certificadosItem.classList.remove('open');
+});
+
+asesoriasItem.addEventListener('click', function(e) {
+  e.stopPropagation();
+  asesoriasItem.classList.toggle('open');
+  serviciosItem.classList.remove('open');
+  certificadosItem.classList.remove('open');
+});
+
+certificadosItem.addEventListener('click', function(e) {
+  e.stopPropagation();
+  certificadosItem.classList.toggle('open');
+  serviciosItem.classList.remove('open');
+  asesoriasItem.classList.remove('open');
+});
+
+document.addEventListener('click', function() {
+  allMenuItems.forEach(item => item.classList.remove('open'));
+});
+
+// Close dropdowns when clicking on a link
+document.querySelectorAll('.dropdown-simple a, .dropdown a').forEach(link => {
+  link.addEventListener('click', function() {
+    allMenuItems.forEach(item => item.classList.remove('open'));
+  });
+});
+
+// Mobile Menu
 document.getElementById('hamburger').addEventListener('click', () => {
   document.getElementById('mmenu').classList.toggle('open');
 });
