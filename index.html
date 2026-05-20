@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JNL Asociados — Consultoría empresarial integral: Marketing Digital, Importaciones China-Ecuador y Servicios Contables. Tu socio estratégico para crecer.">
+<meta name="description" content="JNL Asociados — Consultoría empresarial integral: Marketing Digital, Importaciones China-Ecuador y Servicios Contables.">
 <title>JNL Asociados · Consultoría Empresarial Integral</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -29,6 +29,10 @@
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);line-height:1.6;overflow-x:hidden}
 
+/* PAGE SYSTEM - Ocultar/Mostrar páginas */
+.page{display:none}
+.page.active{display:block}
+
 /* WHATSAPP FLOAT */
 .wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:64px;height:64px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.35),0 0 0 0 rgba(37,211,102,0.5);text-decoration:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1);animation:wa-pulse 3s ease-in-out infinite}
 .wa-float:hover{transform:scale(1.1) rotate(5deg)}
@@ -39,7 +43,7 @@ body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);li
 /* NAVIGATION */
 nav{background:var(--primary);position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,119,182,0.2)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:80px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;transition:opacity .2s}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;transition:opacity .2s;cursor:pointer}
 .logo:hover{opacity:.9}
 .logo-mark{width:52px;height:52px;background:white;border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
 .logo-mark span{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:var(--primary);position:relative}
@@ -55,16 +59,14 @@ nav{background:var(--primary);position:sticky;top:0;z-index:1000;box-shadow:0 2p
 .nav-link svg{width:12px;height:12px;fill:white;transition:transform .3s}
 .nav-item.open .nav-link svg{transform:rotate(180deg)}
 
-/* DROPDOWN - SERVICIOS (SOLO 3 ITEMS) */
 .dropdown-simple{display:none;position:absolute;top:100%;left:0;background:white;min-width:320px;border-radius:var(--r-md);box-shadow:0 12px 32px rgba(2,48,71,0.15);padding:12px 0;margin-top:12px;z-index:100}
 .nav-item.open .dropdown-simple{display:block}
-.dropdown-simple-item{display:block;padding:14px 24px;color:var(--text);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border-left:3px solid transparent}
+.dropdown-simple-item{display:block;padding:14px 24px;color:var(--text);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border-left:3px solid transparent;cursor:pointer}
 .dropdown-simple-item:hover{background:var(--off);border-left-color:var(--primary);color:var(--primary)}
 
-/* DROPDOWN - ASESORÍAS Y CERTIFICADOS */
 .dropdown{display:none;position:absolute;top:100%;left:0;background:white;min-width:300px;border-radius:var(--r-md);box-shadow:0 12px 32px rgba(2,48,71,0.15);padding:12px 0;margin-top:12px;z-index:100}
 .nav-item.open .dropdown{display:block}
-.dropdown-item{display:block;padding:12px 20px;color:var(--text);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border-left:3px solid transparent}
+.dropdown-item{display:block;padding:12px 20px;color:var(--text);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border-left:3px solid transparent;cursor:pointer}
 .dropdown-item:hover{background:var(--off);border-left-color:var(--primary);color:var(--primary)}
 
 .btn-nav{background:var(--accent);color:white;padding:14px 28px;border-radius:var(--r-sm);font-size:15px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(230,57,70,0.3);text-transform:uppercase;letter-spacing:.5px}
@@ -74,7 +76,7 @@ nav{background:var(--primary);position:sticky;top:0;z-index:1000;box-shadow:0 2p
 .mobile-menu{display:none;background:white;border-bottom:1px solid var(--border);max-height:80vh;overflow-y:auto}
 .mobile-menu-section{border-bottom:1px solid var(--border-light)}
 .mobile-menu-title{padding:16px 24px;font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;background:var(--off2)}
-.mobile-menu a{display:block;padding:14px 24px 14px 40px;font-size:14px;color:var(--text);text-decoration:none;transition:all .2s}
+.mobile-menu a{display:block;padding:14px 24px 14px 40px;font-size:14px;color:var(--text);text-decoration:none;transition:all .2s;cursor:pointer}
 .mobile-menu a:hover{background:var(--off);color:var(--primary)}
 .mobile-menu .m-cta{background:var(--accent);color:white;font-weight:600;margin:16px;border-radius:var(--r-sm);text-align:center;padding:16px 24px}
 .mobile-menu.open{display:block}
@@ -95,7 +97,7 @@ nav{background:var(--primary);position:sticky;top:0;z-index:1000;box-shadow:0 2p
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
 .btn-primary{display:inline-flex;align-items:center;gap:10px;background:white;color:var(--primary);padding:16px 32px;border-radius:var(--r-md);font-size:16px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 8px 24px rgba(255,255,255,0.2)}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(255,255,255,0.3)}
-.btn-secondary{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,0.3);color:white;padding:16px 28px;border-radius:var(--r-md);font-size:15px;font-weight:600;text-decoration:none;transition:all .3s;backdrop-filter:blur(8px)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,0.3);color:white;padding:16px 28px;border-radius:var(--r-md);font-size:15px;font-weight:600;text-decoration:none;transition:all .3s;backdrop-filter:blur(8px);cursor:pointer}
 .btn-secondary:hover{border-color:white;background:rgba(255,255,255,0.1)}
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:640px}
 .stat-item{text-align:center}
@@ -138,18 +140,13 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:32px}
 .footer-brand p{font-size:14px;line-height:1.7;margin-top:16px;max-width:280px}
 .footer-col h4{font-size:14px;font-weight:700;color:white;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
-.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:12px;transition:color .2s}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:12px;transition:color .2s;cursor:pointer}
 .footer-col a:hover{color:white}
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .footer-bottom p{font-size:13px}
 .social-links{display:flex;gap:16px}
 .social-link{width:40px;height:40px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;transition:all .3s}
 .social-link:hover{background:var(--primary);transform:translateY(-2px)}
-
-/* REVEAL ANIMATION */
-.reveal{opacity:0;transform:translateY(30px);transition:all .8s cubic-bezier(.34,1.56,.64,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
@@ -186,7 +183,7 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 <!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
-    <a class="logo" href="#">
+    <div class="logo" onclick="showPage('home')">
       <div class="logo-mark">
         <span>JNL</span>
       </div>
@@ -194,20 +191,20 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <div class="logo-name">JNL Asociados</div>
         <div class="logo-tag">Consultoría Integral</div>
       </div>
-    </a>
+    </div>
     <div style="display:flex;align-items:center;gap:8px">
       <div class="nav-menu">
         
-        <!-- SERVICIOS DROPDOWN (SOLO 3 SERVICIOS) -->
+        <!-- SERVICIOS DROPDOWN -->
         <div class="nav-item" id="serviciosItem">
           <div class="nav-link">
             Servicios
             <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg>
           </div>
           <div class="dropdown-simple">
-            <a href="#importaciones" class="dropdown-simple-item">Importaciones Ecuador</a>
-            <a href="#contables" class="dropdown-simple-item">Servicios Contables y Tributarios</a>
-            <a href="#marketing" class="dropdown-simple-item">Marketing Digital & Redes Sociales</a>
+            <div class="dropdown-simple-item" onclick="showPage('importaciones')">Importaciones Ecuador</div>
+            <div class="dropdown-simple-item" onclick="showPage('contables')">Servicios Contables y Tributarios</div>
+            <div class="dropdown-simple-item" onclick="showPage('marketing')">Marketing Digital & Redes Sociales</div>
           </div>
         </div>
         
@@ -218,9 +215,9 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
             <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg>
           </div>
           <div class="dropdown">
-            <a href="#asesoria-importaciones" class="dropdown-item">Asesoría de Importaciones</a>
-            <a href="#asesoria-control" class="dropdown-item">Asesoría de Control Interno</a>
-            <a href="#asesoria-marketing" class="dropdown-item">Asesoría Marketing Digital</a>
+            <div class="dropdown-item" onclick="showPage('asesoria-importaciones')">Asesoría de Importaciones</div>
+            <div class="dropdown-item" onclick="showPage('asesoria-control')">Asesoría de Control Interno</div>
+            <div class="dropdown-item" onclick="showPage('asesoria-marketing')">Asesoría Marketing Digital</div>
           </div>
         </div>
 
@@ -231,19 +228,19 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
             <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg>
           </div>
           <div class="dropdown">
-            <a href="#registro-sanitario" class="dropdown-item">Registro Sanitario</a>
-            <a href="#registro-senae" class="dropdown-item">Registro SENAE Importador</a>
-            <a href="#permiso-funcionamiento" class="dropdown-item">Permiso de Funcionamiento</a>
-            <a href="#permiso-municipal" class="dropdown-item">Permiso Municipal (Patente)</a>
-            <a href="#permiso-bomberos" class="dropdown-item">Permiso del Cuerpo de Bomberos</a>
-            <a href="#permiso-sanitario" class="dropdown-item">Permiso Sanitario (MSP)</a>
+            <div class="dropdown-item" onclick="showPage('registro-sanitario')">Registro Sanitario</div>
+            <div class="dropdown-item" onclick="showPage('registro-senae')">Registro SENAE Importador</div>
+            <div class="dropdown-item" onclick="showPage('permiso-funcionamiento')">Permiso de Funcionamiento</div>
+            <div class="dropdown-item" onclick="showPage('permiso-municipal')">Permiso Municipal (Patente)</div>
+            <div class="dropdown-item" onclick="showPage('permiso-bomberos')">Permiso del Cuerpo de Bomberos</div>
+            <div class="dropdown-item" onclick="showPage('permiso-sanitario')">Permiso Sanitario (MSP)</div>
           </div>
         </div>
 
         <!-- COTIZA TU IMPORTACIÓN -->
-        <a class="nav-link" href="#cotizacion">
+        <div class="nav-link" onclick="showPage('cotizacion')">
           Cotiza tu Importación
-        </a>
+        </div>
         
       </div>
       <a class="btn-nav" href="https://wa.me/593999485465" target="_blank">Contactar</a>
@@ -258,35 +255,39 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 <div class="mobile-menu" id="mmenu">
   <div class="mobile-menu-section">
     <div class="mobile-menu-title">Servicios</div>
-    <a href="#importaciones">Importaciones Ecuador</a>
-    <a href="#contables">Servicios Contables y Tributarios</a>
-    <a href="#marketing">Marketing Digital & Redes Sociales</a>
+    <a onclick="showPage('importaciones')">Importaciones Ecuador</a>
+    <a onclick="showPage('contables')">Servicios Contables y Tributarios</a>
+    <a onclick="showPage('marketing')">Marketing Digital & Redes Sociales</a>
   </div>
   
   <div class="mobile-menu-section">
     <div class="mobile-menu-title">Asesorías</div>
-    <a href="#asesoria-importaciones">Asesoría de Importaciones</a>
-    <a href="#asesoria-control">Asesoría de Control Interno</a>
-    <a href="#asesoria-marketing">Asesoría Marketing Digital</a>
+    <a onclick="showPage('asesoria-importaciones')">Asesoría de Importaciones</a>
+    <a onclick="showPage('asesoria-control')">Asesoría de Control Interno</a>
+    <a onclick="showPage('asesoria-marketing')">Asesoría Marketing Digital</a>
   </div>
   
   <div class="mobile-menu-section">
     <div class="mobile-menu-title">Certificados y Permisos</div>
-    <a href="#registro-sanitario">Registro Sanitario</a>
-    <a href="#registro-senae">Registro SENAE Importador</a>
-    <a href="#permiso-funcionamiento">Permiso de Funcionamiento</a>
-    <a href="#permiso-municipal">Permiso Municipal (Patente)</a>
-    <a href="#permiso-bomberos">Permiso del Cuerpo de Bomberos</a>
-    <a href="#permiso-sanitario">Permiso Sanitario de Funcionamiento</a>
+    <a onclick="showPage('registro-sanitario')">Registro Sanitario</a>
+    <a onclick="showPage('registro-senae')">Registro SENAE Importador</a>
+    <a onclick="showPage('permiso-funcionamiento')">Permiso de Funcionamiento</a>
+    <a onclick="showPage('permiso-municipal')">Permiso Municipal (Patente)</a>
+    <a onclick="showPage('permiso-bomberos')">Permiso del Cuerpo de Bomberos</a>
+    <a onclick="showPage('permiso-sanitario')">Permiso Sanitario de Funcionamiento</a>
   </div>
   
   <div class="mobile-menu-section">
-    <a href="#cotizacion" style="font-weight:700;color:var(--accent)">Cotiza tu Importación</a>
+    <a onclick="showPage('cotizacion')" style="font-weight:700;color:var(--accent)">Cotiza tu Importación</a>
   </div>
   
   <a href="https://wa.me/593999485465" target="_blank" class="m-cta">📲 Contactar por WhatsApp</a>
 </div>
 
+<!-- ========================================
+     PÁGINA HOME (PRINCIPAL)
+     ======================================== -->
+<div id="home" class="page active">
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
@@ -302,7 +303,7 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
           <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
           Consulta Gratuita
         </a>
-        <a class="btn-secondary" href="#contables">Ver Servicios →</a>
+        <div class="btn-secondary" onclick="showPage('contables')">Ver Servicios →</div>
       </div>
       <div class="hero-stats">
         <div class="stat-item">
@@ -321,99 +322,282 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
     </div>
   </div>
 </section>
+</div>
 
-<!-- SERVICIOS CONTABLES Y TRIBUTARIOS -->
-<section class="service-detail" id="contables">
+<!-- ========================================
+     PÁGINA SERVICIOS CONTABLES
+     ======================================== -->
+<div id="contables" class="page">
+<section class="service-detail">
   <div class="service-inner">
-    <div class="service-photo">
-      foto con<br>mi<br>rostro
-    </div>
-    <div class="service-content reveal">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
       <div class="service-arrow">➜</div>
-      <h2>Servicios Contables y Tributarios.</h2>
-      
+      <h2>Servicios Contables y Tributarios</h2>
       <h3>servicios contable</h3>
       <p>Somos un equipo altamente capacitado con años de experiencia, te brindará un apoyo sólido en todas tus necesidades contables, Declaración de impuesto.</p>
-      
       <div class="service-features">
-        <div class="feature-item"><span class="feature-icon">✓</span> Sistema contable que se acople a tu negocio.</div>
-        <div class="feature-item"><span class="feature-icon">✓</span> SUPERCIA</div>
+        <div class="feature-item">Sistema contable que se acople a tu negocio.</div>
+        <div class="feature-item">SUPERCIA</div>
       </div>
-      
       <h3>SERVICIOS TRIBUTARIOS</h3>
       <p>Brindamos servicios tributarios en Ecuador, ofrecemos soluciones personalizada para cada negocio ya sea servicios o productos, estamos aquí para impulsar su crecimiento y rentabilidad.</p>
-      
       <div class="service-features">
-        <div class="feature-item"><span class="feature-icon">✓</span> cumplimiento total de sus obligaciones, devolución. de impuestos.</div>
-        <div class="feature-item"><span class="feature-icon">✓</span> Anexos.</div>
+        <div class="feature-item">Cumplimiento total de sus obligaciones, devolución de impuestos.</div>
+        <div class="feature-item">Anexos.</div>
       </div>
-      
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20ayuda%20con%20mi%20contabilidad%20e%20impuesto" target="_blank">
-        Ayuda con mi contabilidad e impuesto
-      </a>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20ayuda%20con%20mi%20contabilidad%20e%20impuesto" target="_blank">Ayuda con mi contabilidad e impuesto</a>
     </div>
   </div>
 </section>
+</div>
 
-<!-- IMPORTACIONES ECUADOR -->
-<section class="service-detail" id="importaciones">
+<!-- ========================================
+     PÁGINA IMPORTACIONES
+     ======================================== -->
+<div id="importaciones" class="page">
+<section class="service-detail">
   <div class="service-inner">
-    <div class="service-photo">
-      foto con<br>mi<br>rostro
-    </div>
-    <div class="service-content reveal">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
       <div class="service-arrow">➜</div>
       <h2>Nuestros servicios<br>Importaciones Ecuador</h2>
-      
       <p>Te acompañamos en todo el proceso de importación, desde la coordinación con proveedores internacionales hasta la llegada de tu mercancía a Ecuador. Gestionamos los trámites necesarios para que puedas traer tus productos de forma segura, legal y sin complicaciones, cuidando cada detalle para que tú solo te preocupes por hacer crecer tu negocio.</p>
-      
-      <div class="highlight-box">
-        <strong>SOMOS UNA EMPRESA CON BASTA EXPERIENCIA GESTIONANDO IMPUESTOS EN EL ECUADOR, CREACIÓN DE COMPAÑÍA.</strong>
-      </div>
-      
+      <div class="highlight-box"><strong>SOMOS UNA EMPRESA CON BASTA EXPERIENCIA GESTIONANDO IMPUESTOS EN EL ECUADOR, CREACIÓN DE COMPAÑÍA.</strong></div>
       <div class="service-features">
-        <div class="feature-item"><span class="feature-icon">📄</span> Certificado de Registro Sanitario</div>
-        <div class="feature-item"><span class="feature-icon">📦</span> Consolidación de Carga</div>
-        <div class="feature-item"><span class="feature-icon">🔄</span> Desaduanización</div>
-        <div class="feature-item"><span class="feature-icon">🚛</span> Transporte</div>
+        <div class="feature-item">📄 Certificado de Registro Sanitario</div>
+        <div class="feature-item">📦 Consolidación de Carga</div>
+        <div class="feature-item">🔄 Desaduanización</div>
+        <div class="feature-item">🚛 Transporte</div>
       </div>
-      
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20importar%20desde%20China%20a%20Ecuador" target="_blank">
-        Quiero importar productos
-      </a>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20importar%20desde%20China%20a%20Ecuador" target="_blank">Quiero importar productos</a>
     </div>
   </div>
 </section>
+</div>
 
-<!-- MARKETING DIGITAL -->
-<section class="service-detail" id="marketing">
+<!-- ========================================
+     PÁGINA MARKETING DIGITAL
+     ======================================== -->
+<div id="marketing" class="page">
+<section class="service-detail">
   <div class="service-inner">
-    <div class="service-photo">
-      foto con<br>mi<br>rostro
-    </div>
-    <div class="service-content reveal">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
       <div class="service-arrow">➜</div>
       <h2>Marketing Digital & Redes Sociales</h2>
-      
       <p>Tu presencia en redes sociales dice mucho de tu marca. Nos encargamos de administrar tus perfiles en Facebook, Instagram, LinkedIn, TikTok y Página Web, planificando cada publicación con estrategia y consistencia. Mantenemos tu comunidad activa, respondemos mensajes y construimos una relación genuina entre tu marca y tus clientes.</p>
-      
       <div class="service-features">
-        <div class="feature-item"><span class="feature-icon">📱</span> Gestión de Redes Sociales</div>
-        <div class="feature-item"><span class="feature-icon">✏️</span> Creación de Contenido</div>
-        <div class="feature-item"><span class="feature-icon">📢</span> Publicidad Pagada (Meta Ads & Google Ads)</div>
-        <div class="feature-item"><span class="feature-icon">🔍</span> SEO - Posicionamiento en Google</div>
-        <div class="feature-item"><span class="feature-icon">💻</span> Diseño Web</div>
+        <div class="feature-item">📱 Gestión de Redes Sociales</div>
+        <div class="feature-item">✏️ Creación de Contenido</div>
+        <div class="feature-item">📢 Publicidad Pagada (Meta Ads & Google Ads)</div>
+        <div class="feature-item">🔍 SEO - Posicionamiento en Google</div>
+        <div class="feature-item">💻 Diseño Web</div>
       </div>
-      
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20mejorar%20mi%20marketing%20digital" target="_blank">
-        Ayuda con mi Marketing
-      </a>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20mejorar%20mi%20marketing%20digital" target="_blank">Ayuda con mi Marketing</a>
     </div>
   </div>
 </section>
+</div>
 
-<!-- COTIZACIÓN SECTION -->
-<section class="cta-section" id="cotizacion">
+<!-- ========================================
+     PÁGINA ASESORÍA IMPORTACIONES
+     ======================================== -->
+<div id="asesoria-importaciones" class="page">
+<section class="service-detail">
+  <div class="service-inner">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
+      <div class="service-arrow">➜</div>
+      <h2>Asesoría de Importaciones</h2>
+      <p>Importar puede parecer complicado, pero con el acompañamiento adecuado se convierte en una oportunidad de crecimiento para tu negocio. Nuestro servicio de asesoría está diseñado para guiarte en cada paso del proceso, resolver tus dudas y asegurarte de que todo se realice correctamente.</p>
+      <div class="service-features">
+        <div class="feature-item">📋 Certificado de Registro Sanitario: nos encargamos de tramitar tu certificado, asegurándonos de que tus productos cumplan con todos los requisitos legales para su comercialización en Ecuador.</div>
+        <div class="feature-item">📦 Consolidación de Carga: Si tu mercancía no llena un contenedor completo, la consolidación es tu mejor aliada.</div>
+        <div class="feature-item">🛃 Desaduanización: Nos encargamos de toda la gestión ante la aduana ecuatoriana: declaraciones, pagos de aranceles, revisiones y liberación de tu carga.</div>
+        <div class="feature-item">🚛 Transporte: coordinamos el transporte terrestre desde los puertos y aeropuertos del Ecuador hasta tu bodega o punto de entrega.</div>
+      </div>
+      <p style="margin-top:24px"><strong>Contestamos todas tus dudas</strong></p>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20asesor%C3%ADa%20para%20importar" target="_blank">Solicitar Asesoría de Importaciones</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========================================
+     PÁGINA ASESORÍA CONTROL INTERNO
+     ======================================== -->
+<div id="asesoria-control" class="page">
+<section class="service-detail">
+  <div class="service-inner">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
+      <div class="service-arrow">➜</div>
+      <h2>Asesoría de Control Interno</h2>
+      <p>Sabemos que una empresa bien organizada por dentro es una empresa que crece con solidez. Nuestro servicio de Asesoría de Control Interno está diseñado para ayudarte a identificar vulnerabilidades, fortalecer tus procesos y proteger los recursos de tu organización, sin importar su tamaño o sector.</p>
+      <h3>Gestión de Riesgos</h3>
+      <p>Anticiparse a los problemas es mejor que reaccionar ante ellos. Te ayudamos a identificar, evaluar y priorizar los riesgos que pueden afectar a tu empresa, ya sean operativos, financieros, legales o reputacionales. Diseñamos un plan de acción para mitigarlos y establecemos mecanismos de monitoreo para que tu negocio esté siempre un paso adelante.</p>
+      <div class="service-features">
+        <div class="feature-item">Identificación de vulnerabilidades operativas</div>
+        <div class="feature-item">Fortalecimiento de procesos internos</div>
+        <div class="feature-item">Protección de recursos empresariales</div>
+        <div class="feature-item">Evaluación y priorización de riesgos</div>
+        <div class="feature-item">Planes de acción y monitoreo continuo</div>
+      </div>
+      <p style="margin-top:24px"><strong>Contestamos todas tus dudas</strong></p>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20asesor%C3%ADa%20de%20control%20interno" target="_blank">Solicitar Asesoría de Control Interno</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========================================
+     PÁGINA ASESORÍA MARKETING DIGITAL
+     ======================================== -->
+<div id="asesoria-marketing" class="page">
+<section class="service-detail">
+  <div class="service-inner">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
+      <div class="service-arrow">➜</div>
+      <h2>Asesoría Marketing Digital</h2>
+      <h3>📱 Gestión de Redes Sociales</h3>
+      <p>Nos encargamos de administrar tus perfiles en Facebook, Instagram, LinkedIn, TikTok.</p>
+      <h3>✍️ Creación de Contenido</h3>
+      <p>Creamos textos, imágenes, videos cortos y piezas gráficas que conectan con tu audiencia y transmiten la esencia de tu marca. Cada pieza está pensada para generar valor, aumentar el alcance y motivar a tu público a tomar acción.</p>
+      <h3>📣 Publicidad Pagada (Meta Ads & Google Ads)</h3>
+      <p>Llega exactamente a las personas que necesitan lo que ofreces. Diseñamos y gestionamos campañas publicitarias en Meta (Facebook e Instagram) y Google, optimizando cada peso invertido para maximizar tus resultados.</p>
+      <h3>🔍 SEO – Posicionamiento en Google</h3>
+      <p>Aparecer en los primeros resultados de Google no es suerte, es estrategia. Trabajamos el SEO de tu sitio web optimizando su estructura y contenido.</p>
+      <h3>💻 Diseño Web</h3>
+      <p>Tu sitio web es tu carta de presentación en el mundo digital. Diseñamos páginas web atractivas, rápidas y optimizadas para dispositivos móviles, pensadas para convertir visitantes en clientes. Ya sea una landing page, un sitio corporativo o una tienda en línea, creamos experiencias digitales que generan confianza y resultados.</p>
+      <p style="margin-top:24px"><strong>Contestamos todas tus dudas</strong></p>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20asesor%C3%ADa%20de%20marketing%20digital" target="_blank">Solicitar Asesoría de Marketing Digital</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========================================
+     PÁGINA REGISTRO SANITARIO
+     ======================================== -->
+<div id="registro-sanitario" class="page">
+<section class="service-detail">
+  <div class="service-inner">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
+      <div class="service-arrow">➜</div>
+      <h2>Registro Sanitario</h2>
+      <p>Comercializar un producto en Ecuador sin el Registro Sanitario no es una opción. Te acompañamos en todo el ciclo de vida de tu registro ante la ARCSA, gestionando cada trámite con experiencia, precisión y total transparencia para que tus productos lleguen al mercado sin contratiempos.</p>
+      <p><strong>Trabajamos con todo tipo de productos:</strong> alimentos y bebidas, medicamentos y suplementos, cosméticos y productos de cuidado personal.</p>
+      <div class="service-features">
+        <div class="feature-item">📝 Obtención del Registro Sanitario</div>
+        <div class="feature-item">🔄 Renovación</div>
+        <div class="feature-item">✏️ Modificaciones</div>
+        <div class="feature-item">❌ Cancelaciones</div>
+      </div>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Registro%20Sanitario" target="_blank">NECESITO EL REGISTRO SANITARIO</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========================================
+     PÁGINA REGISTRO SENAE
+     ======================================== -->
+<div id="registro-senae" class="page">
+<section class="service-detail">
+  <div class="service-inner">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
+      <div class="service-arrow">➜</div>
+      <h2>Registro SENAE Importador</h2>
+      <p>Para importar legalmente en Ecuador, el primer paso es estar habilitado ante el Servicio Nacional de Aduana del Ecuador (SENAE). Te guiamos en todo el proceso para que obtengas tu registro como importador de forma correcta, rápida y sin contratiempos, ya seas persona natural o empresa.</p>
+      <div class="service-features">
+        <div class="feature-item">📋 Registro como Importador</div>
+        <div class="feature-item">✏️ Actualización y Modificaciones</div>
+        <div class="feature-item">✅ Habilitación Operativa</div>
+        <div class="feature-item">📡 Seguimiento y Acompañamiento</div>
+      </div>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Registro%20SENAE%20Importador" target="_blank">NECESITO EL REGISTRO DE SENAE</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========================================
+     PÁGINA PERMISO FUNCIONAMIENTO
+     ======================================== -->
+<div id="permiso-funcionamiento" class="page">
+<section class="service-detail">
+  <div class="service-inner">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
+      <div class="service-arrow">➜</div>
+      <h2>Permiso de Funcionamiento</h2>
+      <p>Operar un negocio en Ecuador requiere estar al día con una serie de permisos y autorizaciones ante distintas entidades. Nos encargamos de gestionar todos los permisos que tu empresa necesita para funcionar de manera legal y sin interrupciones, tanto si estás abriendo un nuevo negocio como si necesitas renovar tus permisos existentes.</p>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20los%20Permisos%20de%20Funcionamiento" target="_blank">NECESITO LOS PERMISOS DE FUNCIONAMIENTO</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========================================
+     PÁGINA PERMISO MUNICIPAL
+     ======================================== -->
+<div id="permiso-municipal" class="page">
+<section class="service-detail">
+  <div class="service-inner">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
+      <div class="service-arrow">➜</div>
+      <h2>Permiso Municipal (Patente)</h2>
+      <p>La patente municipal es uno de los primeros requisitos para operar legalmente en tu ciudad. Gestionamos su obtención y renovación anual ante el Municipio correspondiente, asegurándonos de que tu negocio esté habilitado para ejercer su actividad económica sin problemas con las autoridades locales.</p>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Permiso%20Municipal%20%28Patente%29" target="_blank">NECESITO EL PERMISO MUNICIPAL</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========================================
+     PÁGINA PERMISO BOMBEROS
+     ======================================== -->
+<div id="permiso-bomberos" class="page">
+<section class="service-detail">
+  <div class="service-inner">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
+      <div class="service-arrow">➜</div>
+      <h2>Permiso del Cuerpo de Bomberos</h2>
+      <p>Garantizar la seguridad de tu local y de quienes trabajan en él es una obligación legal y una responsabilidad con tu equipo. En JNL Asociados tramitamos el permiso de funcionamiento del Cuerpo de Bomberos, coordinando las inspecciones necesarias y gestionando toda la documentación para que obtengas tu certificado sin demoras.</p>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Permiso%20del%20Cuerpo%20de%20Bomberos" target="_blank">NECESITO EL PERMISO DEL CUERPO DE BOMBEROS</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========================================
+     PÁGINA PERMISO SANITARIO MSP
+     ======================================== -->
+<div id="permiso-sanitario" class="page">
+<section class="service-detail">
+  <div class="service-inner">
+    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-content">
+      <div class="service-arrow">➜</div>
+      <h2>Permiso Sanitario de Funcionamiento (MSP)</h2>
+      <p>Si tu actividad está relacionada con alimentos, salud, estética o cualquier servicio que implique contacto con el público, el Permiso Sanitario del Ministerio de Salud Pública es indispensable. Nos encargamos de preparar los requisitos, coordinar las inspecciones y gestionar su obtención y renovación oportuna.</p>
+      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Permiso%20Sanitario%20de%20Funcionamiento" target="_blank">NECESITO EL PERMISO SANITARIO DE FUNCIONAMIENTO</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ========================================
+     PÁGINA COTIZACIÓN
+     ======================================== -->
+<div id="cotizacion" class="page">
+<section class="cta-section">
   <div class="cta-inner">
     <h2>Cotiza tu Importación<br>desde China</h2>
     <p>Solicita una cotización gratuita y personalizada. Te ayudaremos a encontrar los mejores proveedores, calcular costos reales y gestionar todo el proceso de importación.</p>
@@ -422,45 +606,39 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
         Cotizar mi Importación Ahora
       </a>
-      <a class="btn-cta-secondary" href="mailto:info@jnlasociados.com">
-        Enviar por Email
-      </a>
+      <a class="btn-cta-secondary" href="mailto:info@jnlasociados.com">Enviar por Email</a>
     </div>
   </div>
 </section>
+</div>
 
-<!-- FOOTER -->
+<!-- FOOTER (Compartido para todas las páginas) -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <a class="logo" href="#" style="margin-bottom:16px">
-          <div class="logo-mark">
-            <span>JNL</span>
-          </div>
+        <div class="logo" onclick="showPage('home')" style="margin-bottom:16px;cursor:pointer">
+          <div class="logo-mark"><span>JNL</span></div>
           <div class="logo-text">
             <div class="logo-name" style="color:white">JNL Asociados</div>
             <div class="logo-tag">Consultoría Integral</div>
           </div>
-        </a>
+        </div>
         <p>Consultoría empresarial integral especializada en marketing digital, importaciones desde China y servicios contables-tributarios para empresas en Ecuador.</p>
       </div>
-      
       <div class="footer-col">
         <h4>Servicios</h4>
-        <a href="#contables">Servicios Contables</a>
-        <a href="#importaciones">Importaciones China</a>
-        <a href="#marketing">Marketing Digital</a>
-        <a href="#cotizacion">Cotizar Importación</a>
+        <a onclick="showPage('contables')">Servicios Contables</a>
+        <a onclick="showPage('importaciones')">Importaciones China</a>
+        <a onclick="showPage('marketing')">Marketing Digital</a>
+        <a onclick="showPage('cotizacion')">Cotizar Importación</a>
       </div>
-      
       <div class="footer-col">
         <h4>Asesorías</h4>
-        <a href="#asesoria-importaciones">Asesoría Importaciones</a>
-        <a href="#asesoria-control">Control Interno</a>
-        <a href="#asesoria-marketing">Marketing Digital</a>
+        <a onclick="showPage('asesoria-importaciones')">Asesoría Importaciones</a>
+        <a onclick="showPage('asesoria-control')">Control Interno</a>
+        <a onclick="showPage('asesoria-marketing')">Marketing Digital</a>
       </div>
-      
       <div class="footer-col">
         <h4>Contacto</h4>
         <a href="https://wa.me/593999485465" target="_blank">📱 +593 99 948 5465</a>
@@ -469,7 +647,6 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <a href="https://www.facebook.com/jnlasociados" target="_blank">Facebook</a>
       </div>
     </div>
-    
     <div class="footer-bottom">
       <p>© 2026 JNL Asociados · Todos los derechos reservados · Ecuador</p>
       <div class="social-links">
@@ -482,11 +659,32 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </footer>
 
 <script>
+// Sistema de navegación entre páginas
+function showPage(pageId) {
+  // Ocultar todas las páginas
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+  
+  // Mostrar la página seleccionada
+  document.getElementById(pageId).classList.add('active');
+  
+  // Cerrar menú móvil si está abierto
+  document.getElementById('mmenu').classList.remove('open');
+  
+  // Cerrar dropdowns del menú
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.classList.remove('open');
+  });
+  
+  // Scroll al inicio de la página
+  window.scrollTo(0, 0);
+}
+
 // Dropdown Menu Navigation
 const serviciosItem = document.getElementById('serviciosItem');
 const asesoriasItem = document.getElementById('asesoriasItem');
 const certificadosItem = document.getElementById('certificadosItem');
-
 const allMenuItems = [serviciosItem, asesoriasItem, certificadosItem];
 
 serviciosItem.addEventListener('click', function(e) {
@@ -514,44 +712,9 @@ document.addEventListener('click', function() {
   allMenuItems.forEach(item => item.classList.remove('open'));
 });
 
-// Close dropdowns when clicking on a link
-document.querySelectorAll('.dropdown-simple a, .dropdown a').forEach(link => {
-  link.addEventListener('click', function() {
-    allMenuItems.forEach(item => item.classList.remove('open'));
-  });
-});
-
 // Mobile Menu
 document.getElementById('hamburger').addEventListener('click', () => {
   document.getElementById('mmenu').classList.toggle('open');
-});
-
-document.querySelectorAll('#mmenu a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.getElementById('mmenu').classList.remove('open');
-  });
-});
-
-// Reveal on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
 });
 </script>
 </body>
