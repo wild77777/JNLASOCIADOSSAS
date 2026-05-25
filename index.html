@@ -29,9 +29,10 @@
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);line-height:1.6;overflow-x:hidden}
 
-/* PAGE SYSTEM - Ocultar/Mostrar páginas */
-.page{display:none}
+/* PAGE SYSTEM */
+.page{display:none;animation:fadeIn 0.4s ease-in-out}
 .page.active{display:block}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
 /* WHATSAPP FLOAT */
 .wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:64px;height:64px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.35),0 0 0 0 rgba(37,211,102,0.5);text-decoration:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1);animation:wa-pulse 3s ease-in-out infinite}
@@ -51,7 +52,6 @@ nav{background:var(--primary);position:sticky;top:0;z-index:1000;box-shadow:0 2p
 .logo-name{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;color:white;letter-spacing:-.5px;line-height:1}
 .logo-tag{font-size:10px;font-weight:600;color:rgba(255,255,255,0.8);letter-spacing:.5px;text-transform:uppercase}
 
-/* MEGA MENU */
 .nav-menu{display:flex;gap:4px;align-items:center}
 .nav-item{position:relative}
 .nav-link{display:flex;align-items:center;gap:8px;padding:12px 24px;font-size:15px;font-weight:700;color:white;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;transition:background .2s;border-radius:6px;cursor:pointer}
@@ -69,6 +69,10 @@ nav{background:var(--primary);position:sticky;top:0;z-index:1000;box-shadow:0 2p
 .dropdown-item{display:block;padding:12px 20px;color:var(--text);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border-left:3px solid transparent;cursor:pointer}
 .dropdown-item:hover{background:var(--off);border-left-color:var(--primary);color:var(--primary)}
 
+/* BOTÓN COTIZA TU IMPORTACIÓN (Nuevo botón azul) */
+.btn-cotiza{background:#0077b6;color:white;padding:12px 24px;border-radius:var(--r-sm);font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;display:inline-block}
+.btn-cotiza:hover{background:#005f8c;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,119,182,0.4)}
+
 .btn-nav{background:var(--accent);color:white;padding:14px 28px;border-radius:var(--r-sm);font-size:15px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(230,57,70,0.3);text-transform:uppercase;letter-spacing:.5px}
 .btn-nav:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(230,57,70,0.4)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
@@ -79,6 +83,7 @@ nav{background:var(--primary);position:sticky;top:0;z-index:1000;box-shadow:0 2p
 .mobile-menu a{display:block;padding:14px 24px 14px 40px;font-size:14px;color:var(--text);text-decoration:none;transition:all .2s;cursor:pointer}
 .mobile-menu a:hover{background:var(--off);color:var(--primary)}
 .mobile-menu .m-cta{background:var(--accent);color:white;font-weight:600;margin:16px;border-radius:var(--r-sm);text-align:center;padding:16px 24px}
+.mobile-menu .m-cotiza{background:#0077b6;color:white;font-weight:600;margin:16px 16px 8px;border-radius:var(--r-sm);text-align:center;padding:16px 24px;text-decoration:none;display:block}
 .mobile-menu.open{display:block}
 
 /* HERO */
@@ -110,7 +115,6 @@ nav{background:var(--primary);position:sticky;top:0;z-index:1000;box-shadow:0 2p
 .service-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start}
 .service-photo{width:280px;height:360px;background:var(--yellow-note);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;color:var(--navy);text-align:center;padding:32px;box-shadow:var(--shadow-lg);position:sticky;top:100px}
 .service-content{}
-.service-arrow{font-size:48px;color:var(--navy);margin-bottom:16px}
 .service-content h2{font-family:'Sora',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:20px;letter-spacing:-1px}
 .service-content h3{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:var(--navy);margin:32px 0 16px;letter-spacing:-.5px}
 .service-content p{font-size:16px;color:var(--text);line-height:1.75;margin-bottom:24px}
@@ -153,6 +157,7 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
   .nav-inner{padding:0 28px}
   .nav-menu{display:none}
   .btn-nav{display:none}
+  .btn-cotiza{display:none}
   .hamburger{display:flex}
   .hero{padding:80px 28px 60px}
   .hero-stats{grid-template-columns:repeat(3,1fr);gap:20px}
@@ -175,8 +180,8 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </head>
 <body>
 
-<!-- WHATSAPP FLOAT -->
-<a class="wa-float" href="https://wa.me/593999485465" target="_blank" aria-label="WhatsApp">
+<!-- WHATSAPP FLOAT - NUEVO NÚMERO -->
+<a class="wa-float" href="https://wa.me/5939980679 35" target="_blank" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
 </a>
 
@@ -195,7 +200,6 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
     <div style="display:flex;align-items:center;gap:8px">
       <div class="nav-menu">
         
-        <!-- SERVICIOS DROPDOWN -->
         <div class="nav-item" id="serviciosItem">
           <div class="nav-link">
             Servicios
@@ -208,7 +212,6 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
           </div>
         </div>
         
-        <!-- ASESORÍAS DROPDOWN -->
         <div class="nav-item" id="asesoriasItem">
           <div class="nav-link">
             Asesorías
@@ -221,7 +224,6 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
           </div>
         </div>
 
-        <!-- CERTIFICADOS Y PERMISOS DROPDOWN -->
         <div class="nav-item" id="certificadosItem">
           <div class="nav-link">
             Certificados y Permisos
@@ -236,14 +238,13 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
             <div class="dropdown-item" onclick="showPage('permiso-sanitario')">Permiso Sanitario (MSP)</div>
           </div>
         </div>
-
-        <!-- COTIZA TU IMPORTACIÓN -->
-        <div class="nav-link" onclick="showPage('cotizacion')">
-          Cotiza tu Importación
-        </div>
         
       </div>
-      <a class="btn-nav" href="https://wa.me/593999485465" target="_blank">Contactar</a>
+      
+      <!-- NUEVO BOTÓN COTIZA TU IMPORTACIÓN -->
+      <a class="btn-cotiza" href="https://jnlprofroma.netlify.app/" target="_blank">Cotiza tu Importación</a>
+      
+      <a class="btn-nav" href="https://wa.me/593998067935" target="_blank">Contactar</a>
       <button class="hamburger" id="hamburger" aria-label="Menú">
         <span></span><span></span><span></span>
       </button>
@@ -277,18 +278,14 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
     <a onclick="showPage('permiso-sanitario')">Permiso Sanitario de Funcionamiento</a>
   </div>
   
-  <div class="mobile-menu-section">
-    <a onclick="showPage('cotizacion')" style="font-weight:700;color:var(--accent)">Cotiza tu Importación</a>
-  </div>
+  <!-- BOTÓN COTIZA EN MENÚ MÓVIL -->
+  <a href="https://jnlprofroma.netlify.app/" target="_blank" class="m-cotiza">📋 Cotiza tu Importación</a>
   
-  <a href="https://wa.me/593999485465" target="_blank" class="m-cta">📲 Contactar por WhatsApp</a>
+  <a href="https://wa.me/593998067935" target="_blank" class="m-cta">📲 Contactar por WhatsApp</a>
 </div>
 
-<!-- ========================================
-     PÁGINA HOME (PRINCIPAL)
-     ======================================== -->
+<!-- PÁGINA HOME -->
 <div id="home" class="page active">
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
@@ -299,7 +296,7 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
       <h1>Hacemos crecer tu negocio con <span class="gradient-text">estrategia real</span></h1>
       <p class="hero-desc">Marketing digital que convierte, importaciones directas desde China con proceso completo, y servicios contables-tributarios que te dan tranquilidad. Todo en un solo equipo.</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="https://wa.me/593999485465?text=Hola%20JNL%20Asociados%2C%20quiero%20una%20consulta%20gratuita" target="_blank">
+        <a class="btn-primary" href="https://wa.me/593998067935?text=Hola%20JNL%20Asociados%2C%20quiero%20una%20consulta%20gratuita" target="_blank">
           <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
           Consulta Gratuita
         </a>
@@ -324,43 +321,37 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA SERVICIOS CONTABLES
-     ======================================== -->
+<!-- PÁGINA SERVICIOS CONTABLES -->
 <div id="contables" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Servicios Contables y Tributarios</h2>
-      <h3>servicios contable</h3>
+      <h3>Servicios Contables</h3>
       <p>Somos un equipo altamente capacitado con años de experiencia, te brindará un apoyo sólido en todas tus necesidades contables, Declaración de impuesto.</p>
       <div class="service-features">
-        <div class="feature-item">Sistema contable que se acople a tu negocio.</div>
+        <div class="feature-item">Sistema contable que se acople a tu negocio</div>
         <div class="feature-item">SUPERCIA</div>
       </div>
-      <h3>SERVICIOS TRIBUTARIOS</h3>
+      <h3>Servicios Tributarios</h3>
       <p>Brindamos servicios tributarios en Ecuador, ofrecemos soluciones personalizada para cada negocio ya sea servicios o productos, estamos aquí para impulsar su crecimiento y rentabilidad.</p>
       <div class="service-features">
-        <div class="feature-item">Cumplimiento total de sus obligaciones, devolución de impuestos.</div>
-        <div class="feature-item">Anexos.</div>
+        <div class="feature-item">Cumplimiento total de sus obligaciones, devolución de impuestos</div>
+        <div class="feature-item">Anexos</div>
       </div>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20ayuda%20con%20mi%20contabilidad%20e%20impuesto" target="_blank">Ayuda con mi contabilidad e impuesto</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20ayuda%20con%20mi%20contabilidad%20e%20impuesto" target="_blank">Ayuda con mi contabilidad e impuesto</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA IMPORTACIONES
-     ======================================== -->
+<!-- PÁGINA IMPORTACIONES -->
 <div id="importaciones" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Nuestros servicios<br>Importaciones Ecuador</h2>
       <p>Te acompañamos en todo el proceso de importación, desde la coordinación con proveedores internacionales hasta la llegada de tu mercancía a Ecuador. Gestionamos los trámites necesarios para que puedas traer tus productos de forma segura, legal y sin complicaciones, cuidando cada detalle para que tú solo te preocupes por hacer crecer tu negocio.</p>
       <div class="highlight-box"><strong>SOMOS UNA EMPRESA CON BASTA EXPERIENCIA GESTIONANDO IMPUESTOS EN EL ECUADOR, CREACIÓN DE COMPAÑÍA.</strong></div>
@@ -370,21 +361,18 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <div class="feature-item">🔄 Desaduanización</div>
         <div class="feature-item">🚛 Transporte</div>
       </div>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20importar%20desde%20China%20a%20Ecuador" target="_blank">Quiero importar productos</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20quiero%20importar%20desde%20China%20a%20Ecuador" target="_blank">Quiero importar productos</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA MARKETING DIGITAL
-     ======================================== -->
+<!-- PÁGINA MARKETING DIGITAL -->
 <div id="marketing" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Marketing Digital & Redes Sociales</h2>
       <p>Tu presencia en redes sociales dice mucho de tu marca. Nos encargamos de administrar tus perfiles en Facebook, Instagram, LinkedIn, TikTok y Página Web, planificando cada publicación con estrategia y consistencia. Mantenemos tu comunidad activa, respondemos mensajes y construimos una relación genuina entre tu marca y tus clientes.</p>
       <div class="service-features">
@@ -394,21 +382,18 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <div class="feature-item">🔍 SEO - Posicionamiento en Google</div>
         <div class="feature-item">💻 Diseño Web</div>
       </div>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20quiero%20mejorar%20mi%20marketing%20digital" target="_blank">Ayuda con mi Marketing</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20quiero%20mejorar%20mi%20marketing%20digital" target="_blank">Ayuda con mi Marketing</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA ASESORÍA IMPORTACIONES
-     ======================================== -->
+<!-- PÁGINA ASESORÍA IMPORTACIONES -->
 <div id="asesoria-importaciones" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Asesoría de Importaciones</h2>
       <p>Importar puede parecer complicado, pero con el acompañamiento adecuado se convierte en una oportunidad de crecimiento para tu negocio. Nuestro servicio de asesoría está diseñado para guiarte en cada paso del proceso, resolver tus dudas y asegurarte de que todo se realice correctamente.</p>
       <div class="service-features">
@@ -418,21 +403,18 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <div class="feature-item">🚛 Transporte: coordinamos el transporte terrestre desde los puertos y aeropuertos del Ecuador hasta tu bodega o punto de entrega.</div>
       </div>
       <p style="margin-top:24px"><strong>Contestamos todas tus dudas</strong></p>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20asesor%C3%ADa%20para%20importar" target="_blank">Solicitar Asesoría de Importaciones</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20asesor%C3%ADa%20para%20importar" target="_blank">Solicitar Asesoría de Importaciones</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA ASESORÍA CONTROL INTERNO
-     ======================================== -->
+<!-- PÁGINA ASESORÍA CONTROL INTERNO -->
 <div id="asesoria-control" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Asesoría de Control Interno</h2>
       <p>Sabemos que una empresa bien organizada por dentro es una empresa que crece con solidez. Nuestro servicio de Asesoría de Control Interno está diseñado para ayudarte a identificar vulnerabilidades, fortalecer tus procesos y proteger los recursos de tu organización, sin importar su tamaño o sector.</p>
       <h3>Gestión de Riesgos</h3>
@@ -445,21 +427,18 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <div class="feature-item">Planes de acción y monitoreo continuo</div>
       </div>
       <p style="margin-top:24px"><strong>Contestamos todas tus dudas</strong></p>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20asesor%C3%ADa%20de%20control%20interno" target="_blank">Solicitar Asesoría de Control Interno</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20asesor%C3%ADa%20de%20control%20interno" target="_blank">Solicitar Asesoría de Control Interno</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA ASESORÍA MARKETING DIGITAL
-     ======================================== -->
+<!-- PÁGINA ASESORÍA MARKETING DIGITAL -->
 <div id="asesoria-marketing" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Asesoría Marketing Digital</h2>
       <h3>📱 Gestión de Redes Sociales</h3>
       <p>Nos encargamos de administrar tus perfiles en Facebook, Instagram, LinkedIn, TikTok.</p>
@@ -472,21 +451,18 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
       <h3>💻 Diseño Web</h3>
       <p>Tu sitio web es tu carta de presentación en el mundo digital. Diseñamos páginas web atractivas, rápidas y optimizadas para dispositivos móviles, pensadas para convertir visitantes en clientes. Ya sea una landing page, un sitio corporativo o una tienda en línea, creamos experiencias digitales que generan confianza y resultados.</p>
       <p style="margin-top:24px"><strong>Contestamos todas tus dudas</strong></p>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20asesor%C3%ADa%20de%20marketing%20digital" target="_blank">Solicitar Asesoría de Marketing Digital</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20asesor%C3%ADa%20de%20marketing%20digital" target="_blank">Solicitar Asesoría de Marketing Digital</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA REGISTRO SANITARIO
-     ======================================== -->
+<!-- PÁGINA REGISTRO SANITARIO -->
 <div id="registro-sanitario" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Registro Sanitario</h2>
       <p>Comercializar un producto en Ecuador sin el Registro Sanitario no es una opción. Te acompañamos en todo el ciclo de vida de tu registro ante la ARCSA, gestionando cada trámite con experiencia, precisión y total transparencia para que tus productos lleguen al mercado sin contratiempos.</p>
       <p><strong>Trabajamos con todo tipo de productos:</strong> alimentos y bebidas, medicamentos y suplementos, cosméticos y productos de cuidado personal.</p>
@@ -496,21 +472,18 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <div class="feature-item">✏️ Modificaciones</div>
         <div class="feature-item">❌ Cancelaciones</div>
       </div>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Registro%20Sanitario" target="_blank">NECESITO EL REGISTRO SANITARIO</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20el%20Registro%20Sanitario" target="_blank">NECESITO EL REGISTRO SANITARIO</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA REGISTRO SENAE
-     ======================================== -->
+<!-- PÁGINA REGISTRO SENAE -->
 <div id="registro-senae" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Registro SENAE Importador</h2>
       <p>Para importar legalmente en Ecuador, el primer paso es estar habilitado ante el Servicio Nacional de Aduana del Ecuador (SENAE). Te guiamos en todo el proceso para que obtengas tu registro como importador de forma correcta, rápida y sin contratiempos, ya seas persona natural o empresa.</p>
       <div class="service-features">
@@ -519,100 +492,88 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <div class="feature-item">✅ Habilitación Operativa</div>
         <div class="feature-item">📡 Seguimiento y Acompañamiento</div>
       </div>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Registro%20SENAE%20Importador" target="_blank">NECESITO EL REGISTRO DE SENAE</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20el%20Registro%20SENAE%20Importador" target="_blank">NECESITO EL REGISTRO DE SENAE</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA PERMISO FUNCIONAMIENTO
-     ======================================== -->
+<!-- PÁGINA PERMISO FUNCIONAMIENTO -->
 <div id="permiso-funcionamiento" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Permiso de Funcionamiento</h2>
       <p>Operar un negocio en Ecuador requiere estar al día con una serie de permisos y autorizaciones ante distintas entidades. Nos encargamos de gestionar todos los permisos que tu empresa necesita para funcionar de manera legal y sin interrupciones, tanto si estás abriendo un nuevo negocio como si necesitas renovar tus permisos existentes.</p>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20los%20Permisos%20de%20Funcionamiento" target="_blank">NECESITO LOS PERMISOS DE FUNCIONAMIENTO</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20los%20Permisos%20de%20Funcionamiento" target="_blank">NECESITO LOS PERMISOS DE FUNCIONAMIENTO</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA PERMISO MUNICIPAL
-     ======================================== -->
+<!-- PÁGINA PERMISO MUNICIPAL -->
 <div id="permiso-municipal" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Permiso Municipal (Patente)</h2>
       <p>La patente municipal es uno de los primeros requisitos para operar legalmente en tu ciudad. Gestionamos su obtención y renovación anual ante el Municipio correspondiente, asegurándonos de que tu negocio esté habilitado para ejercer su actividad económica sin problemas con las autoridades locales.</p>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Permiso%20Municipal%20%28Patente%29" target="_blank">NECESITO EL PERMISO MUNICIPAL</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20el%20Permiso%20Municipal%20%28Patente%29" target="_blank">NECESITO EL PERMISO MUNICIPAL</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA PERMISO BOMBEROS
-     ======================================== -->
+<!-- PÁGINA PERMISO BOMBEROS -->
 <div id="permiso-bomberos" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Permiso del Cuerpo de Bomberos</h2>
       <p>Garantizar la seguridad de tu local y de quienes trabajan en él es una obligación legal y una responsabilidad con tu equipo. En JNL Asociados tramitamos el permiso de funcionamiento del Cuerpo de Bomberos, coordinando las inspecciones necesarias y gestionando toda la documentación para que obtengas tu certificado sin demoras.</p>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Permiso%20del%20Cuerpo%20de%20Bomberos" target="_blank">NECESITO EL PERMISO DEL CUERPO DE BOMBEROS</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20el%20Permiso%20del%20Cuerpo%20de%20Bomberos" target="_blank">NECESITO EL PERMISO DEL CUERPO DE BOMBEROS</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA PERMISO SANITARIO MSP
-     ======================================== -->
+<!-- PÁGINA PERMISO SANITARIO MSP -->
 <div id="permiso-sanitario" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <div class="service-arrow">➜</div>
       <h2>Permiso Sanitario de Funcionamiento (MSP)</h2>
       <p>Si tu actividad está relacionada con alimentos, salud, estética o cualquier servicio que implique contacto con el público, el Permiso Sanitario del Ministerio de Salud Pública es indispensable. Nos encargamos de preparar los requisitos, coordinar las inspecciones y gestionar su obtención y renovación oportuna.</p>
-      <a class="btn-service-large" href="https://wa.me/593999485465?text=Hola%2C%20necesito%20el%20Permiso%20Sanitario%20de%20Funcionamiento" target="_blank">NECESITO EL PERMISO SANITARIO DE FUNCIONAMIENTO</a>
+      <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20el%20Permiso%20Sanitario%20de%20Funcionamiento" target="_blank">NECESITO EL PERMISO SANITARIO DE FUNCIONAMIENTO</a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- ========================================
-     PÁGINA COTIZACIÓN
-     ======================================== -->
+<!-- PÁGINA COTIZACIÓN -->
 <div id="cotizacion" class="page">
 <section class="cta-section">
   <div class="cta-inner">
     <h2>Cotiza tu Importación<br>desde China</h2>
     <p>Solicita una cotización gratuita y personalizada. Te ayudaremos a encontrar los mejores proveedores, calcular costos reales y gestionar todo el proceso de importación.</p>
     <div class="cta-buttons">
-      <a class="btn-cta-primary" href="https://wa.me/593999485465?text=Hola%20JNL%20Asociados%2C%20quiero%20cotizar%20una%20importaci%C3%B3n" target="_blank">
-        <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
-        Cotizar mi Importación Ahora
+      <a class="btn-cta-primary" href="https://jnlprofroma.netlify.app/" target="_blank">
+        📋 Ir al Formulario de Cotización
       </a>
-      <a class="btn-cta-secondary" href="mailto:info@jnlasociados.com">Enviar por Email</a>
+      <a class="btn-cta-secondary" href="https://wa.me/593998067935?text=Hola%20JNL%20Asociados%2C%20quiero%20cotizar%20una%20importaci%C3%B3n" target="_blank">
+        <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
+        Cotizar por WhatsApp
+      </a>
     </div>
   </div>
 </section>
 </div>
 
-<!-- FOOTER (Compartido para todas las páginas) -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -631,7 +592,7 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <a onclick="showPage('contables')">Servicios Contables</a>
         <a onclick="showPage('importaciones')">Importaciones China</a>
         <a onclick="showPage('marketing')">Marketing Digital</a>
-        <a onclick="showPage('cotizacion')">Cotizar Importación</a>
+        <a href="https://jnlprofroma.netlify.app/" target="_blank">Cotizar Importación</a>
       </div>
       <div class="footer-col">
         <h4>Asesorías</h4>
@@ -641,7 +602,7 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
       </div>
       <div class="footer-col">
         <h4>Contacto</h4>
-        <a href="https://wa.me/593999485465" target="_blank">📱 +593 99 948 5465</a>
+        <a href="https://wa.me/593998067935" target="_blank">📱 +593 99 806 7935</a>
         <a href="mailto:info@jnlasociados.com">✉️ info@jnlasociados.com</a>
         <a href="https://www.instagram.com/jnl_asociados/" target="_blank">Instagram</a>
         <a href="https://www.facebook.com/jnlasociados" target="_blank">Facebook</a>
@@ -652,36 +613,25 @@ footer{background:var(--navy);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
       <div class="social-links">
         <a href="https://www.instagram.com/jnl_asociados/" target="_blank" class="social-link">📸</a>
         <a href="https://www.facebook.com/jnlasociados" target="_blank" class="social-link">👥</a>
-        <a href="https://wa.me/593999485465" target="_blank" class="social-link">💬</a>
+        <a href="https://wa.me/593998067935" target="_blank" class="social-link">💬</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-// Sistema de navegación entre páginas
 function showPage(pageId) {
-  // Ocultar todas las páginas
   document.querySelectorAll('.page').forEach(page => {
     page.classList.remove('active');
   });
-  
-  // Mostrar la página seleccionada
   document.getElementById(pageId).classList.add('active');
-  
-  // Cerrar menú móvil si está abierto
   document.getElementById('mmenu').classList.remove('open');
-  
-  // Cerrar dropdowns del menú
   document.querySelectorAll('.nav-item').forEach(item => {
     item.classList.remove('open');
   });
-  
-  // Scroll al inicio de la página
   window.scrollTo(0, 0);
 }
 
-// Dropdown Menu Navigation
 const serviciosItem = document.getElementById('serviciosItem');
 const asesoriasItem = document.getElementById('asesoriasItem');
 const certificadosItem = document.getElementById('certificadosItem');
@@ -712,7 +662,6 @@ document.addEventListener('click', function() {
   allMenuItems.forEach(item => item.classList.remove('open'));
 });
 
-// Mobile Menu
 document.getElementById('hamburger').addEventListener('click', () => {
   document.getElementById('mmenu').classList.toggle('open');
 });
