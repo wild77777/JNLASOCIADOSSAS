@@ -9,175 +9,218 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  /* NUEVOS COLORES DE MARCA: ROJO, NEGRO, BLANCO */
-  --primary:#DC0000; --primary-dark:#B00000; --primary-light:#FF1A1A;
-  --secondary:#FF3333; --secondary-dark:#CC0000;
-  --accent:#DC0000; --accent-light:#FF1A1A;
-  --navy:#1a1a1a; --navy-light:#2d2d2d; --navy-lighter:#404040;
-  --dark:#000000; --dark-light:#1a1a1a; --dark-lighter:#333333;
-  --white:#ffffff; --off:#f8f8f8; --off2:#f1f1f1;
-  --text:#1a1a1a; --text-light:#4a4a4a; --text-muted:#6a6a6a;
-  --border:#e0e0e0; --border-light:#f0f0f0;
-  --success:#10b981; --error:#DC0000;
-  --yellow-note:#fff5f5; --yellow-border:#DC0000;
-  --gradient-1:linear-gradient(135deg, #DC0000 0%, #FF3333 100%);
-  --gradient-2:linear-gradient(135deg, #000000 0%, #1a1a1a 60%, #2d2d2d 100%);
-  --gradient-hero:linear-gradient(135deg, #000000 0%, #DC0000 100%);
-  --shadow-sm:0 2px 8px rgba(0,0,0,0.04);
-  --shadow-md:0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg:0 12px 32px rgba(0,0,0,0.12);
-  --shadow-xl:0 20px 48px rgba(0,0,0,0.16);
-  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:24px;
+  /* PALETA EQUILIBRADA: BLANCO BASE · NEGRO TEXTO · ROJO ACENTO */
+  --red:#D40000; --red-dark:#A60000; --red-light:#E63946; --red-soft:#FFF1F1;
+  --black:#111111; --charcoal:#1f1f1f; --graphite:#2b2b2b;
+  --white:#ffffff; --paper:#fafafa; --cloud:#f4f4f5; --mist:#ececee;
+  --ink:#18181b; --slate:#3f3f46; --gray:#71717a; --gray-light:#a1a1aa;
+  --border:#e4e4e7; --border-soft:#f0f0f1;
+  --success:#16a34a;
+  --gradient-red:linear-gradient(135deg, #D40000 0%, #E63946 100%);
+  --gradient-dark:linear-gradient(135deg, #1f1f1f 0%, #111111 100%);
+  --shadow-xs:0 1px 2px rgba(17,17,17,0.04);
+  --shadow-sm:0 2px 8px rgba(17,17,17,0.05);
+  --shadow-md:0 6px 20px rgba(17,17,17,0.07);
+  --shadow-lg:0 14px 40px rgba(17,17,17,0.10);
+  --shadow-red:0 8px 28px rgba(212,0,0,0.22);
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:22px; --r-2xl:28px;
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);line-height:1.6;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--slate);line-height:1.6;overflow-x:hidden}
 
 /* PAGE SYSTEM */
-.page{display:none;animation:fadeIn 0.4s ease-in-out}
+.page{display:none;animation:fadeIn .4s ease-in-out}
 .page.active{display:block}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* WHATSAPP FLOAT */
-.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:64px;height:64px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.35),0 0 0 0 rgba(37,211,102,0.5);text-decoration:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1);animation:wa-pulse 3s ease-in-out infinite}
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:62px;height:62px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.35),0 0 0 0 rgba(37,211,102,0.5);text-decoration:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1);animation:wa-pulse 3s ease-in-out infinite}
 .wa-float:hover{transform:scale(1.1) rotate(5deg)}
 @keyframes wa-pulse{0%,100%{box-shadow:0 8px 24px rgba(37,211,102,0.35),0 0 0 0 rgba(37,211,102,0.5)}50%{box-shadow:0 8px 32px rgba(37,211,102,0.5),0 0 0 12px rgba(37,211,102,0)}}
-.wa-float svg{width:36px;height:36px;fill:white}
+.wa-float svg{width:34px;height:34px;fill:white}
 .wa-ico{width:18px;height:18px;fill:currentColor;flex-shrink:0}
 
-/* NAVIGATION */
-nav{background:var(--dark);position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(220,0,0,0.2)}
-.nav-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:80px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;transition:opacity .2s;cursor:pointer}
-.logo:hover{opacity:.9}
-.logo-mark{width:52px;height:52px;background:var(--primary);border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(220,0,0,0.3)}
-.logo-mark span{font-family:'Sora',sans-serif;font-size:22px;font-weight:800;color:white;position:relative}
-.logo-text{display:flex;flex-direction:column;gap:1px}
-.logo-name{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;color:white;letter-spacing:-.5px;line-height:1}
-.logo-tag{font-size:10px;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:.5px;text-transform:uppercase}
+/* NAVIGATION — fondo blanco, texto negro, acento rojo */
+nav{background:var(--white);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border);box-shadow:var(--shadow-xs)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:82px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;cursor:pointer;transition:opacity .2s}
+.logo:hover{opacity:.85}
+.logo-img{height:62px;width:auto;object-fit:contain}
+.logo-text{display:flex;flex-direction:column;gap:2px}
+.logo-name{font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--black);letter-spacing:-.5px;line-height:1}
+.logo-tag{font-size:10px;font-weight:600;color:var(--red);letter-spacing:1px;text-transform:uppercase}
 
-.nav-menu{display:flex;gap:4px;align-items:center}
+.nav-menu{display:flex;gap:2px;align-items:center}
 .nav-item{position:relative}
-.nav-link{display:flex;align-items:center;gap:8px;padding:12px 24px;font-size:15px;font-weight:700;color:white;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;transition:all .2s;border-radius:6px;cursor:pointer}
-.nav-link:hover{background:rgba(220,0,0,0.2);color:var(--primary-light)}
-.nav-link svg{width:12px;height:12px;fill:white;transition:transform .3s}
+.nav-link{display:flex;align-items:center;gap:7px;padding:11px 18px;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:.2px;transition:all .2s;border-radius:8px;cursor:pointer}
+.nav-link:hover{background:var(--red-soft);color:var(--red)}
+.nav-link svg{width:11px;height:11px;fill:currentColor;transition:transform .3s}
+.nav-item.open .nav-link{color:var(--red);background:var(--red-soft)}
 .nav-item.open .nav-link svg{transform:rotate(180deg)}
 
-.dropdown-simple{display:none;position:absolute;top:100%;left:0;background:white;min-width:320px;border-radius:var(--r-md);box-shadow:0 12px 32px rgba(0,0,0,0.15);padding:12px 0;margin-top:12px;z-index:100;border-top:3px solid var(--primary)}
-.nav-item.open .dropdown-simple{display:block}
-.dropdown-simple-item{display:block;padding:14px 24px;color:var(--text);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border-left:3px solid transparent;cursor:pointer}
-.dropdown-simple-item:hover{background:var(--off);border-left-color:var(--primary);color:var(--primary)}
+.dropdown-simple,.dropdown{display:none;position:absolute;top:100%;left:0;background:var(--white);min-width:308px;border-radius:var(--r-md);box-shadow:var(--shadow-lg);padding:10px;margin-top:10px;z-index:100;border:1px solid var(--border)}
+.dropdown-simple{min-width:320px}
+.nav-item.open .dropdown-simple,.nav-item.open .dropdown{display:block;animation:fadeIn .25s ease}
+.dropdown-simple-item,.dropdown-item{display:block;padding:12px 16px;color:var(--slate);font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;border-radius:8px;cursor:pointer}
+.dropdown-simple-item:hover,.dropdown-item:hover{background:var(--red-soft);color:var(--red);padding-left:22px}
 
-.dropdown{display:none;position:absolute;top:100%;left:0;background:white;min-width:300px;border-radius:var(--r-md);box-shadow:0 12px 32px rgba(0,0,0,0.15);padding:12px 0;margin-top:12px;z-index:100;border-top:3px solid var(--primary)}
-.nav-item.open .dropdown{display:block}
-.dropdown-item{display:block;padding:12px 20px;color:var(--text);font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border-left:3px solid transparent;cursor:pointer}
-.dropdown-item:hover{background:var(--off);border-left-color:var(--primary);color:var(--primary)}
+/* BOTONES NAV */
+.btn-cotiza{background:var(--ink);color:white;padding:11px 20px;border-radius:var(--r-sm);font-size:13px;font-weight:600;text-decoration:none;transition:all .3s;letter-spacing:.3px;white-space:nowrap;display:inline-block}
+.btn-cotiza:hover{background:var(--black);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.btn-nav{background:var(--red);color:white;padding:12px 24px;border-radius:var(--r-sm);font-size:13px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(212,0,0,0.25);letter-spacing:.3px;white-space:nowrap}
+.btn-nav:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:var(--shadow-red)}
 
-/* BOTÓN COTIZA TU IMPORTACIÓN */
-.btn-cotiza{background:var(--primary);color:white;padding:12px 24px;border-radius:var(--r-sm);font-size:14px;font-weight:700;text-decoration:none;transition:all .3s;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;display:inline-block}
-.btn-cotiza:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(220,0,0,0.4)}
-
-.btn-nav{background:var(--primary);color:white;padding:14px 28px;border-radius:var(--r-sm);font-size:15px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 4px 12px rgba(220,0,0,0.3);text-transform:uppercase;letter-spacing:.5px}
-.btn-nav:hover{background:var(--primary-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(220,0,0,0.4)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
-.hamburger span{width:26px;height:3px;background:white;border-radius:2px;transition:all .3s}
-.mobile-menu{display:none;background:white;border-bottom:1px solid var(--border);max-height:80vh;overflow-y:auto}
-.mobile-menu-section{border-bottom:1px solid var(--border-light)}
-.mobile-menu-title{padding:16px 24px;font-size:13px;font-weight:700;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;background:var(--off2)}
-.mobile-menu a{display:block;padding:14px 24px 14px 40px;font-size:14px;color:var(--text);text-decoration:none;transition:all .2s;cursor:pointer}
-.mobile-menu a:hover{background:var(--off);color:var(--primary)}
-.mobile-menu .m-cta{background:var(--primary);color:white;font-weight:600;margin:16px;border-radius:var(--r-sm);text-align:center;padding:16px 24px}
-.mobile-menu .m-cotiza{background:var(--dark);color:white;font-weight:600;margin:16px 16px 8px;border-radius:var(--r-sm);text-align:center;padding:16px 24px;text-decoration:none;display:block}
+.hamburger span{width:26px;height:3px;background:var(--ink);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;background:var(--white);border-bottom:1px solid var(--border);max-height:80vh;overflow-y:auto}
+.mobile-menu-section{border-bottom:1px solid var(--border-soft)}
+.mobile-menu-title{padding:16px 24px;font-size:12px;font-weight:700;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;background:var(--paper)}
+.mobile-menu a{display:block;padding:14px 24px 14px 40px;font-size:14px;color:var(--slate);text-decoration:none;transition:all .2s;cursor:pointer}
+.mobile-menu a:hover{background:var(--red-soft);color:var(--red)}
+.mobile-menu .m-cta{background:var(--red);color:white;font-weight:600;margin:16px;border-radius:var(--r-sm);text-align:center;padding:16px 24px;display:block;text-decoration:none}
+.mobile-menu .m-cotiza{background:var(--ink);color:white;font-weight:600;margin:16px 16px 8px;border-radius:var(--r-sm);text-align:center;padding:16px 24px;text-decoration:none;display:block}
 .mobile-menu.open{display:block}
 
-/* HERO */
-.hero{background:var(--gradient-hero);padding:120px 40px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(220,0,0,0.15),transparent 70%);border-radius:50%}
-.hero::after{content:'';position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(220,0,0,0.12),transparent 70%);border-radius:50%}
-.hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1}
-.hero-content{max-width:720px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(220,0,0,0.15);border:1px solid rgba(220,0,0,0.3);padding:8px 16px;border-radius:100px;margin-bottom:28px;backdrop-filter:blur(8px)}
-.hero-badge .pulse-dot{width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse-grow 2s ease-in-out infinite;box-shadow:0 0 0 0 rgba(220,0,0,0.5)}
-@keyframes pulse-grow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:.7}}
-.hero-badge span{font-size:13px;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:.3px}
-.hero h1{font-family:'Sora',sans-serif;font-size:clamp(40px,5vw,68px);font-weight:800;line-height:1.1;color:white;margin-bottom:24px;letter-spacing:-1.5px}
-.hero h1 .gradient-text{background:linear-gradient(135deg,#DC0000,#FF3333);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-desc{font-size:19px;line-height:1.7;color:rgba(255,255,255,0.85);margin-bottom:40px;max-width:600px;font-weight:300}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--primary);color:white;padding:16px 32px;border-radius:var(--r-md);font-size:16px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 8px 24px rgba(220,0,0,0.3)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(220,0,0,0.4);background:var(--primary-light)}
-.btn-secondary{display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,0.4);color:white;padding:16px 28px;border-radius:var(--r-md);font-size:15px;font-weight:600;text-decoration:none;transition:all .3s;backdrop-filter:blur(8px);cursor:pointer}
-.btn-secondary:hover{border-color:white;background:rgba(255,255,255,0.15)}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:640px}
-.stat-item{text-align:center}
-.stat-num{font-family:'Sora',sans-serif;font-size:36px;font-weight:800;color:white;line-height:1;margin-bottom:8px;text-shadow:0 2px 12px rgba(0,0,0,0.3)}
-.stat-label{font-size:14px;color:rgba(255,255,255,0.8);font-weight:500}
+/* HERO — claro, elegante, con detalles rojos */
+.hero{background:var(--paper);padding:110px 40px 90px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;top:-160px;right:-120px;width:520px;height:520px;background:radial-gradient(circle,rgba(212,0,0,0.06),transparent 68%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-180px;left:-140px;width:480px;height:480px;background:radial-gradient(circle,rgba(17,17,17,0.04),transparent 70%);border-radius:50%}
+.hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero-content{max-width:640px}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:var(--white);border:1px solid var(--border);padding:8px 18px;border-radius:100px;margin-bottom:28px;box-shadow:var(--shadow-xs)}
+.hero-badge .pulse-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse-grow 2s ease-in-out infinite}
+@keyframes pulse-grow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.25);opacity:.6}}
+.hero-badge span{font-size:13px;font-weight:600;color:var(--slate);letter-spacing:.3px}
+.hero h1{font-family:'Sora',sans-serif;font-size:clamp(40px,5vw,66px);font-weight:800;line-height:1.08;color:var(--black);margin-bottom:24px;letter-spacing:-1.8px}
+.hero h1 .accent{color:var(--red)}
+.hero-desc{font-size:19px;line-height:1.7;color:var(--gray);margin-bottom:40px;max-width:600px;font-weight:400}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:white;padding:16px 32px;border-radius:var(--r-md);font-size:16px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:var(--shadow-red)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(212,0,0,0.32);background:var(--red-dark)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);color:var(--ink);padding:16px 28px;border-radius:var(--r-md);font-size:15px;font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;background:transparent}
+.btn-secondary:hover{background:var(--ink);color:white}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:660px}
+.stat-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 20px;text-align:center;box-shadow:var(--shadow-xs);transition:all .3s}
+.stat-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(212,0,0,0.2)}
+.stat-num{font-family:'Sora',sans-serif;font-size:38px;font-weight:800;color:var(--red);line-height:1;margin-bottom:8px}
+.stat-label{font-size:13px;color:var(--gray);font-weight:500}
 
-/* SERVICE SECTION WITH SIDE IMAGE */
-.service-detail{padding:100px 40px;background:var(--off)}
-.service-detail:nth-child(even){background:white}
-.service-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start}
-.service-photo{width:280px;height:360px;background:var(--yellow-note);border:3px solid var(--primary);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;color:var(--text);text-align:center;padding:32px;box-shadow:var(--shadow-lg);position:sticky;top:100px}
-.service-content{}
-.service-content h2{font-family:'Sora',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:800;color:var(--dark);line-height:1.15;margin-bottom:20px;letter-spacing:-1px}
-.service-content h3{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:var(--dark);margin:32px 0 16px;letter-spacing:-.5px}
-.service-content p{font-size:16px;color:var(--text);line-height:1.75;margin-bottom:24px}
-.service-features{display:flex;flex-direction:column;gap:12px;margin:24px 0}
-.feature-item{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--text);line-height:1.6}
-.feature-item::before{content:'✓';display:flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--primary);color:white;border-radius:50%;font-weight:700;font-size:14px;flex-shrink:0}
-.feature-icon{display:inline-flex;align-items:center;gap:6px;margin-right:4px}
-.btn-service-large{display:inline-flex;align-items:center;gap:10px;background:var(--primary);color:white;padding:16px 36px;border-radius:var(--r-md);font-size:16px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:0 6px 20px rgba(220,0,0,0.25);margin-top:32px}
-.btn-service-large:hover{background:var(--primary-light);transform:translateY(-3px);box-shadow:0 8px 28px rgba(220,0,0,0.35)}
-.highlight-box{background:var(--off2);border-left:4px solid var(--primary);padding:20px 24px;border-radius:var(--r-md);margin:28px 0;font-size:15px;color:var(--text);line-height:1.7}
+/* HERO GROWTH CHART */
+.hero-visual{position:relative}
+.chart-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-2xl);padding:26px 26px 22px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;animation:cardRise .8s cubic-bezier(.16,1,.3,1) both}
+@keyframes cardRise{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.chart-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--gradient-red)}
+.chart-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px}
+.chart-title{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:8px}
+.chart-amount{font-family:'Sora',sans-serif;font-size:34px;font-weight:800;color:var(--black);line-height:1;letter-spacing:-1px}
+.chart-amount .cur{color:var(--red)}
+.chart-trend{display:inline-flex;align-items:center;gap:5px;background:rgba(22,163,74,0.1);color:var(--success);font-size:13px;font-weight:700;padding:6px 11px;border-radius:100px;white-space:nowrap}
+.chart-trend svg{width:13px;height:13px;fill:var(--success)}
+.chart-svg-wrap{margin-top:14px}
+.chart-svg{width:100%;height:auto;display:block;overflow:visible}
+/* line draw */
+.spark-line{fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1000;stroke-dashoffset:1000;animation:drawLine 2s ease-out .5s forwards}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+.spark-area{fill:url(#redFade);opacity:0;animation:fadeArea 1.2s ease-out 1.6s forwards}
+@keyframes fadeArea{to{opacity:1}}
+.spark-dot{fill:var(--red);opacity:0;animation:popDot .4s cubic-bezier(.34,1.56,.64,1) 2.3s forwards}
+.spark-dot-ring{fill:none;stroke:var(--red);stroke-width:2;opacity:0;transform-origin:center;animation:pingRing 2s ease-out 2.6s infinite}
+@keyframes popDot{to{opacity:1}}
+@keyframes pingRing{0%{opacity:.6;transform:scale(.6)}80%,100%{opacity:0;transform:scale(2.4)}}
+/* bars */
+.gbar{fill:var(--mist);transform:scaleY(0);transform-origin:bottom;transform-box:fill-box}
+.gbar.on{fill:url(#barFade)}
+.chart-foot{display:flex;justify-content:space-between;margin-top:12px;padding-top:14px;border-top:1px solid var(--border-soft)}
+.chart-foot-item{text-align:center;flex:1}
+.chart-foot-num{font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:var(--black);line-height:1}
+.chart-foot-lbl{font-size:11px;color:var(--gray);font-weight:500;margin-top:4px}
+.float-badge{position:absolute;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:9px;animation:floaty 4s ease-in-out infinite}
+.float-badge .fb-ico{width:32px;height:32px;border-radius:9px;background:var(--red-soft);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.float-badge .fb-txt{font-size:11px;color:var(--gray);font-weight:500;line-height:1.2}
+.float-badge .fb-txt b{display:block;font-size:14px;color:var(--black);font-weight:800;font-family:'Sora',sans-serif}
+.fb-top{top:-22px;right:18px;animation-delay:0s}
+.fb-bottom{bottom:46px;left:-26px;animation-delay:1.5s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-/* CTA SECTION */
-.cta-section{padding:100px 40px;background:var(--gradient-hero);position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(220,0,0,0.2),transparent 70%);border-radius:50%}
-.cta-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.cta-inner h2{font-family:'Sora',sans-serif;font-size:clamp(36px,4.5vw,52px);font-weight:800;color:white;line-height:1.2;margin-bottom:20px}
-.cta-inner p{font-size:19px;color:rgba(255,255,255,0.9);margin-bottom:40px;line-height:1.7}
+/* SERVICE SECTION */
+.service-detail{padding:96px 40px;background:var(--white)}
+.service-detail.alt{background:var(--paper)}
+.service-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:68px;align-items:start}
+.service-photo{width:300px;height:380px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-2xl);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;color:var(--gray-light);text-align:center;padding:32px;box-shadow:var(--shadow-md);position:sticky;top:106px;overflow:hidden}
+.service-photo::after{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:var(--gradient-red)}
+.service-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.service-content h2{font-family:'Sora',sans-serif;font-size:clamp(28px,3.5vw,40px);font-weight:800;color:var(--black);line-height:1.15;margin-bottom:20px;letter-spacing:-1px}
+.service-content h3{font-family:'Sora',sans-serif;font-size:21px;font-weight:700;color:var(--black);margin:32px 0 14px;letter-spacing:-.4px;display:flex;align-items:center;gap:10px}
+.service-content h3::before{content:'';width:4px;height:22px;background:var(--red);border-radius:4px;flex-shrink:0}
+.service-content p{font-size:16px;color:var(--slate);line-height:1.78;margin-bottom:22px}
+.service-features{display:flex;flex-direction:column;gap:10px;margin:24px 0}
+.feature-item{display:flex;align-items:flex-start;gap:13px;font-size:15px;color:var(--slate);line-height:1.6;background:var(--paper);border:1px solid var(--border-soft);padding:14px 18px;border-radius:var(--r-md);transition:all .25s}
+.feature-item:hover{border-color:rgba(212,0,0,0.25);box-shadow:var(--shadow-xs);transform:translateX(4px)}
+.feature-item::before{content:'✓';display:flex;align-items:center;justify-content:center;width:24px;height:24px;background:var(--red);color:white;border-radius:7px;font-weight:700;font-size:13px;flex-shrink:0;margin-top:1px}
+.btn-service-large{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:white;padding:16px 34px;border-radius:var(--r-md);font-size:15px;font-weight:700;text-decoration:none;transition:all .3s;box-shadow:var(--shadow-red);margin-top:30px}
+.btn-service-large:hover{background:var(--red-dark);transform:translateY(-3px);box-shadow:0 12px 34px rgba(212,0,0,0.3)}
+.highlight-box{background:var(--ink);color:var(--white);border-radius:var(--r-lg);padding:24px 28px;margin:26px 0;font-size:15px;line-height:1.7;position:relative;overflow:hidden}
+.highlight-box::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;background:var(--red)}
+.highlight-box strong{color:white;font-weight:700}
+
+/* CTA SECTION — única zona oscura, como cierre dramático */
+.cta-section{padding:100px 40px;background:var(--gradient-dark);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-120px;right:-80px;width:420px;height:420px;background:radial-gradient(circle,rgba(212,0,0,0.25),transparent 68%);border-radius:50%}
+.cta-section::after{content:'';position:absolute;bottom:-140px;left:-100px;width:380px;height:380px;background:radial-gradient(circle,rgba(212,0,0,0.12),transparent 70%);border-radius:50%}
+.cta-inner{max-width:880px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red-light);margin-bottom:18px}
+.cta-inner h2{font-family:'Sora',sans-serif;font-size:clamp(36px,4.5vw,52px);font-weight:800;color:white;line-height:1.18;margin-bottom:20px;letter-spacing:-1px}
+.cta-inner p{font-size:19px;color:rgba(255,255,255,0.72);margin-bottom:40px;line-height:1.7}
 .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn-cta-primary{background:var(--primary);color:white;padding:18px 40px;border-radius:var(--r-md);font-size:17px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:0 8px 24px rgba(220,0,0,0.3)}
-.btn-cta-primary:hover{background:var(--primary-light);transform:translateY(-3px);box-shadow:0 12px 32px rgba(220,0,0,0.4)}
-.btn-cta-secondary{border:2px solid white;color:white;padding:18px 36px;border-radius:var(--r-md);font-size:16px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;backdrop-filter:blur(8px)}
-.btn-cta-secondary:hover{background:white;color:var(--dark)}
+.btn-cta-primary{background:var(--red);color:white;padding:18px 40px;border-radius:var(--r-md);font-size:16px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;box-shadow:var(--shadow-red)}
+.btn-cta-primary:hover{background:var(--red-dark);transform:translateY(-3px);box-shadow:0 14px 36px rgba(212,0,0,0.4)}
+.btn-cta-secondary{border:1.5px solid rgba(255,255,255,0.35);color:white;padding:18px 36px;border-radius:var(--r-md);font-size:15px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s}
+.btn-cta-secondary:hover{background:white;color:var(--black);border-color:white}
 
 /* FOOTER */
-footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)}
+footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6)}
 .footer-inner{max-width:1280px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(220,0,0,0.2);margin-bottom:32px}
-.footer-brand p{font-size:14px;line-height:1.7;margin-top:16px;max-width:280px}
-.footer-col h4{font-size:14px;font-weight:700;color:var(--primary);letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
-.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.7);text-decoration:none;margin-bottom:12px;transition:color .2s;cursor:pointer}
-.footer-col a:hover{color:var(--primary)}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-bottom p{font-size:13px}
-.social-links{display:flex;gap:16px}
-.social-link{width:40px;height:40px;background:rgba(220,0,0,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;transition:all .3s;color:rgba(255,255,255,0.7)}
-.social-link:hover{background:var(--primary);color:white;transform:translateY(-2px)}
+.footer-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:28px}
+.footer-brand .logo{margin-bottom:18px}
+.footer-brand p{font-size:14px;line-height:1.7;max-width:290px;color:rgba(255,255,255,0.55)}
+.footer-col h4{font-size:13px;font-weight:700;color:white;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:18px;position:relative;padding-bottom:10px}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:28px;height:2px;background:var(--red)}
+.footer-col a{display:block;font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;margin-bottom:11px;transition:all .2s;cursor:pointer}
+.footer-col a:hover{color:var(--red-light);padding-left:5px}
+.footer-bottom{display:flex;justify-content:center;align-items:center}
+.footer-bottom p{font-size:13px;text-align:center;color:rgba(255,255,255,0.4)}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .nav-inner{padding:0 28px}
-  .nav-menu{display:none}
-  .btn-nav{display:none}
-  .btn-cotiza{display:none}
+  .nav-inner{padding:0 24px;height:74px}
+  .nav-menu,.btn-nav,.btn-cotiza{display:none}
   .hamburger{display:flex}
-  .hero{padding:80px 28px 60px}
-  .hero-stats{grid-template-columns:repeat(3,1fr);gap:20px}
+  .logo-img{height:52px}
+  .hero{padding:72px 24px 64px}
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-content{max-width:760px}
+  .hero-visual{max-width:480px}
+  .float-badge{display:none}
+  .hero-stats{gap:14px}
+  .stat-num{font-size:30px}
   .service-inner{grid-template-columns:1fr;gap:40px}
-  .service-photo{width:100%;height:auto;min-height:200px;position:relative;top:0}
+  .service-photo{width:100%;height:auto;min-height:220px;position:relative;top:0}
   .footer-top{grid-template-columns:1fr 1fr;gap:36px}
 }
 @media(max-width:640px){
-  .hero h1{font-size:36px}
-  .hero-stats{grid-template-columns:1fr;gap:16px}
-  .stat-num{font-size:28px}
-  .service-detail{padding:64px 24px}
-  .cta-section{padding:80px 24px}
+  .logo-img{height:46px}
+  .logo-name{font-size:13px}
+  .logo-tag{font-size:9px}
+  .hero h1{font-size:35px}
+  .hero-visual{display:none}
+  .hero-stats{grid-template-columns:1fr;gap:12px}
+  .stat-item{display:flex;align-items:center;justify-content:center;gap:14px;padding:18px}
+  .stat-num{font-size:28px;margin-bottom:0}
+  .service-detail{padding:60px 22px}
+  .cta-section{padding:76px 22px}
   .cta-buttons{flex-direction:column;align-items:stretch}
   .btn-cta-primary,.btn-cta-secondary{justify-content:center}
-  .footer-top{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
+  .footer-top{grid-template-columns:1fr;gap:28px}
 }
 </style>
 </head>
@@ -192,9 +235,7 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 <nav>
   <div class="nav-inner">
     <div class="logo" onclick="showPage('home')">
-      <div class="logo-mark">
-        <span>JNL</span>
-      </div>
+      <img src="https://i.ibb.co/35yKtgyQ/historia-de-instagram-d-a-lunes-minimalista-1200-x-1200-px.png" alt="JNL Asociados Logo" class="logo-img">
       <div class="logo-text">
         <div class="logo-name">JNL Asociados</div>
         <div class="logo-tag">Consultoría Integral</div>
@@ -202,36 +243,24 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
     </div>
     <div style="display:flex;align-items:center;gap:8px">
       <div class="nav-menu">
-        
         <div class="nav-item" id="serviciosItem">
-          <div class="nav-link">
-            Servicios
-            <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg>
-          </div>
+          <div class="nav-link">Servicios <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg></div>
           <div class="dropdown-simple">
             <div class="dropdown-simple-item" onclick="showPage('importaciones')">Importaciones Ecuador</div>
             <div class="dropdown-simple-item" onclick="showPage('contables')">Servicios Contables y Tributarios</div>
             <div class="dropdown-simple-item" onclick="showPage('marketing')">Marketing Digital & Redes Sociales</div>
           </div>
         </div>
-        
         <div class="nav-item" id="asesoriasItem">
-          <div class="nav-link">
-            Asesorías
-            <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg>
-          </div>
+          <div class="nav-link">Asesorías <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg></div>
           <div class="dropdown">
             <div class="dropdown-item" onclick="showPage('asesoria-importaciones')">Asesoría de Importaciones</div>
             <div class="dropdown-item" onclick="showPage('asesoria-control')">Asesoría de Control Interno</div>
             <div class="dropdown-item" onclick="showPage('asesoria-marketing')">Asesoría Marketing Digital</div>
           </div>
         </div>
-
         <div class="nav-item" id="certificadosItem">
-          <div class="nav-link">
-            Certificados y Permisos
-            <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg>
-          </div>
+          <div class="nav-link">Certificados y Permisos <svg viewBox="0 0 12 12"><path d="M6 9L1 4h10z"/></svg></div>
           <div class="dropdown">
             <div class="dropdown-item" onclick="showPage('registro-sanitario')">Registro Sanitario</div>
             <div class="dropdown-item" onclick="showPage('registro-senae')">Registro SENAE Importador</div>
@@ -241,15 +270,10 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
             <div class="dropdown-item" onclick="showPage('permiso-sanitario')">Permiso Sanitario (MSP)</div>
           </div>
         </div>
-        
       </div>
-      
       <a class="btn-cotiza" href="https://jnlprofroma.netlify.app/" target="_blank">Cotiza tu Importación</a>
-      
       <a class="btn-nav" href="https://wa.me/593998067935" target="_blank">Contactar</a>
-      <button class="hamburger" id="hamburger" aria-label="Menú">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -262,14 +286,12 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
     <a onclick="showPage('contables')">Servicios Contables y Tributarios</a>
     <a onclick="showPage('marketing')">Marketing Digital & Redes Sociales</a>
   </div>
-  
   <div class="mobile-menu-section">
     <div class="mobile-menu-title">Asesorías</div>
     <a onclick="showPage('asesoria-importaciones')">Asesoría de Importaciones</a>
     <a onclick="showPage('asesoria-control')">Asesoría de Control Interno</a>
     <a onclick="showPage('asesoria-marketing')">Asesoría Marketing Digital</a>
   </div>
-  
   <div class="mobile-menu-section">
     <div class="mobile-menu-title">Certificados y Permisos</div>
     <a onclick="showPage('registro-sanitario')">Registro Sanitario</a>
@@ -279,22 +301,17 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
     <a onclick="showPage('permiso-bomberos')">Permiso del Cuerpo de Bomberos</a>
     <a onclick="showPage('permiso-sanitario')">Permiso Sanitario de Funcionamiento</a>
   </div>
-  
   <a href="https://jnlprofroma.netlify.app/" target="_blank" class="m-cotiza">📋 Cotiza tu Importación</a>
-  
   <a href="https://wa.me/593998067935" target="_blank" class="m-cta">📲 Contactar por WhatsApp</a>
 </div>
 
-<!-- PÁGINA HOME -->
+<!-- HOME -->
 <div id="home" class="page active">
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-badge">
-        <div class="pulse-dot"></div>
-        <span>Consultoría Empresarial · Ecuador</span>
-      </div>
-      <h1>Hacemos crecer tu negocio con <span class="gradient-text">estrategia real</span></h1>
+      <div class="hero-badge"><div class="pulse-dot"></div><span>Consultoría Empresarial · Ecuador</span></div>
+      <h1>Hacemos crecer tu negocio con <span class="accent">estrategia real</span></h1>
       <p class="hero-desc">Marketing digital que convierte, importaciones directas desde China con proceso completo, y servicios contables-tributarios que te dan tranquilidad. Todo en un solo equipo.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://wa.me/593998067935?text=Hola%20JNL%20Asociados%2C%20quiero%20una%20consulta%20gratuita" target="_blank">
@@ -304,30 +321,79 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
         <div class="btn-secondary" onclick="showPage('contables')">Ver Servicios →</div>
       </div>
       <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">+150</div>
-          <div class="stat-label">Empresas asesoradas</div>
+        <div class="stat-item"><div class="stat-num">+150</div><div class="stat-label">Empresas asesoradas</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Áreas de especialización</div></div>
+        <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Clientes satisfechos</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="chart-card">
+        <div class="chart-head">
+          <div>
+            <div class="chart-title">Crecimiento de ingresos</div>
+            <div class="chart-amount"><span class="cur">$</span><span id="countUp">0</span></div>
+          </div>
+          <div class="chart-trend">
+            <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8v6h-2V9.83l-6 6-4-4L4.41 18z"/></svg>
+            +218%
+          </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">5</div>
-          <div class="stat-label">Áreas de especialización</div>
+        <div class="chart-svg-wrap">
+          <svg class="chart-svg" viewBox="0 0 340 180" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="redFade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#D40000" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#D40000" stop-opacity="0"/>
+              </linearGradient>
+              <linearGradient id="barFade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#D40000" stop-opacity="0.55"/>
+                <stop offset="100%" stop-color="#D40000" stop-opacity="0.12"/>
+              </linearGradient>
+            </defs>
+            <!-- bars -->
+            <g id="barGroup">
+              <rect class="gbar" x="20"  y="120" width="26" height="50"  rx="4"/>
+              <rect class="gbar" x="66"  y="104" width="26" height="66"  rx="4"/>
+              <rect class="gbar" x="112" y="116" width="26" height="54"  rx="4"/>
+              <rect class="gbar" x="158" y="84"  width="26" height="86"  rx="4"/>
+              <rect class="gbar" x="204" y="66"  width="26" height="104" rx="4"/>
+              <rect class="gbar" x="250" y="44"  width="26" height="126" rx="4"/>
+              <rect class="gbar" x="296" y="22"  width="26" height="148" rx="4"/>
+            </g>
+            <!-- area + line -->
+            <path class="spark-area" d="M33,128 L79,112 L125,122 L171,92 L217,74 L263,52 L309,30 L309,170 L33,170 Z"/>
+            <polyline class="spark-line" points="33,128 79,112 125,122 171,92 217,74 263,52 309,30"/>
+            <!-- end dot -->
+            <circle class="spark-dot-ring" cx="309" cy="30" r="6"/>
+            <circle class="spark-dot" cx="309" cy="30" r="5"/>
+          </svg>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">98%</div>
-          <div class="stat-label">Clientes satisfechos</div>
+        <div class="chart-foot">
+          <div class="chart-foot-item"><div class="chart-foot-num" id="f1">0</div><div class="chart-foot-lbl">Clientes activos</div></div>
+          <div class="chart-foot-item"><div class="chart-foot-num" id="f2">0</div><div class="chart-foot-lbl">Importaciones</div></div>
+          <div class="chart-foot-item"><div class="chart-foot-num" id="f3">0%</div><div class="chart-foot-lbl">Retención</div></div>
         </div>
+      </div>
+      <div class="float-badge fb-top">
+        <div class="fb-ico">📈</div>
+        <div class="fb-txt">Ventas mensuales<b>En aumento</b></div>
+      </div>
+      <div class="float-badge fb-bottom">
+        <div class="fb-ico">💰</div>
+        <div class="fb-txt">ROI promedio<b>3.4×</b></div>
       </div>
     </div>
   </div>
 </section>
 </div>
 
-<!-- PÁGINA SERVICIOS CONTABLES -->
+<!-- CONTABLES -->
 <div id="contables" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Servicios</span>
       <h2>Servicios Contables y Tributarios</h2>
       <h3>Servicios Contables</h3>
       <p>Somos un equipo altamente capacitado con años de experiencia, te brindará un apoyo sólido en todas tus necesidades contables, Declaración de impuesto.</p>
@@ -347,13 +413,14 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA IMPORTACIONES -->
+<!-- IMPORTACIONES -->
 <div id="importaciones" class="page">
-<section class="service-detail">
+<section class="service-detail alt">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
-      <h2>Nuestros servicios<br>Importaciones Ecuador</h2>
+      <span class="service-eyebrow">Servicios</span>
+      <h2>Importaciones Ecuador</h2>
       <p>Te acompañamos en todo el proceso de importación, desde la coordinación con proveedores internacionales hasta la llegada de tu mercancía a Ecuador. Gestionamos los trámites necesarios para que puedas traer tus productos de forma segura, legal y sin complicaciones, cuidando cada detalle para que tú solo te preocupes por hacer crecer tu negocio.</p>
       <div class="highlight-box"><strong>SOMOS UNA EMPRESA CON BASTA EXPERIENCIA GESTIONANDO IMPUESTOS EN EL ECUADOR, CREACIÓN DE COMPAÑÍA.</strong></div>
       <div class="service-features">
@@ -368,12 +435,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA MARKETING DIGITAL -->
+<!-- MARKETING -->
 <div id="marketing" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Servicios</span>
       <h2>Marketing Digital & Redes Sociales</h2>
       <p>Tu presencia en redes sociales dice mucho de tu marca. Nos encargamos de administrar tus perfiles en Facebook, Instagram, LinkedIn, TikTok y Página Web, planificando cada publicación con estrategia y consistencia. Mantenemos tu comunidad activa, respondemos mensajes y construimos una relación genuina entre tu marca y tus clientes.</p>
       <div class="service-features">
@@ -389,12 +457,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA ASESORÍA IMPORTACIONES -->
+<!-- ASESORÍA IMPORTACIONES -->
 <div id="asesoria-importaciones" class="page">
-<section class="service-detail">
+<section class="service-detail alt">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Asesoría</span>
       <h2>Asesoría de Importaciones</h2>
       <p>Importar puede parecer complicado, pero con el acompañamiento adecuado se convierte en una oportunidad de crecimiento para tu negocio. Nuestro servicio de asesoría está diseñado para guiarte en cada paso del proceso, resolver tus dudas y asegurarte de que todo se realice correctamente.</p>
       <div class="service-features">
@@ -410,12 +479,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA ASESORÍA CONTROL INTERNO -->
+<!-- ASESORÍA CONTROL INTERNO -->
 <div id="asesoria-control" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Asesoría</span>
       <h2>Asesoría de Control Interno</h2>
       <p>Sabemos que una empresa bien organizada por dentro es una empresa que crece con solidez. Nuestro servicio de Asesoría de Control Interno está diseñado para ayudarte a identificar vulnerabilidades, fortalecer tus procesos y proteger los recursos de tu organización, sin importar su tamaño o sector.</p>
       <h3>Gestión de Riesgos</h3>
@@ -434,22 +504,23 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA ASESORÍA MARKETING DIGITAL -->
+<!-- ASESORÍA MARKETING -->
 <div id="asesoria-marketing" class="page">
-<section class="service-detail">
+<section class="service-detail alt">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Asesoría</span>
       <h2>Asesoría Marketing Digital</h2>
-      <h3>📱 Gestión de Redes Sociales</h3>
+      <h3>Gestión de Redes Sociales</h3>
       <p>Nos encargamos de administrar tus perfiles en Facebook, Instagram, LinkedIn, TikTok.</p>
-      <h3>✍️ Creación de Contenido</h3>
+      <h3>Creación de Contenido</h3>
       <p>Creamos textos, imágenes, videos cortos y piezas gráficas que conectan con tu audiencia y transmiten la esencia de tu marca. Cada pieza está pensada para generar valor, aumentar el alcance y motivar a tu público a tomar acción.</p>
-      <h3>📣 Publicidad Pagada (Meta Ads & Google Ads)</h3>
+      <h3>Publicidad Pagada (Meta Ads & Google Ads)</h3>
       <p>Llega exactamente a las personas que necesitan lo que ofreces. Diseñamos y gestionamos campañas publicitarias en Meta (Facebook e Instagram) y Google, optimizando cada peso invertido para maximizar tus resultados.</p>
-      <h3>🔍 SEO – Posicionamiento en Google</h3>
+      <h3>SEO – Posicionamiento en Google</h3>
       <p>Aparecer en los primeros resultados de Google no es suerte, es estrategia. Trabajamos el SEO de tu sitio web optimizando su estructura y contenido.</p>
-      <h3>💻 Diseño Web</h3>
+      <h3>Diseño Web</h3>
       <p>Tu sitio web es tu carta de presentación en el mundo digital. Diseñamos páginas web atractivas, rápidas y optimizadas para dispositivos móviles, pensadas para convertir visitantes en clientes. Ya sea una landing page, un sitio corporativo o una tienda en línea, creamos experiencias digitales que generan confianza y resultados.</p>
       <p style="margin-top:24px"><strong>Contestamos todas tus dudas</strong></p>
       <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20asesor%C3%ADa%20de%20marketing%20digital" target="_blank">Solicitar Asesoría de Marketing Digital</a>
@@ -458,12 +529,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA REGISTRO SANITARIO -->
+<!-- REGISTRO SANITARIO -->
 <div id="registro-sanitario" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Registro Sanitario</h2>
       <p>Comercializar un producto en Ecuador sin el Registro Sanitario no es una opción. Te acompañamos en todo el ciclo de vida de tu registro ante la ARCSA, gestionando cada trámite con experiencia, precisión y total transparencia para que tus productos lleguen al mercado sin contratiempos.</p>
       <p><strong>Trabajamos con todo tipo de productos:</strong> alimentos y bebidas, medicamentos y suplementos, cosméticos y productos de cuidado personal.</p>
@@ -479,12 +551,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA REGISTRO SENAE -->
+<!-- REGISTRO SENAE -->
 <div id="registro-senae" class="page">
-<section class="service-detail">
+<section class="service-detail alt">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Registro SENAE Importador</h2>
       <p>Para importar legalmente en Ecuador, el primer paso es estar habilitado ante el Servicio Nacional de Aduana del Ecuador (SENAE). Te guiamos en todo el proceso para que obtengas tu registro como importador de forma correcta, rápida y sin contratiempos, ya seas persona natural o empresa.</p>
       <div class="service-features">
@@ -499,12 +572,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA PERMISO FUNCIONAMIENTO -->
+<!-- PERMISO FUNCIONAMIENTO -->
 <div id="permiso-funcionamiento" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Permiso de Funcionamiento</h2>
       <p>Operar un negocio en Ecuador requiere estar al día con una serie de permisos y autorizaciones ante distintas entidades. Nos encargamos de gestionar todos los permisos que tu empresa necesita para funcionar de manera legal y sin interrupciones, tanto si estás abriendo un nuevo negocio como si necesitas renovar tus permisos existentes.</p>
       <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20los%20Permisos%20de%20Funcionamiento" target="_blank">NECESITO LOS PERMISOS DE FUNCIONAMIENTO</a>
@@ -513,12 +587,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA PERMISO MUNICIPAL -->
+<!-- PERMISO MUNICIPAL -->
 <div id="permiso-municipal" class="page">
-<section class="service-detail">
+<section class="service-detail alt">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Permiso Municipal (Patente)</h2>
       <p>La patente municipal es uno de los primeros requisitos para operar legalmente en tu ciudad. Gestionamos su obtención y renovación anual ante el Municipio correspondiente, asegurándonos de que tu negocio esté habilitado para ejercer su actividad económica sin problemas con las autoridades locales.</p>
       <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20el%20Permiso%20Municipal%20%28Patente%29" target="_blank">NECESITO EL PERMISO MUNICIPAL</a>
@@ -527,12 +602,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA PERMISO BOMBEROS -->
+<!-- PERMISO BOMBEROS -->
 <div id="permiso-bomberos" class="page">
 <section class="service-detail">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Permiso del Cuerpo de Bomberos</h2>
       <p>Garantizar la seguridad de tu local y de quienes trabajan en él es una obligación legal y una responsabilidad con tu equipo. En JNL Asociados tramitamos el permiso de funcionamiento del Cuerpo de Bomberos, coordinando las inspecciones necesarias y gestionando toda la documentación para que obtengas tu certificado sin demoras.</p>
       <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20el%20Permiso%20del%20Cuerpo%20de%20Bomberos" target="_blank">NECESITO EL PERMISO DEL CUERPO DE BOMBEROS</a>
@@ -541,12 +617,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA PERMISO SANITARIO MSP -->
+<!-- PERMISO SANITARIO MSP -->
 <div id="permiso-sanitario" class="page">
-<section class="service-detail">
+<section class="service-detail alt">
   <div class="service-inner">
     <div class="service-photo">foto con<br>mi<br>rostro</div>
     <div class="service-content">
+      <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Permiso Sanitario de Funcionamiento (MSP)</h2>
       <p>Si tu actividad está relacionada con alimentos, salud, estética o cualquier servicio que implique contacto con el público, el Permiso Sanitario del Ministerio de Salud Pública es indispensable. Nos encargamos de preparar los requisitos, coordinar las inspecciones y gestionar su obtención y renovación oportuna.</p>
       <a class="btn-service-large" href="https://wa.me/593998067935?text=Hola%2C%20necesito%20el%20Permiso%20Sanitario%20de%20Funcionamiento" target="_blank">NECESITO EL PERMISO SANITARIO DE FUNCIONAMIENTO</a>
@@ -555,16 +632,15 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- PÁGINA COTIZACIÓN -->
+<!-- COTIZACIÓN -->
 <div id="cotizacion" class="page">
 <section class="cta-section">
   <div class="cta-inner">
-    <h2>Cotiza tu Importación<br>desde China</h2>
+    <span class="cta-eyebrow">Importaciones desde China</span>
+    <h2>Cotiza tu Importación</h2>
     <p>Solicita una cotización gratuita y personalizada. Te ayudaremos a encontrar los mejores proveedores, calcular costos reales y gestionar todo el proceso de importación.</p>
     <div class="cta-buttons">
-      <a class="btn-cta-primary" href="https://jnlprofroma.netlify.app/" target="_blank">
-        📋 Ir al Formulario de Cotización
-      </a>
+      <a class="btn-cta-primary" href="https://jnlprofroma.netlify.app/" target="_blank">📋 Ir al Formulario de Cotización</a>
       <a class="btn-cta-secondary" href="https://wa.me/593998067935?text=Hola%20JNL%20Asociados%2C%20quiero%20cotizar%20una%20importaci%C3%B3n" target="_blank">
         <svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.121 1.533 5.851L.057 23.476a.5.5 0 00.587.628l5.797-1.522A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.857a9.834 9.834 0 01-5.031-1.378l-.36-.214-3.732.98.997-3.644-.233-.374A9.836 9.836 0 012.143 12C2.143 6.551 6.551 2.143 12 2.143S21.857 6.551 21.857 12 17.449 21.857 12 21.857z"/></svg>
         Cotizar por WhatsApp
@@ -574,13 +650,13 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
 </section>
 </div>
 
-<!-- FOOTER CON REDES SOCIALES ACTUALIZADAS -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="logo" onclick="showPage('home')" style="margin-bottom:16px;cursor:pointer">
-          <div class="logo-mark"><span>JNL</span></div>
+        <div class="logo" onclick="showPage('home')" style="cursor:pointer">
+          <img src="https://i.ibb.co/35yKtgyQ/historia-de-instagram-d-a-lunes-minimalista-1200-x-1200-px.png" alt="JNL Asociados Logo" class="logo-img" style="height:50px;">
           <div class="logo-text">
             <div class="logo-name" style="color:white">JNL Asociados</div>
             <div class="logo-tag">Consultoría Integral</div>
@@ -611,61 +687,61 @@ footer{background:var(--dark);padding:64px 40px 32px;color:rgba(255,255,255,0.7)
     </div>
     <div class="footer-bottom">
       <p>© 2026 JNL Asociados · Todos los derechos reservados · Ecuador</p>
-      <div class="social-links">
-        <a href="https://www.instagram.com/jnl_asociados/" target="_blank" class="social-link" aria-label="Instagram">📸</a>
-        <a href="https://www.facebook.com/jnlasociados" target="_blank" class="social-link" aria-label="Facebook">👥</a>
-        <a href="https://wa.me/593998067935" target="_blank" class="social-link" aria-label="WhatsApp">💬</a>
-      </div>
     </div>
   </div>
 </footer>
 
 <script>
 function showPage(pageId) {
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
-  });
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
   document.getElementById('mmenu').classList.remove('open');
-  document.querySelectorAll('.nav-item').forEach(item => {
-    item.classList.remove('open');
-  });
+  document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open'));
   window.scrollTo(0, 0);
 }
-
 const serviciosItem = document.getElementById('serviciosItem');
 const asesoriasItem = document.getElementById('asesoriasItem');
 const certificadosItem = document.getElementById('certificadosItem');
 const allMenuItems = [serviciosItem, asesoriasItem, certificadosItem];
+serviciosItem.addEventListener('click', e => { e.stopPropagation(); serviciosItem.classList.toggle('open'); asesoriasItem.classList.remove('open'); certificadosItem.classList.remove('open'); });
+asesoriasItem.addEventListener('click', e => { e.stopPropagation(); asesoriasItem.classList.toggle('open'); serviciosItem.classList.remove('open'); certificadosItem.classList.remove('open'); });
+certificadosItem.addEventListener('click', e => { e.stopPropagation(); certificadosItem.classList.toggle('open'); serviciosItem.classList.remove('open'); asesoriasItem.classList.remove('open'); });
+document.addEventListener('click', () => allMenuItems.forEach(i => i.classList.remove('open')));
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mmenu').classList.toggle('open'));
 
-serviciosItem.addEventListener('click', function(e) {
-  e.stopPropagation();
-  serviciosItem.classList.toggle('open');
-  asesoriasItem.classList.remove('open');
-  certificadosItem.classList.remove('open');
-});
-
-asesoriasItem.addEventListener('click', function(e) {
-  e.stopPropagation();
-  asesoriasItem.classList.toggle('open');
-  serviciosItem.classList.remove('open');
-  certificadosItem.classList.remove('open');
-});
-
-certificadosItem.addEventListener('click', function(e) {
-  e.stopPropagation();
-  certificadosItem.classList.toggle('open');
-  serviciosItem.classList.remove('open');
-  asesoriasItem.classList.remove('open');
-});
-
-document.addEventListener('click', function() {
-  allMenuItems.forEach(item => item.classList.remove('open'));
-});
-
-document.getElementById('hamburger').addEventListener('click', () => {
-  document.getElementById('mmenu').classList.toggle('open');
-});
+/* ===== HERO GROWTH CHART ANIMATION ===== */
+function animateCount(el, target, dur, suffix, prefix){
+  if(!el) return;
+  suffix = suffix || ''; prefix = prefix || '';
+  const start = performance.now();
+  function tick(now){
+    let p = Math.min((now - start) / dur, 1);
+    p = 1 - Math.pow(1 - p, 3); // easeOutCubic
+    const val = Math.round(target * p);
+    el.textContent = prefix + val.toLocaleString('es') + suffix;
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+function runHeroChart(){
+  // staggered bars
+  const bars = document.querySelectorAll('#barGroup .gbar');
+  bars.forEach((b, i) => {
+    setTimeout(() => {
+      b.style.transition = 'transform .7s cubic-bezier(.34,1.56,.64,1)';
+      b.classList.add('on');
+      b.style.transform = 'scaleY(1)';
+    }, 250 + i * 120);
+  });
+  // counters (start after line draw begins)
+  setTimeout(() => {
+    animateCount(document.getElementById('countUp'), 284500, 2200, '', '');
+    animateCount(document.getElementById('f1'), 150, 2000, '+', '');
+    animateCount(document.getElementById('f2'), 1240, 2000, '', '');
+    animateCount(document.getElementById('f3'), 98, 2000, '%', '');
+  }, 600);
+}
+window.addEventListener('load', () => setTimeout(runHeroChart, 200));
 </script>
 </body>
 </html>
