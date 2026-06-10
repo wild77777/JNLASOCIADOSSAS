@@ -150,6 +150,8 @@ nav{background:var(--white);position:sticky;top:0;z-index:1000;border-bottom:1px
 .service-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:68px;align-items:start}
 .service-photo{width:300px;height:380px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-2xl);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;color:var(--gray-light);text-align:center;padding:32px;box-shadow:var(--shadow-md);position:sticky;top:106px;overflow:hidden}
 .service-photo::after{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:var(--gradient-red)}
+.service-photo.pic{padding:0;background:var(--white)}
+.service-photo.pic svg{width:100%;height:auto;display:block;border-radius:inherit}
 .service-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
 .service-content h2{font-family:'Sora',sans-serif;font-size:clamp(28px,3.5vw,40px);font-weight:800;color:var(--black);line-height:1.15;margin-bottom:20px;letter-spacing:-1px}
 .service-content h3{font-family:'Sora',sans-serif;font-size:21px;font-weight:700;color:var(--black);margin:32px 0 14px;letter-spacing:-.4px;display:flex;align-items:center;gap:10px}
@@ -225,6 +227,24 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
   .footer-top{grid-template-columns:1fr;gap:28px}
 }
 </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4338570379697412');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4338570379697412&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -393,7 +413,34 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="contables" class="page">
 <section class="service-detail">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_contab" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_contab)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<rect x="58" y="64" width="150" height="196" rx="14" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="58" y="64" width="150" height="34" rx="14" fill="#1f1f1f"/>
+<rect x="58" y="84" width="150" height="14" fill="#1f1f1f"/>
+<circle cx="76" cy="81" r="5" fill="#D40000"/>
+<rect x="90" y="77" width="62" height="7" rx="3.5" fill="#ffffff" opacity=".9"/>
+<rect x="74" y="116" width="78" height="7" rx="3.5" fill="#e4e4e7"/>
+<rect x="74" y="132" width="58" height="7" rx="3.5" fill="#e4e4e7"/>
+<rect x="74" y="170" width="22" height="40" rx="3" fill="#f4d3d3"/>
+<rect x="104" y="156" width="22" height="54" rx="3" fill="#E63946"/>
+<rect x="134" y="142" width="22" height="68" rx="3" fill="#D40000"/>
+<rect x="164" y="124" width="22" height="86" rx="3" fill="#1f1f1f"/>
+<rect x="74" y="226" width="116" height="6" rx="3" fill="#f4f4f5"/>
+<g transform="translate(176,222)">
+<rect x="0" y="0" width="74" height="92" rx="12" fill="#1f1f1f"/>
+<rect x="10" y="10" width="54" height="20" rx="5" fill="#3f3f46"/>
+<rect x="14" y="15" width="30" height="9" rx="2" fill="#D40000"/>
+<circle cx="20" cy="48" r="6.5" fill="#52525b"/><circle cx="37" cy="48" r="6.5" fill="#52525b"/><circle cx="54" cy="48" r="6.5" fill="#52525b"/>
+<circle cx="20" cy="68" r="6.5" fill="#52525b"/><circle cx="37" cy="68" r="6.5" fill="#52525b"/>
+<rect x="48" y="62" width="13" height="20" rx="4" fill="#D40000"/>
+</g>
+<g transform="translate(40,250)">
+<ellipse cx="34" cy="58" rx="34" ry="11" fill="#D40000"/>
+<rect x="0" y="40" width="68" height="18" fill="#D40000"/><ellipse cx="34" cy="40" rx="34" ry="11" fill="#E63946"/>
+<rect x="0" y="24" width="68" height="18" fill="#E63946"/><ellipse cx="34" cy="24" rx="34" ry="11" fill="#f06b73"/>
+<text x="34" y="30" font-family="Arial" font-size="17" font-weight="bold" fill="#ffffff" text-anchor="middle">$</text>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Servicios</span>
       <h2>Servicios Contables y Tributarios</h2>
@@ -419,7 +466,30 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="importaciones" class="page">
 <section class="service-detail alt">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_imp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_imp)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<circle cx="220" cy="92" r="50" fill="#fff" stroke="#e4e4e7"/>
+<circle cx="220" cy="92" r="50" fill="none" stroke="#D40000" stroke-width="2" stroke-dasharray="4 5"/>
+<path d="M186 78 q14 -10 34 -6 q22 5 34 -2" stroke="#a1a1aa" stroke-width="2" fill="none"/>
+<path d="M180 100 q20 12 40 8 q24 -4 40 4" stroke="#a1a1aa" stroke-width="2" fill="none"/>
+<circle cx="200" cy="74" r="5" fill="#D40000"/><circle cx="244" cy="108" r="5" fill="#1f1f1f"/>
+<path d="M200 74 Q236 70 244 108" stroke="#D40000" stroke-width="2.5" fill="none" stroke-dasharray="3 4"/>
+<g transform="translate(40,150)">
+<rect x="20" y="0" width="44" height="34" rx="3" fill="#D40000"/><rect x="20" y="0" width="44" height="34" rx="3" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="0 11 44 0" opacity=".4"/>
+<line x1="31" y1="0" x2="31" y2="34" stroke="#a00" stroke-width="1.5"/><line x1="42" y1="0" x2="42" y2="34" stroke="#a00" stroke-width="1.5"/><line x1="53" y1="0" x2="53" y2="34" stroke="#a00" stroke-width="1.5"/>
+<rect x="70" y="0" width="44" height="34" rx="3" fill="#1f1f1f"/><line x1="81" y1="0" x2="81" y2="34" stroke="#000" stroke-width="1.5"/><line x1="92" y1="0" x2="92" y2="34" stroke="#000" stroke-width="1.5"/><line x1="103" y1="0" x2="103" y2="34" stroke="#000" stroke-width="1.5"/>
+<rect x="120" y="0" width="44" height="34" rx="3" fill="#E63946"/><line x1="131" y1="0" x2="131" y2="34" stroke="#c22" stroke-width="1.5"/><line x1="142" y1="0" x2="142" y2="34" stroke="#c22" stroke-width="1.5"/><line x1="153" y1="0" x2="153" y2="34" stroke="#c22" stroke-width="1.5"/>
+<rect x="45" y="-34" width="44" height="34" rx="3" fill="#1f1f1f"/><line x1="56" y1="-34" x2="56" y2="0" stroke="#000" stroke-width="1.5"/><line x1="67" y1="-34" x2="67" y2="0" stroke="#000" stroke-width="1.5"/><line x1="78" y1="-34" x2="78" y2="0" stroke="#000" stroke-width="1.5"/>
+<rect x="95" y="-34" width="44" height="34" rx="3" fill="#D40000"/><line x1="106" y1="-34" x2="106" y2="0" stroke="#a00" stroke-width="1.5"/><line x1="117" y1="-34" x2="117" y2="0" stroke="#a00" stroke-width="1.5"/><line x1="128" y1="-34" x2="128" y2="0" stroke="#a00" stroke-width="1.5"/>
+</g>
+<g transform="translate(34,196)">
+<path d="M0 42 L232 42 L210 96 L24 96 Z" fill="#1f1f1f"/>
+<path d="M14 42 L218 42 L210 60 L20 60 Z" fill="#3f3f46"/>
+<rect x="150" y="6" width="42" height="36" fill="#fff" stroke="#e4e4e7"/>
+<rect x="156" y="12" width="10" height="10" fill="#D40000"/><rect x="172" y="12" width="10" height="10" fill="#D40000"/><rect x="156" y="27" width="10" height="10" fill="#a1a1aa"/><rect x="172" y="27" width="10" height="10" fill="#a1a1aa"/>
+</g>
+<path d="M30 304 q20 12 40 0 q20 -12 40 0 q20 12 40 0 q20 -12 40 0 q20 12 40 0" stroke="#48cae4" stroke-width="0" fill="none"/>
+<path d="M30 306 q20 10 40 0 q20 -10 40 0 q20 10 40 0 q20 -10 40 0 q20 10 40 0" stroke="#D40000" stroke-width="2.5" fill="none" opacity=".25"/>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Servicios</span>
       <h2>Importaciones Ecuador</h2>
@@ -441,7 +511,42 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="marketing" class="page">
 <section class="service-detail">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_mkt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_mkt)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(96,58)">
+<rect x="0" y="0" width="108" height="208" rx="20" fill="#1f1f1f"/>
+<rect x="7" y="7" width="94" height="194" rx="14" fill="#ffffff"/>
+<rect x="40" y="13" width="28" height="6" rx="3" fill="#1f1f1f"/>
+<rect x="15" y="30" width="78" height="40" rx="8" fill="#fff1f1"/>
+<polyline points="22,58 38,46 50,52 66,36 86,40" fill="none" stroke="#D40000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="86" cy="40" r="3.5" fill="#D40000"/>
+<rect x="15" y="80" width="78" height="34" rx="8" fill="#f4f4f5"/>
+<circle cx="30" cy="97" r="9" fill="#E63946"/>
+<rect x="46" y="90" width="40" height="6" rx="3" fill="#d4d4d8"/><rect x="46" y="101" width="28" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="15" y="124" width="78" height="34" rx="8" fill="#f4f4f5"/>
+<circle cx="30" cy="141" r="9" fill="#1f1f1f"/>
+<rect x="46" y="134" width="40" height="6" rx="3" fill="#d4d4d8"/><rect x="46" y="145" width="28" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="15" y="168" width="36" height="22" rx="8" fill="#D40000"/><rect x="24" y="176" width="18" height="6" rx="3" fill="#fff"/>
+<rect x="57" y="168" width="36" height="22" rx="8" fill="#fff" stroke="#e4e4e7"/><rect x="66" y="176" width="18" height="6" rx="3" fill="#a1a1aa"/>
+</g>
+<g transform="translate(30,70)">
+<circle cx="22" cy="22" r="22" fill="#fff" stroke="#e4e4e7"/>
+<path d="M22 32 C8 24 10 12 18 12 C22 12 22 16 22 16 C22 16 22 12 26 12 C34 12 36 24 22 32 Z" fill="#D40000"/>
+</g>
+<g transform="translate(228,150)">
+<circle cx="20" cy="20" r="20" fill="#fff" stroke="#e4e4e7"/>
+<path d="M10 14 h20 a3 3 0 0 1 3 3 v8 a3 3 0 0 1 -3 3 h-12 l-6 5 v-5 h-2 a3 3 0 0 1 -3 -3 v-8 a3 3 0 0 1 3 -3 Z" fill="#1f1f1f"/>
+</g>
+<g transform="translate(214,250)">
+<circle cx="18" cy="18" r="18" fill="#D40000"/>
+<path d="M11 18 l5 5 l9 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(46,250)">
+<rect x="0" y="0" width="44" height="44" rx="12" fill="#1f1f1f"/>
+<path d="M14 30 L14 14 L30 14" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M14 14 L30 30" stroke="#D40000" stroke-width="3" fill="none" stroke-linecap="round"/>
+<circle cx="30" cy="30" r="3.5" fill="#D40000"/>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Servicios</span>
       <h2>Marketing Digital & Redes Sociales</h2>
@@ -463,7 +568,38 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="asesoria-importaciones" class="page">
 <section class="service-detail alt">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_asimp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_asimp)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(64,58)">
+<rect x="0" y="10" width="138" height="184" rx="14" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="44" y="0" width="50" height="22" rx="8" fill="#1f1f1f"/>
+<rect x="54" y="-6" width="30" height="14" rx="7" fill="#D40000"/>
+<g>
+<rect x="18" y="44" width="20" height="20" rx="5" fill="#D40000"/><path d="M22 54 l4 4 l7 -8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="46" y="48" width="74" height="6" rx="3" fill="#d4d4d8"/><rect x="46" y="58" width="50" height="5" rx="2.5" fill="#e4e4e7"/>
+</g>
+<g>
+<rect x="18" y="80" width="20" height="20" rx="5" fill="#D40000"/><path d="M22 90 l4 4 l7 -8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="46" y="84" width="74" height="6" rx="3" fill="#d4d4d8"/><rect x="46" y="94" width="50" height="5" rx="2.5" fill="#e4e4e7"/>
+</g>
+<g>
+<rect x="18" y="116" width="20" height="20" rx="5" fill="#D40000"/><path d="M22 126 l4 4 l7 -8" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="46" y="120" width="74" height="6" rx="3" fill="#d4d4d8"/><rect x="46" y="130" width="50" height="5" rx="2.5" fill="#e4e4e7"/>
+</g>
+<g>
+<rect x="18" y="152" width="20" height="20" rx="5" fill="#f4f4f5" stroke="#e4e4e7"/>
+<rect x="46" y="156" width="74" height="6" rx="3" fill="#e4e4e7"/><rect x="46" y="166" width="50" height="5" rx="2.5" fill="#f0f0f1"/>
+</g>
+</g>
+<g transform="translate(196,210)">
+<rect x="0" y="0" width="70" height="50" rx="5" fill="#D40000"/>
+<line x1="17" y1="0" x2="17" y2="50" stroke="#a00" stroke-width="2"/><line x1="35" y1="0" x2="35" y2="50" stroke="#a00" stroke-width="2"/><line x1="53" y1="0" x2="53" y2="50" stroke="#a00" stroke-width="2"/>
+<rect x="0" y="0" width="70" height="10" fill="#b00"/>
+</g>
+<g transform="translate(40,250)">
+<rect x="0" y="0" width="56" height="40" rx="12" fill="#1f1f1f"/><path d="M14 40 l0 12 l14 -12 Z" fill="#1f1f1f"/>
+<circle cx="18" cy="20" r="4" fill="#D40000"/><circle cx="30" cy="20" r="4" fill="#fff"/><circle cx="42" cy="20" r="4" fill="#fff"/>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Asesoría</span>
       <h2>Asesoría de Importaciones</h2>
@@ -485,7 +621,29 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="asesoria-control" class="page">
 <section class="service-detail">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_asctrl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_asctrl)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(86,52)">
+<path d="M64 0 L124 22 L124 78 C124 128 96 156 64 172 C32 156 4 128 4 78 L4 22 Z" fill="#1f1f1f"/>
+<path d="M64 14 L112 31 L112 78 C112 119 90 142 64 156 C38 142 16 119 16 78 L16 31 Z" fill="#ffffff"/>
+<path d="M64 14 L112 31 L112 78 C112 119 90 142 64 156 Z" fill="#fafafa"/>
+<path d="M40 80 l16 18 l32 -38" stroke="#D40000" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(34,206)">
+<rect x="0" y="0" width="96" height="118" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="16" y="18" width="64" height="7" rx="3.5" fill="#1f1f1f"/>
+<rect x="16" y="34" width="48" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="16" y="48" width="56" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="16" y="62" width="40" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="16" y="84" width="22" height="22" rx="5" fill="#fff1f1"/><path d="M21 95 l4 4 l8 -9" stroke="#D40000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g transform="translate(150,232)">
+<circle cx="40" cy="40" r="34" fill="#fff" stroke="#1f1f1f" stroke-width="6" opacity=".95"/>
+<circle cx="40" cy="40" r="34" fill="#D40000" opacity=".08"/>
+<line x1="64" y1="64" x2="92" y2="92" stroke="#1f1f1f" stroke-width="10" stroke-linecap="round"/>
+<line x1="64" y1="64" x2="92" y2="92" stroke="#D40000" stroke-width="4" stroke-linecap="round"/>
+<polyline points="26,42 36,52 56,30" fill="none" stroke="#D40000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Asesoría</span>
       <h2>Asesoría de Control Interno</h2>
@@ -510,7 +668,34 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="asesoria-marketing" class="page">
 <section class="service-detail alt">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_asmkt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_asmkt)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(48,96)">
+<rect x="0" y="0" width="204" height="128" rx="12" fill="#1f1f1f"/>
+<rect x="8" y="8" width="188" height="112" rx="6" fill="#ffffff"/>
+<rect x="18" y="18" width="60" height="8" rx="4" fill="#1f1f1f"/>
+<rect x="18" y="34" width="80" height="48" rx="6" fill="#fff1f1"/>
+<polyline points="26,72 42,56 56,64 74,42 90,48" fill="none" stroke="#D40000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="90" cy="48" r="3.5" fill="#D40000"/>
+<rect x="110" y="34" width="76" height="48" rx="6" fill="#f4f4f5"/>
+<rect x="120" y="66" width="12" height="8" rx="2" fill="#a1a1aa"/><rect x="136" y="58" width="12" height="16" rx="2" fill="#E63946"/><rect x="152" y="50" width="12" height="24" rx="2" fill="#D40000"/><rect x="168" y="44" width="12" height="30" rx="2" fill="#1f1f1f"/>
+<rect x="18" y="92" width="50" height="18" rx="5" fill="#D40000"/><rect x="28" y="99" width="30" height="5" rx="2.5" fill="#fff"/>
+<rect x="76" y="92" width="50" height="18" rx="5" fill="#f4f4f5"/><rect x="86" y="99" width="30" height="5" rx="2.5" fill="#a1a1aa"/>
+<rect x="134" y="92" width="52" height="18" rx="5" fill="#f4f4f5"/><rect x="144" y="99" width="32" height="5" rx="2.5" fill="#a1a1aa"/>
+</g>
+<rect x="80" y="224" width="140" height="10" rx="4" fill="#1f1f1f"/>
+<g transform="translate(34,52)">
+<circle cx="20" cy="20" r="20" fill="#D40000"/>
+<path d="M9 14 h22 a3 3 0 0 1 3 3 v9 a3 3 0 0 1 -3 3 h-13 l-7 5 v-5 h-2 a3 3 0 0 1 -3 -3 v-9 a3 3 0 0 1 3 -3 Z" fill="#fff"/>
+</g>
+<g transform="translate(232,46)">
+<rect x="0" y="0" width="40" height="40" rx="11" fill="#1f1f1f"/>
+<path d="M20 30 C8 23 10 12 16 12 C20 12 20 16 20 16 C20 16 20 12 24 12 C30 12 32 23 20 30 Z" fill="#D40000"/>
+</g>
+<g transform="translate(238,250)">
+<circle cx="18" cy="18" r="18" fill="#fff" stroke="#e4e4e7"/>
+<text x="18" y="24" font-family="Arial" font-size="18" font-weight="bold" fill="#D40000" text-anchor="middle">@</text>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Asesoría</span>
       <h2>Asesoría Marketing Digital</h2>
@@ -535,7 +720,32 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="registro-sanitario" class="page">
 <section class="service-detail">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_regsan" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_regsan)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(50,56)">
+<rect x="0" y="0" width="150" height="192" rx="14" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="0" y="0" width="150" height="40" rx="14" fill="#D40000"/><rect x="0" y="26" width="150" height="14" fill="#D40000"/>
+<circle cx="26" cy="20" r="9" fill="#fff"/><path d="M21 20 l4 4 l7 -8" stroke="#D40000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="44" y="15" width="86" height="7" rx="3.5" fill="#fff" opacity=".9"/>
+<rect x="24" y="60" width="102" height="7" rx="3.5" fill="#1f1f1f"/>
+<rect x="24" y="78" width="80" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="24" y="92" width="92" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="24" y="106" width="64" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="24" y="130" width="50" height="6" rx="3" fill="#f0f0f1"/>
+<rect x="24" y="144" width="70" height="6" rx="3" fill="#f0f0f1"/>
+</g>
+<g transform="translate(150,200)">
+<circle cx="55" cy="55" r="46" fill="#1f1f1f"/>
+<circle cx="55" cy="55" r="38" fill="none" stroke="#D40000" stroke-width="3" stroke-dasharray="3 5"/>
+<circle cx="55" cy="55" r="30" fill="#D40000"/>
+<path d="M42 56 l9 10 l18 -21" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38 96 L30 124 L55 110 L80 124 L72 96 Z" fill="#D40000"/>
+</g>
+<g transform="translate(36,236)">
+<path d="M16 0 h20 v10 l10 40 a14 14 0 0 1 -13 18 h-14 a14 14 0 0 1 -13 -18 l10 -40 Z" fill="#fff" stroke="#1f1f1f" stroke-width="3"/>
+<path d="M10 44 l32 0 l5 18 a12 12 0 0 1 -11 14 h-20 a12 12 0 0 1 -11 -14 Z" fill="#E63946"/>
+<rect x="20" y="-6" width="12" height="8" rx="2" fill="#1f1f1f"/>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Registro Sanitario</h2>
@@ -557,7 +767,34 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="registro-senae" class="page">
 <section class="service-detail alt">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_senae" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_senae)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(56,52)">
+<rect x="0" y="0" width="146" height="190" rx="14" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="22" y="22" width="60" height="9" rx="4" fill="#1f1f1f"/>
+<rect x="22" y="40" width="102" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="22" y="54" width="86" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="22" y="74" width="102" height="6" rx="3" fill="#f0f0f1"/>
+<rect x="22" y="88" width="74" height="6" rx="3" fill="#f0f0f1"/>
+<g transform="translate(74,108)">
+<circle cx="34" cy="34" r="34" fill="none" stroke="#D40000" stroke-width="4" opacity=".85"/>
+<circle cx="34" cy="34" r="26" fill="none" stroke="#D40000" stroke-width="2" opacity=".85"/>
+<text x="34" y="30" font-family="Arial" font-size="11" font-weight="bold" fill="#D40000" text-anchor="middle" opacity=".9">SENAE</text>
+<text x="34" y="46" font-family="Arial" font-size="9" font-weight="bold" fill="#D40000" text-anchor="middle" opacity=".9">APROBADO</text>
+<path d="M16 50 L52 18" stroke="#D40000" stroke-width="2" opacity=".5"/>
+</g>
+</g>
+<g transform="translate(36,250)">
+<rect x="0" y="14" width="78" height="50" rx="4" fill="#1f1f1f"/>
+<line x1="19" y1="14" x2="19" y2="64" stroke="#000" stroke-width="2"/><line x1="39" y1="14" x2="39" y2="64" stroke="#000" stroke-width="2"/><line x1="59" y1="14" x2="59" y2="64" stroke="#000" stroke-width="2"/>
+<rect x="0" y="14" width="78" height="11" fill="#3f3f46"/>
+</g>
+<g transform="translate(160,250)">
+<rect x="0" y="44" width="14" height="44" rx="3" fill="#1f1f1f"/>
+<rect x="6" y="40" width="96" height="12" rx="6" fill="#D40000"/>
+<rect x="14" y="42" width="14" height="8" fill="#fff" opacity=".7"/><rect x="42" y="42" width="14" height="8" fill="#fff" opacity=".7"/><rect x="70" y="42" width="14" height="8" fill="#fff" opacity=".7"/>
+<circle cx="7" cy="46" r="6" fill="#3f3f46"/>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Registro SENAE Importador</h2>
@@ -578,7 +815,25 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="permiso-funcionamiento" class="page">
 <section class="service-detail">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_pfunc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_pfunc)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(54,80)">
+<rect x="0" y="40" width="192" height="150" rx="10" fill="#ffffff" stroke="#e4e4e7"/>
+<path d="M-6 40 L20 6 L172 6 L198 40 Z" fill="#1f1f1f"/>
+<rect x="6" y="14" width="26" height="20" fill="#D40000"/><rect x="40" y="14" width="26" height="20" fill="#fff" opacity=".85"/><rect x="74" y="14" width="26" height="20" fill="#D40000"/><rect x="108" y="14" width="26" height="20" fill="#fff" opacity=".85"/><rect x="142" y="14" width="26" height="20" fill="#D40000"/>
+<rect x="74" y="96" width="44" height="94" rx="4" fill="#D40000"/>
+<circle cx="108" cy="146" r="3.5" fill="#fff"/>
+<rect x="20" y="70" width="40" height="40" rx="5" fill="#f4f4f5" stroke="#e4e4e7"/>
+<line x1="40" y1="70" x2="40" y2="110" stroke="#e4e4e7" stroke-width="2"/><line x1="20" y1="90" x2="60" y2="90" stroke="#e4e4e7" stroke-width="2"/>
+<rect x="132" y="70" width="40" height="40" rx="5" fill="#f4f4f5" stroke="#e4e4e7"/>
+<line x1="152" y1="70" x2="152" y2="110" stroke="#e4e4e7" stroke-width="2"/><line x1="132" y1="90" x2="172" y2="90" stroke="#e4e4e7" stroke-width="2"/>
+</g>
+<g transform="translate(168,206)">
+<circle cx="46" cy="46" r="42" fill="#1f1f1f"/>
+<circle cx="46" cy="46" r="34" fill="#D40000"/>
+<path d="M32 47 l9 10 l18 -22" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 84 L22 112 L46 98 L70 112 L62 84 Z" fill="#1f1f1f"/>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Permiso de Funcionamiento</h2>
@@ -593,7 +848,30 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="permiso-municipal" class="page">
 <section class="service-detail alt">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_pmun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_pmun)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(50,70)">
+<path d="M100 0 L196 44 L4 44 Z" fill="#1f1f1f"/>
+<circle cx="100" cy="30" r="5" fill="#D40000"/>
+<rect x="4" y="44" width="192" height="12" fill="#3f3f46"/>
+<rect x="16" y="60" width="20" height="92" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="56" y="60" width="20" height="92" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="96" y="60" width="20" height="92" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="136" y="60" width="20" height="92" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="176" y="60" width="20" height="92" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="16" y="56" width="180" height="8" fill="#D40000"/>
+<rect x="0" y="152" width="212" height="14" rx="3" fill="#1f1f1f"/>
+</g>
+<g transform="translate(150,224)">
+<rect x="0" y="0" width="108" height="130" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="0" y="0" width="108" height="30" rx="12" fill="#D40000"/><rect x="0" y="18" width="108" height="12" fill="#D40000"/>
+<rect x="16" y="11" width="60" height="7" rx="3.5" fill="#fff" opacity=".9"/>
+<rect x="16" y="46" width="76" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="16" y="60" width="60" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="16" y="74" width="70" height="6" rx="3" fill="#e4e4e7"/>
+<circle cx="34" cy="104" r="15" fill="none" stroke="#D40000" stroke-width="2.5" opacity=".8"/><path d="M28 104 l4 5 l9 -10" stroke="#D40000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="58" y="98" width="38" height="6" rx="3" fill="#f0f0f1"/><rect x="58" y="108" width="28" height="6" rx="3" fill="#f0f0f1"/>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Permiso Municipal (Patente)</h2>
@@ -608,7 +886,29 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="permiso-bomberos" class="page">
 <section class="service-detail">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_pbomb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_pbomb)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(70,60)">
+<path d="M80 70 C80 30 52 8 40 8 C28 8 0 30 0 70 Z" fill="#D40000"/>
+<path d="M-8 70 L88 70 L92 84 L-12 84 Z" fill="#1f1f1f"/>
+<path d="M40 8 C46 8 60 20 60 20 L56 64 L48 64 L46 16 Z" fill="#fff" opacity=".25"/>
+<circle cx="40" cy="44" r="13" fill="#fff"/>
+<path d="M40 34 C34 40 36 50 40 54 C44 50 46 40 40 34 Z" fill="#D40000"/>
+<rect x="34" y="52" width="12" height="3" rx="1.5" fill="#D40000"/>
+</g>
+<g transform="translate(40,206)">
+<rect x="10" y="22" width="42" height="92" rx="14" fill="#D40000"/>
+<rect x="10" y="40" width="42" height="20" fill="#1f1f1f" opacity=".9"/>
+<rect x="16" y="44" width="30" height="5" rx="2.5" fill="#fff" opacity=".8"/><rect x="16" y="52" width="22" height="4" rx="2" fill="#fff" opacity=".6"/>
+<rect x="24" y="6" width="14" height="18" rx="3" fill="#3f3f46"/>
+<rect x="20" y="2" width="22" height="8" rx="4" fill="#1f1f1f"/>
+<path d="M42 8 q16 -2 16 14 l-8 0 q0 -8 -8 -6 Z" fill="#1f1f1f"/>
+</g>
+<g transform="translate(150,210)">
+<path d="M56 0 L108 20 L108 60 C108 96 84 116 56 128 C28 116 4 96 4 60 L4 20 Z" fill="#1f1f1f"/>
+<path d="M56 12 L98 28 L98 60 C98 90 78 107 56 117 C34 107 14 90 14 60 L14 28 Z" fill="#fff"/>
+<path d="M56 36 C48 46 50 58 56 66 C62 58 70 70 60 82 C76 76 78 54 66 44 C66 52 62 54 60 52 C64 44 56 36 56 36 Z" fill="#D40000"/>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Permiso del Cuerpo de Bomberos</h2>
@@ -623,7 +923,29 @@ footer{background:var(--black);padding:64px 40px 32px;color:rgba(255,255,255,0.6
 <div id="permiso-sanitario" class="page">
 <section class="service-detail alt">
   <div class="service-inner">
-    <div class="service-photo">foto con<br>mi<br>rostro</div>
+    <div class="service-photo pic"><svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="bg_psan" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f6f8"/><stop offset="1" stop-color="#ffe6e6"/></linearGradient></defs><rect width="300" height="380" fill="url(#bg_psan)"/><circle cx="250" cy="64" r="150" fill="#D40000" opacity="0.05"/><circle cx="40" cy="330" r="120" fill="#1f1f1f" opacity="0.035"/><g transform="translate(150,190) scale(1.16) translate(-150,-190)">
+<g transform="translate(86,48)">
+<path d="M64 0 L124 24 L124 80 C124 130 96 158 64 174 C32 158 4 130 4 80 L4 24 Z" fill="#D40000"/>
+<path d="M64 14 L112 33 L112 80 C112 121 90 144 64 158 C38 144 16 121 16 80 L16 33 Z" fill="#ffffff"/>
+<rect x="52" y="44" width="24" height="80" rx="6" fill="#D40000"/>
+<rect x="24" y="72" width="80" height="24" rx="6" fill="#D40000"/>
+</g>
+<g transform="translate(34,212)">
+<rect x="0" y="0" width="112" height="132" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="0" y="0" width="112" height="30" rx="12" fill="#1f1f1f"/><rect x="0" y="18" width="112" height="12" fill="#1f1f1f"/>
+<rect x="14" y="11" width="50" height="7" rx="3.5" fill="#fff" opacity=".9"/>
+<rect x="78" y="9" width="22" height="12" rx="3" fill="#D40000"/>
+<rect x="16" y="46" width="80" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="16" y="60" width="60" height="6" rx="3" fill="#e4e4e7"/>
+<rect x="16" y="74" width="72" height="6" rx="3" fill="#e4e4e7"/>
+<circle cx="34" cy="106" r="15" fill="#fff1f1"/><path d="M28 106 l4 5 l9 -10" stroke="#D40000" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="58" y="100" width="40" height="6" rx="3" fill="#f0f0f1"/><rect x="58" y="110" width="30" height="6" rx="3" fill="#f0f0f1"/>
+</g>
+<g transform="translate(196,212)">
+<circle cx="34" cy="34" r="30" fill="#1f1f1f"/>
+<rect x="28" y="16" width="12" height="36" rx="3" fill="#fff"/><rect x="16" y="28" width="36" height="12" rx="3" fill="#fff"/>
+</g>
+</g></svg></div>
     <div class="service-content">
       <span class="service-eyebrow">Certificados y Permisos</span>
       <h2>Permiso Sanitario de Funcionamiento (MSP)</h2>
@@ -700,6 +1022,7 @@ function showPage(pageId) {
   document.getElementById('mmenu').classList.remove('open');
   document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('open'));
   window.scrollTo(0, 0);
+  if (typeof fbq !== 'undefined') { fbq('track', 'PageView'); }
 }
 const serviciosItem = document.getElementById('serviciosItem');
 const asesoriasItem = document.getElementById('asesoriasItem');
